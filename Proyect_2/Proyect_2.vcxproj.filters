@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Services">
+      <UniqueIdentifier>{4628c4f7-ce37-4ae3-b20e-1c8bc36c199f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Services">
+      <UniqueIdentifier>{4f2f7f35-a8ff-4e96-9e03-9a8900ab4405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Utilidades">
+      <UniqueIdentifier>{d2e375e0-71b3-4d3c-8937-d11d79ca63a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Entidades">
+      <UniqueIdentifier>{74184457-3b76-4576-b385-d9405f39a8f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Entidades">
+      <UniqueIdentifier>{d7bdbdf9-0f7e-4034-a9b6-04fcf633b70f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Archivos">
+      <UniqueIdentifier>{b82341c4-642f-47a1-af37-b5c85b3cc3e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Archivos">
+      <UniqueIdentifier>{1a80bf6a-f78b-4501-bc0c-6acaecb1b2e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Lista">
+      <UniqueIdentifier>{3af942c6-6258-46a1-a66a-4cb2c920ba7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Lista">
+      <UniqueIdentifier>{0743ae94-23c9-4d13-98ec-ebd440cb2187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Excepciones">
+      <UniqueIdentifier>{c3f3d90c-7b48-47cd-a7e6-2ca182191afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Excepciones">
+      <UniqueIdentifier>{4387e8f3-1078-416b-b8ac-8aedeef4d8aa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lista.h">
+      <Filter>Archivos de encabezado\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
+      <Filter>Archivos de encabezado\Lista</Filter>
+    </ClInclude>
+    <ClInclude Include="Persona.h">
+      <Filter>Archivos de encabezado\Entidades</Filter>
+    </ClInclude>
+    <ClInclude Include="GestorArchivos.h">
+      <Filter>Archivos de encabezado\Archivos</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lista.cpp">
+      <Filter>Archivos de origen\Lista</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorArchivos.cpp">
+      <Filter>Archivos de origen\Archivos</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="personas.txt">
+      <Filter>Archivos de origen</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
