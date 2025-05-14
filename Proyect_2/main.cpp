@@ -7,7 +7,9 @@ using namespace std;
 int menuPrincipal() {
 	int op;
 	system("cls");
+	
 	cout << "\tMenu principal" << endl;
+	cout << "======================" << endl;
 	cout << "1- Agregar Usuario" << endl;
 	cout << "2- Buscar usuario por cedula" << endl;
 	cout << "3- Eliminar usuario" << endl;
