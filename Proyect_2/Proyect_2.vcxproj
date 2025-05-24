@@ -19,7 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="agua.cpp" />
+    <ClCompile Include="carnivoro.cpp" />
+    <ClCompile Include="coleccion.cpp" />
+    <ClCompile Include="criatura.cpp" />
+    <ClCompile Include="ecosistema.cpp" />
+    <ClCompile Include="elemento.cpp" />
+    <ClCompile Include="herbivoro.cpp" />
+    <ClCompile Include="onmivoro.cpp" />
+    <ClCompile Include="planta.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="agua.h" />
+    <ClInclude Include="carnivoro.h" />
+    <ClInclude Include="coleccion.h" />
+    <ClInclude Include="criatura.h" />
+    <ClInclude Include="ecosistema.h" />
+    <ClInclude Include="elemento.h" />
+    <ClInclude Include="herbivoro.h" />
+    <ClInclude Include="onmivoro.h" />
+    <ClInclude Include="planta.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
