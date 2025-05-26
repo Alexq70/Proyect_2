@@ -22,10 +22,13 @@
     <ClCompile Include="agua.cpp" />
     <ClCompile Include="carnivoro.cpp" />
     <ClCompile Include="coleccion.cpp" />
+    <ClCompile Include="coleccionVector.cpp" />
     <ClCompile Include="criatura.cpp" />
     <ClCompile Include="ecosistema.cpp" />
     <ClCompile Include="elemento.cpp" />
     <ClCompile Include="herbivoro.cpp" />
+    <ClCompile Include="iterador.cpp" />
+    <ClCompile Include="iteradorVector.cpp" />
     <ClCompile Include="onmivoro.cpp" />
     <ClCompile Include="planta.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -34,10 +37,13 @@
     <ClInclude Include="agua.h" />
     <ClInclude Include="carnivoro.h" />
     <ClInclude Include="coleccion.h" />
+    <ClInclude Include="coleccionVector.h" />
     <ClInclude Include="criatura.h" />
     <ClInclude Include="ecosistema.h" />
     <ClInclude Include="elemento.h" />
     <ClInclude Include="herbivoro.h" />
+    <ClInclude Include="iterador.h" />
+    <ClInclude Include="iteradorVector.h" />
     <ClInclude Include="onmivoro.h" />
     <ClInclude Include="planta.h" />
   </ItemGroup>
