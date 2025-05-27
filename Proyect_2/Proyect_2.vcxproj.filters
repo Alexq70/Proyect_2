@@ -57,13 +57,10 @@
     <ClCompile Include="ecosistema.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="elemento.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="herbivoro.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="onmivoro.cpp">
+    <ClCompile Include="omnivoro.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="planta.cpp">
@@ -76,6 +73,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="iteradorVector.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="recurso.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Utiles.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,13 +98,10 @@
     <ClInclude Include="ecosistema.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="elemento.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="herbivoro.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="onmivoro.h">
+    <ClInclude Include="omnivoro.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="planta.h">
@@ -114,6 +114,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="iteradorVector.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="recurso.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Utiles.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

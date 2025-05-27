@@ -25,13 +25,14 @@
     <ClCompile Include="coleccionVector.cpp" />
     <ClCompile Include="criatura.cpp" />
     <ClCompile Include="ecosistema.cpp" />
-    <ClCompile Include="elemento.cpp" />
     <ClCompile Include="herbivoro.cpp" />
     <ClCompile Include="iterador.cpp" />
     <ClCompile Include="iteradorVector.cpp" />
-    <ClCompile Include="onmivoro.cpp" />
+    <ClCompile Include="omnivoro.cpp" />
     <ClCompile Include="planta.cpp" />
+    <ClCompile Include="recurso.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Utiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="agua.h" />
@@ -40,12 +41,13 @@
     <ClInclude Include="coleccionVector.h" />
     <ClInclude Include="criatura.h" />
     <ClInclude Include="ecosistema.h" />
-    <ClInclude Include="elemento.h" />
     <ClInclude Include="herbivoro.h" />
     <ClInclude Include="iterador.h" />
     <ClInclude Include="iteradorVector.h" />
-    <ClInclude Include="onmivoro.h" />
+    <ClInclude Include="omnivoro.h" />
     <ClInclude Include="planta.h" />
+    <ClInclude Include="recurso.h" />
+    <ClInclude Include="Utiles.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

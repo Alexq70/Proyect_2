@@ -1,5 +1,9 @@
 #pragma once
-class agua
-{
+#include "recurso.h"
+class agua : public recurso {
+public:
+	agua(string);
+	~agua();
+
 };
 

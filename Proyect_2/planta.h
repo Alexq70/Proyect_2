@@ -1,5 +1,8 @@
 #pragma once
-class planta
-{
+#include "recurso.h"
+class planta : public recurso {
+public:
+	planta(string); //soloo recibe el id
+	~planta();
 };
 
