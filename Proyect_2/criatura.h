@@ -18,7 +18,7 @@ public:
 	virtual string toString(); // no hice ninguno virtual ouro porque todos implementan lo mismo
 
 	bool operator==(criatura& c) {
-		return (this->id == c.id && this->tipo == c.tipo);
+		return (this->id == c.id);
 	}
 
 	friend ostream& operator<<(ostream& os, criatura& c) {
