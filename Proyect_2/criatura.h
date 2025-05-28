@@ -15,6 +15,15 @@ public:
 	//---------------------
 	void setTipo(string tipo);
 	//---------------------
-	virtual string toString() = 0; // no hice ninguno virtual ouro porque todos implementan lo mismo
+	virtual string toString(); // no hice ninguno virtual ouro porque todos implementan lo mismo
+
+	bool operator==(criatura& c) {
+		return (this->id == c.id && this->tipo == c.tipo);
+	}
+
+	friend ostream& operator<<(ostream& os, criatura& c) {
+		os << c.toString();
+		return os;
+	}
 };
 

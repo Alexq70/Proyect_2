@@ -38,7 +38,7 @@ template<class T>
 inline bool coleccionVector<T>::eliminarObjeto(string id)
 {
 	for (int i = 0; i<=v->size(); i++) {
-		if (v->at(i).getId() == id) {
+		if (v->at(i).getId() == id) { // no reconoce el metodo
 			v->erase(v->begin()+i);
 			return true;
 		}
@@ -51,7 +51,7 @@ inline string coleccionVector<T>::toString()
 {
 	stringstream ss;
 	for (int i = 0; i <= v->size(); i++) {
-		ss << v->at(i).toString() << endl;
+		ss << v->at(i).toString() << endl; // corregir no reconoce el metodo
 	}
 	return ss.str();
 }

@@ -17,7 +17,16 @@ public:
 	//---------------------
 	void setTipo(string tipo);
 	//---------------------
-	virtual string toString(); // no hice ninguno virtual ouro porque todos implementan lo mismo
+	virtual string toString(); // no hice ninguno virtual puro porque todos implementan lo mismo
+
+	bool operator==(recurso& otro) {
+		return (this->id == otro.id && this->tipo == otro.tipo);
+	}
+
+	friend ostream& operator<<(ostream& os, recurso& r) {
+		os << r.toString();
+		return os;
+	}
 
 };
 
