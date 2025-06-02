@@ -23,6 +23,7 @@
     <ClCompile Include="carnivoro.cpp" />
     <ClCompile Include="coleccion.cpp" />
     <ClCompile Include="coleccionVector.cpp" />
+    <ClCompile Include="coordenada.cpp" />
     <ClCompile Include="criatura.cpp" />
     <ClCompile Include="ecosistema.cpp" />
     <ClCompile Include="herbivoro.cpp" />
@@ -39,6 +40,7 @@
     <ClInclude Include="carnivoro.h" />
     <ClInclude Include="coleccion.h" />
     <ClInclude Include="coleccionVector.h" />
+    <ClInclude Include="coordenada.h" />
     <ClInclude Include="criatura.h" />
     <ClInclude Include="ecosistema.h" />
     <ClInclude Include="herbivoro.h" />

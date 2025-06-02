@@ -7,6 +7,7 @@
 #include "carnivoro.h"
 #include "omnivoro.h"
 #include "coleccionVector.h"
+#include "coordenada.h"
 using namespace std;
 int main() {
 	recurso* p1 = new recurso("1", "P");
@@ -14,10 +15,10 @@ int main() {
 	recurso* p3 = new planta("3");
 	recurso* a1 = new agua("4");
 
-	criatura* c1 = new criatura("1", "C");
-	criatura* c2 = new carnivoro("2");
-    criatura* c3 = new herbivoro("3");
-	criatura* c4 = new omnivoro("4");
+	criatura* c1 = new criatura("1", "C", 100,13);
+	criatura* c2 = new carnivoro("2", 98,34);
+    criatura* c3 = new herbivoro("3",56,33);
+	criatura* c4 = new omnivoro("4",44,23);
 
 	 
 	recurso* conejillo = new recurso("5","P");
@@ -39,5 +40,6 @@ int main() {
 	cout<<recursos->buscarObjeto(p2);
 
 
-
+	coordenada* c1Coord = new coordenada(1, 2);
+	cout << c1Coord->toString() << endl;
 }

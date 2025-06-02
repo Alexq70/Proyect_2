@@ -1,6 +1,6 @@
 #include "omnivoro.h"
 
-omnivoro::omnivoro(string id): criatura(id,"O") {}
+omnivoro::omnivoro(string id,int energia, int edad): criatura(id,"O",energia,edad) {}
 omnivoro::~omnivoro() {}
 
 string omnivoro::toString() {

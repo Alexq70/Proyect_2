@@ -6,14 +6,20 @@ class criatura {
 protected:
 	string id;
 	string tipo;
+	int energia;
+	int edad;
 public:
-	criatura(string, string);
+	criatura(string, string, int, int);
 	virtual ~criatura();
 	//---------------------
 	string getId();
 	string getTipo();
+	int getEnergia();
+	int getEdad();
 	//---------------------
 	void setTipo(string tipo);
+	void setEnergia(int);
+	void setEdad(int);
 	//---------------------
 	virtual string toString(); // no hice ninguno virtual ouro porque todos implementan lo mismo
 

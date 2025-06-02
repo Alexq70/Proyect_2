@@ -2,7 +2,7 @@
 #include"criatura.h"
 class herbivoro : public criatura{
 public:
-	herbivoro(string);
+	herbivoro(string,int,int);
 	~herbivoro();
 	string toString();
 };
