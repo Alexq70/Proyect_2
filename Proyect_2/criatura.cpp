@@ -20,10 +20,13 @@ void criatura::setCoordenada(coordenada c) {
 //--------------------
 string criatura::toString(){
 	stringstream s;
-	  s << "ID: " << id << endl
+	  s << "-------------------" << endl
+	    << "Criatura " << endl
+		<< "ID: " << id << endl
 		<< "Edad: " << edad << endl
 		<< "Tipo: " << tipo << endl
 		<< "Energia: " << energia << endl
-	    << posicion.toString();
+		<< posicion.toString() << endl
+		<< "-------------------" << endl;
 	return s.str();
 } // no hice ninguno virtual ouro porque todos implementan lo mismo

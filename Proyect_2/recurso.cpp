@@ -14,8 +14,12 @@ void recurso::setCoordenada(coordenada c) {
 //---------------------
 string recurso::toString() {
 	stringstream s;
-	  s << "ID: " << this->id << "\n"
-		<< "Tipo: " << this->tipo << "\n\n";
+	  s <<"--------------------\n"
+		<< "Recurso\n"
+	    << "ID: " << this->id << "\n"
+		<< "Tipo: " << this->tipo << "\n"
+		<< "Coordenada: " << this->posicion.toString() << "\n"
+		<< "--------------------\n";
 	return s.str();
 } 
 

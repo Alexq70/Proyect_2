@@ -25,11 +25,18 @@ int main() {
 	coleccionVector<recurso*>* recursos = new coleccionVector<recurso*>();
 	coleccionVector<criatura*>* criaturas = new coleccionVector<criatura*>();
 	
+
+	criaturas->agregarObjeto(c1);
+	criaturas->agregarObjeto(c2);
+	criaturas->agregarObjeto(c3);
+	criaturas->agregarObjeto(c4);
+
 	recursos->agregarObjeto(p1);
 	recursos->agregarObjeto(p2);
 	recursos->agregarObjeto(p3);
 	recursos->agregarObjeto(a1);
 
 
-	cout<<recursos->toString();
+	cout<<criaturas->toString();
+	cout << recursos->toString();
 }

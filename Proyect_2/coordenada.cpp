@@ -18,8 +18,6 @@ void coordenada::setY(int y) {
 }
 string coordenada:: toString() {
 	stringstream s;
-	s << "    COORDENADA" << endl
-	    << "X: " << x << endl
-		<< "Y: " << y << endl;
+	s << "Coordenada:" << " (" << x << "," << y << ")";
 	return s.str();
 }
