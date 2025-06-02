@@ -1,11 +1,11 @@
 #include<iostream>
-#include "Recurso.h"
-#include "Agua.h"
-#include "Planta.h"
-#include "Criatura.h"
-#include "Herbivoro.h"
-#include "Carnivoro.h"
-#include "Omnivoro.h"
+#include "recurso.h"
+#include "agua.h"
+#include "planta.h"
+#include "criatura.h"
+#include "herbivoro.h"
+#include "carnivoro.h"
+#include "omnivoro.h"
 #include "coleccionVector.h"
 using namespace std;
 int main() {
@@ -19,14 +19,16 @@ int main() {
     criatura* c3 = new herbivoro("3");
 	criatura* c4 = new omnivoro("4");
 
+	 
 
-
-	coleccionVector<recurso*>* recursos;
-
+	coleccionVector<recurso*>* recursos = new coleccionVector<recurso*>();
+	coleccionVector<criatura*>* criaturas = new coleccionVector<criatura*>();
+	
 	recursos->agregarObjeto(p1);
 	recursos->agregarObjeto(p2);
 	recursos->agregarObjeto(p3);
 	recursos->agregarObjeto(a1);
+
 
 	cout<<recursos->toString();
 

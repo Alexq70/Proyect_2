@@ -4,4 +4,5 @@ class omnivoro : public criatura{
 public:
 	omnivoro(string);
 	~omnivoro();
+	string toString();
 };

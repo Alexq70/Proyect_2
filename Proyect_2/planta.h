@@ -4,5 +4,6 @@ class planta : public recurso {
 public:
 	planta(string); //soloo recibe el id
 	~planta();
+	string toString();
 };
 

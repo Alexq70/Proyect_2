@@ -4,6 +4,6 @@ class herbivoro : public criatura{
 public:
 	herbivoro(string);
 	~herbivoro();
-
+	string toString();
 };
 
