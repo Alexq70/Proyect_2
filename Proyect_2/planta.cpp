@@ -1,6 +1,6 @@
 #include "planta.h"
 
-planta::planta(string id) : recurso(id,"P") {}
+planta::planta(string id,coordenada p) : recurso(id,"P",p) {}
 planta::~planta() {}
 
 string planta::toString() {

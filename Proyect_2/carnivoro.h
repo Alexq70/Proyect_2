@@ -4,7 +4,7 @@ class carnivoro : public criatura {
 private:
 	bool rapidez;
 public:
-	carnivoro(string,int ,int);
+	carnivoro(string,int ,int,coordenada);
 	~carnivoro();
 
 	void setRapidez(bool);

@@ -1,6 +1,6 @@
 #include "carnivoro.h"
 
-carnivoro::carnivoro(string id,int energia, int edad): criatura(id,"C",energia,edad), rapidez(0) {}
+carnivoro::carnivoro(string id,int energia, int edad,coordenada c): criatura(id,"C",energia,edad,c), rapidez(0) {}
 carnivoro::~carnivoro() {}
 
 void carnivoro::setRapidez(bool r) { this->rapidez = r; }

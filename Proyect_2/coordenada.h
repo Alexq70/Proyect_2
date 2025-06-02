@@ -10,8 +10,13 @@ public:
 	coordenada(int,int);
 	~coordenada();
 	//---------------------------
+	int getX();
+	int getY();
 	string toString();
 	//-----------------------------
+	void setX(int);
+	void setY(int);
+	//------------------------------
 	bool operator==(coordenada& otra) {
 		return (this->x == otra.x && this->y == otra.y);
 	}

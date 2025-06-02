@@ -1,6 +1,6 @@
 #include "agua.h"
 
-agua::agua(string id): recurso(id,"A") {}
+agua::agua(string id,coordenada p): recurso(id,"A",p) {}
 agua::~agua() {}
 
 string agua::toString() {
