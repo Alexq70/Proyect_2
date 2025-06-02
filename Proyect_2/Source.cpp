@@ -20,7 +20,7 @@ int main() {
 	criatura* c4 = new omnivoro("4");
 
 	 
-
+	recurso* conejillo = new recurso("5","P");
 	coleccionVector<recurso*>* recursos = new coleccionVector<recurso*>();
 	coleccionVector<criatura*>* criaturas = new coleccionVector<criatura*>();
 	
@@ -32,9 +32,12 @@ int main() {
 
 	cout<<recursos->toString();
 
+	cout << "Mostrar objeto" << endl;
+	cout << recursos->mostrarObjeto(p2) << endl;
+	
+	cout << "Buscando objeto" << endl;
+	cout<<recursos->buscarObjeto(p2);
 
-
-	return 0;
 
 
 }

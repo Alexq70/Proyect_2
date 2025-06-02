@@ -19,7 +19,7 @@ public:
 	virtual string toString(); // no hice ninguno virtual puro porque todos implementan lo mismo
 
 	bool operator==(recurso& otro) {
-		return (this->id == otro.id && this->tipo == otro.tipo);
+		return (this->id == otro.id);
 	}
 
 	friend ostream& operator<<(ostream& os, recurso& r) {
