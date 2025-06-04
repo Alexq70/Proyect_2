@@ -1,3 +1,14 @@
 #pragma once
-
+#ifndef MATRIZ_H
+#define MATRIZ_H
+#include <iostream>
+#include <sstream>
+using namespace std;
+class matriz {
+private:
+	int filas;
+	int columnas;
+	int** datos; // Matriz de enteros
+public:
+#endif 
 
