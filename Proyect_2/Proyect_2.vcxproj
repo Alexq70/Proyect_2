@@ -31,6 +31,7 @@
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="iterador.cpp" />
     <ClCompile Include="iteradorVector.cpp" />
+    <ClCompile Include="Matriz.cpp" />
     <ClCompile Include="omnivoro.cpp" />
     <ClCompile Include="planta.cpp" />
     <ClCompile Include="recurso.cpp" />
