@@ -27,7 +27,7 @@ public:
 	void agregarObjeto(T&);
 	bool eliminarObjeto(T&);
 	string toString();
-	string mostrarObjeto(T& );
+	string mostrarObjeto(string id);
 	bool buscarObjeto(T&);
 	void ordenarObjetos();
 	iteradorVector<T>* getIterador(); // NO FUNCA
@@ -72,6 +72,11 @@ template<class T>
 inline string coleccionVector<T>::mostrarObjeto(T& ob)
 {
 	stringstream s;
+	agua* a = nullptr; // inicializar punteros a null
+	planta* p = nullptr; // inicializar punteros a null
+	carnivoro* c = nullptr; // inicializar punteros a null
+	herbivoro* h = nullptr; // inicializar punteros a null
+	omnivoro* o = nullptr; // inicializar punteros a null
 	for (int i = 0; i < v->size(); i++) {
 		if (v->at(i) == ob) { // se compara el objeto con el que se busca
 			s << v->at(i)->toString() << endl; // se muestra el objeto
