@@ -32,14 +32,6 @@ planta::~planta()
 
 string planta::toString() {
 	stringstream s;
-	s << "recurso tipo planta" << endl
-		<< "ID: " << id << endl
-		<< "Tipo: " << tipo << endl;
+	s << recurso::toString();
 	return s.str();
-}
-
-ostream& operator<<(ostream& os, planta& p)
-{
-	os << p.toString();
-	return os;
 }

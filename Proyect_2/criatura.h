@@ -1,14 +1,17 @@
 #pragma once
-#ifndef CRIATURA_H
-#define CRIATURA_H
 #include <iostream>
 #include <sstream>
 #include "coordenada.h"
-#include "elemento.h"
 using  namespace std;
-class criatura : public elemento {
+class criatura {
+protected:
+	string id;
+	string tipo;
+	int energia;
+	int edad;
+	coordenada posicion;
 public:
 	criatura(char tipo, string id, coordenada p);
 
 };
-#endif // !CRIATURA_H
+

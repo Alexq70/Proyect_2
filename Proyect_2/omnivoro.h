@@ -1,14 +1,6 @@
 #pragma once
 #include "criatura.h"
-#include "coordenada.h"
 class omnivoro : public criatura{
-private:
-	char tipo = 'O'; // O de omnivoro
-	string id;
-	int energia;
-	int edad;
-	coordenada posicion;
-	bool rapidez;
 public:
 	omnivoro(); // constructor por defecto
 	omnivoro(char tipo,string id , int energia, int edad, coordenada c);
@@ -26,5 +18,3 @@ public:
 	~omnivoro();
 	string toString();
 };
-ostream& operator<<(ostream&, omnivoro&);
-

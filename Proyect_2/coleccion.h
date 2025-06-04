@@ -1,6 +1,4 @@
 #pragma once
-#ifndef COLECCION_H
-#define COLECCION_H
 #include <iostream>
 #include "iterador.h"
 using namespace std;
@@ -14,7 +12,7 @@ public:
 	virtual bool buscarObjeto(T&) = 0;
 	virtual void ordenarObjetos() = 0;
 	virtual string toString() = 0;
-	virtual iterador<T>* getIterador()=0;
+	//virtual T* getIterador()=0;
 
 };
-#endif // !COLECCION_H
+

@@ -2,14 +2,7 @@
 #ifndef HERBIVORO_H
 #define HERBIVORO_H
 #include"criatura.h"
-#include "coordenada.h"
 class herbivoro : public criatura{
-private:
-	char tipo = 'H'; // H de herbivoro
-	string id;
-	int energia;
-	int edad;
-	coordenada posicion;
 public:
 	herbivoro(); // constructor por defecto
 	herbivoro(char tipo,string id , int energia, int edad, coordenada c);
@@ -26,6 +19,5 @@ public:
 	~herbivoro();
 	string toString();
 };
-ostream& operator<<(ostream&, herbivoro&);
 
 #endif // !HERBIVORO_H

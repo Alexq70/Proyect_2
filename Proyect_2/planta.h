@@ -19,4 +19,4 @@ public:
 	~planta();
 	string toString();
 };
-ostream& operator<<(ostream&, planta&);
+

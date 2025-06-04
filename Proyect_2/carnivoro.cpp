@@ -46,16 +46,7 @@ void carnivoro::setRapidez(bool r) { this->rapidez = r; }
 
 string carnivoro::toString() {
 	stringstream s;
-	s << "criatura Carnivora " << tipo << endl
-		<< "ID: " << id << endl
-		<< "Edad: " << edad << endl
-	    << "Tipo: " << tipo << endl
-		<< "Energia: " << energia << endl;
+	s << criatura::toString()
+	  << "Rapidez: " << (this->rapidez ? "Alta" : "Normal") << endl; //la parte del decorador
 	return s.str();
 } //
-
-ostream& operator<<(ostream& os, carnivoro& c)
-{
-	os << c.toString();
-	return os;
-}

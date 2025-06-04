@@ -1,21 +1,10 @@
 #pragma once
-#ifndef COLECCIONVECTOR_H
-#define COLECCIONVECTOR_H
-
 #include "iteradorVector.h"
 #include <iostream>
 #include "coleccion.h"
 #include<sstream>
 #include<vector>
-#include "carnivoro.h"
-#include "herbivoro.h"
-#include "omnivoro.h"
-#include "planta.h"
-#include "agua.h"
 using namespace std;
-
-
-
 
 template<class T>
 class coleccionVector : public coleccion<T>
@@ -27,7 +16,7 @@ public:
 	void agregarObjeto(T&);
 	bool eliminarObjeto(T&);
 	string toString();
-	string mostrarObjeto(T&);
+	string mostrarObjeto(T& );
 	bool buscarObjeto(T&);
 	void ordenarObjetos();
 	iteradorVector<T>* getIterador();
@@ -38,7 +27,7 @@ public:
 template<class T>
 inline coleccionVector<T>::coleccionVector()
 {
-	v = new vector<T>(); // inicializar el vector
+	v = new vector<T>();
 }
 
 template<class T>
@@ -63,24 +52,25 @@ template<class T>
 inline string coleccionVector<T>::toString()
 {
 	stringstream ss;
-	for (int i = 0; i < v->size(); i++) {
-		ss << v->at(i)->toString() << endl;
+	for (int i = 0; i < v->size(); i++) { //antes recorria un aposicion de mas
+		ss << *v->at(i); // sobrecargado
 	}
 	return ss.str();
 }
 
 
 template<class T>
-inline string coleccionVector<T>::mostrarObjeto(T& ob)
+inline string coleccionVector<T>::mostrarObjeto(T& id) // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto, para la sobrecarga
 {
-	stringstream ss;
+	stringstream s;
 	for (int i = 0; i < v->size(); i++) {
-		ss << v->at(i) << endl;
-		return ss.str();
+		if(v->at(i) == id)
+			s<<*v->at(i);
 	}
-	return ss.str();
+	if(!s) 
+		s<<"Objeto no encontrado"<<endl;
+	return s.str();
 }
-
 
 template<class T>
 inline bool coleccionVector<T>::buscarObjeto(T& id) // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
@@ -103,7 +93,7 @@ inline void coleccionVector<T>::ordenarObjetos()
 template<class T>
 inline iteradorVector<T>* coleccionVector<T>::getIterador()
 {
-	return new iteradorVector<T>(this->v); //correccion de iterador, antes tenia un iterados y no IteradorVector
+   return new iteradorVector<T>(this->v); 
 }
 
 #endif // COLECCIONVECTOR_H
