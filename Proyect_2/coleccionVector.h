@@ -102,7 +102,7 @@ inline void coleccionVector<T>::ordenarObjetos()
 template<class T>
 inline iteradorVector<T>* coleccionVector<T>::getIterador()
 {
-	return new iteradorVector<T>(this->v); //correccion de iterador, antes tenia un iterados y no IteradorVector
+	return new iteradorVector<T>(this->v);
 }
 #endif // !COLECCIONVECTOR_H
 

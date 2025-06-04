@@ -2,11 +2,6 @@
 #include "iterador.h"
 #include<iostream>
 #include<vector>
-#include "carnivoro.h"
-#include "herbivoro.h"
-#include "omnivoro.h"
-#include "agua.h"
-#include "planta.h"
 using namespace std;
 template<class T>
 class iteradorVector:public iterador<T>
@@ -47,16 +42,15 @@ inline void iteradorVector<T>::next()
 template<class T>
 inline bool iteradorVector<T>::isDone()
 {
-	if (v->size() == currentN) {
-		return true;
+	if (currentN >= v->size()) {
+		return true; // si el iterador ha llegado al final del vector
 	}
-	return false;
+	return false; // si el iterador no ha llegado al final del vector
 }
 
 template<class T>
 inline T* iteradorVector<T>::current()
 {
-	return &(this->v->at(currentN)); // devuelve el elemento actual del vector
-
+	return &v->at(currentN);
 }
 
