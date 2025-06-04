@@ -6,9 +6,8 @@
 using namespace std;
 class matriz {
 private:
-	int filas;
-	int columnas;
-	int** datos; // Matriz de enteros
+	
 public:
+	matriz();
 #endif 
 
