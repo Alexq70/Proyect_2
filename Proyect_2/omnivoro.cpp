@@ -32,6 +32,16 @@ omnivoro::~omnivoro()
 //--------------------
 string omnivoro::toString() {
 	stringstream s;
-	s << criatura::toString() << endl;
+	s << "criatura onmivoro" << endl
+		<< "ID: " << id << endl
+		<< "Edad: " << edad << endl
+		<< "Tipo: " << tipo << endl
+		<< "Energia: " << energia << endl;
 	return s.str();
+}
+
+ostream& operator<<(ostream& os, omnivoro& o)
+{
+	os << o.toString();
+	return os;
 }
