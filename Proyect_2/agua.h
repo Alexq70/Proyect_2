@@ -6,7 +6,15 @@ private:
 	string id;
 	coordenada posicion;
 public:
-	agua(string,coordenada);
+	agua(char, string, coordenada);
+	//---------------------
+	string getId();
+	char getTipo();
+	coordenada getCoordenada();
+	//---------------------
+	void setTipo(char tipo);
+	void setCoordenada(coordenada pos);
+	//---------------------
 	~agua();
 	string toString();
 };
