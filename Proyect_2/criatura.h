@@ -8,5 +8,7 @@
 using  namespace std;
 class criatura : public elemento {
 public:
+	criatura(char tipo, string id, coordenada p);
+
 };
 #endif // !CRIATURA_H

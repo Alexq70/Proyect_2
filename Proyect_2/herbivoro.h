@@ -1,4 +1,6 @@
 #pragma once
+#ifndef HERBIVORO_H
+#define HERBIVORO_H
 #include"criatura.h"
 #include "coordenada.h"
 class herbivoro : public criatura{
@@ -9,6 +11,7 @@ private:
 	int edad;
 	coordenada posicion;
 public:
+	herbivoro(); // constructor por defecto
 	herbivoro(char tipo,string id , int energia, int edad, coordenada c);
 	string getId();
 	char getTipo();
@@ -25,3 +28,4 @@ public:
 };
 ostream& operator<<(ostream&, herbivoro&);
 
+#endif // !HERBIVORO_H

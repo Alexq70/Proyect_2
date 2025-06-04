@@ -1,6 +1,13 @@
 #include "planta.h"
 
-planta::planta(char tipo,string id, coordenada p) {
+planta::planta() :recurso('P', "", coordenada())  // inicializa el recurso con tipo 'P' y coordenada por defecto
+{
+	this->id = "";
+	this->tipo = 'P'; // tipo por defecto
+	this->posicion = coordenada(); // coordenada por defecto
+}
+
+planta::planta(char tipo,string id, coordenada p):recurso( tipo, id, p) {
 	this->id = id;
 	this->tipo = tipo;
 	this->posicion = p;

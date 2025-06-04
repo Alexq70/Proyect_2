@@ -10,6 +10,7 @@ private:
 	coordenada posicion;
 	bool rapidez;
 public:
+	omnivoro(); // constructor por defecto
 	omnivoro(char tipo,string id , int energia, int edad, coordenada c);
 	void comer();
 	string getId();
