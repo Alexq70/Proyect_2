@@ -31,6 +31,7 @@ bool matriz::insertarElemneto(elemento* e, int x, int y)
 		m[x][y] = e;
 	}
 	else {
+		;
 		return false; // Si la posicion ya esta ocupada, no se inserta el elemento
 	}
 	return true;
