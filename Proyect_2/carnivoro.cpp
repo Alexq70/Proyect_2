@@ -1,5 +1,13 @@
 #include "carnivoro.h"
 
+bool carnivoro::operator==(carnivoro& c)
+{
+	if (this->id == c.id) {
+		return true;
+	}
+	return false;
+}
+
 carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;

@@ -1,5 +1,13 @@
 #include "herbivoro.h"
 
+bool herbivoro::operator==(herbivoro& h)
+{
+	if (this->id == h.id) {
+		return true;
+	}
+	return false;
+}
+
 herbivoro::herbivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;

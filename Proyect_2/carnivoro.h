@@ -11,6 +11,7 @@ private:
 	coordenada posicion;
 	bool rapidez;
 public:
+	bool operator==(carnivoro& );
 	carnivoro(char tipo,string id , int energia, int edad, coordenada c);
 	void comer();
 	string getId();

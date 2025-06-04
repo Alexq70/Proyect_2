@@ -1,5 +1,13 @@
 #include "planta.h"
 
+bool planta::operator==(planta& p)
+{
+	if (this->id == p.id) {
+		return true;
+	}
+	return false;
+}
+
 planta::planta(char tipo,string id, coordenada p) {
 	this->id = id;
 	this->tipo = tipo;

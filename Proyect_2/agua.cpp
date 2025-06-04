@@ -1,5 +1,13 @@
 #include "agua.h"
 
+bool agua::operator==(agua& a)
+{
+	if (this->id == a.id) {
+		return true;
+	}
+	return false;
+}
+
 agua::agua(char tipo,string id , coordenada p) {
 	this->id = id;
 	this->tipo = tipo;

@@ -9,6 +9,7 @@ private:
 	int edad;
 	coordenada posicion;
 public:
+	bool operator==(herbivoro&);
 	herbivoro(char tipo,string id , int energia, int edad, coordenada c);
 	string getId();
 	char getTipo();

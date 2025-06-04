@@ -7,6 +7,7 @@ private:
 	
 	coordenada posicion;
 public:
+	bool operator==(planta&);
 	planta(char,string, coordenada);
 	//---------------------
 	string getId();
