@@ -1,6 +1,13 @@
 #include "agua.h"
 
-agua::agua(char tipo,string id , coordenada p) {
+agua::agua() : recurso('A', "", coordenada(0, 0))  // Constructor por defecto
+{
+	this->id = "";
+	this->tipo = 'A'; // A de agua
+	this->posicion = coordenada(0, 0); // Inicializar coordenada en (0,0)
+}
+
+agua::agua(char tipo,string id , coordenada p):recurso(tipo,id,p) {
 	this->id = id;
 	this->tipo = tipo;
 	this->posicion = p;

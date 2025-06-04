@@ -6,6 +6,7 @@ private:
 	string id;
 	coordenada posicion;
 public:
+	agua();
 	agua(char, string, coordenada);
 	//---------------------
 	string getId();

@@ -28,8 +28,10 @@
     <ClCompile Include="ecosistema.cpp" />
     <ClCompile Include="elemento.cpp" />
     <ClCompile Include="herbivoro.cpp" />
+    <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="iterador.cpp" />
     <ClCompile Include="iteradorVector.cpp" />
+    <ClCompile Include="Matriz.cpp" />
     <ClCompile Include="omnivoro.cpp" />
     <ClCompile Include="planta.cpp" />
     <ClCompile Include="recurso.cpp" />
@@ -46,6 +48,7 @@
     <ClInclude Include="ecosistema.h" />
     <ClInclude Include="elemento.h" />
     <ClInclude Include="herbivoro.h" />
+    <ClInclude Include="interfaz.h" />
     <ClInclude Include="iterador.h" />
     <ClInclude Include="iteradorVector.h" />
     <ClInclude Include="Matriz.h" />

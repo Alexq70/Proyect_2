@@ -4,9 +4,9 @@ class planta : public recurso {
 private:
 	char tipo = 'P';;
 	string id;
-	
 	coordenada posicion;
 public:
+	planta();
 	planta(char,string, coordenada);
 	//---------------------
 	string getId();
