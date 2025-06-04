@@ -26,7 +26,7 @@ int herbivoro::getEdad() { return this->edad; }
 coordenada herbivoro::getCoordenada() { return this->posicion; }
 //---------------------
 void herbivoro::setTipo(char tipo) { this->tipo = tipo; }
-void herbivoro::setEnergia(int tipo) { this->energia = energia; }
+void herbivoro::setEnergia(int energia) { this->energia = energia; }
 void herbivoro::setEdad(int edad) { this->edad = edad; }
 void herbivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());

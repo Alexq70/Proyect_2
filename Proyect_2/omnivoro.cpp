@@ -27,7 +27,7 @@ int omnivoro::getEdad() { return this->edad; }
 coordenada omnivoro::getCoordenada() { return this->posicion; }
 //---------------------
 void omnivoro::setTipo(char tipo) { this->tipo = tipo; }
-void omnivoro::setEnergia(int tipo) { this->energia = energia; }
+void omnivoro::setEnergia(int energia) { this->energia = energia; }
 void omnivoro::setEdad(int edad) { this->edad = edad; }
 void omnivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());

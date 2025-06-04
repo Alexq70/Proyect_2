@@ -31,7 +31,7 @@ int carnivoro::getEdad() { return this->edad; }
 coordenada carnivoro::getCoordenada() { return this->posicion; }
 //---------------------
 void carnivoro::setTipo(char tipo) { this->tipo = tipo; }
-void carnivoro::setEnergia(int tipo) { this->energia = energia; }
+void carnivoro::setEnergia(int energia) { this->energia = energia; }
 void carnivoro::setEdad(int edad) { this->edad = edad; }
 void carnivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());

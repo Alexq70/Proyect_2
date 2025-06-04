@@ -15,6 +15,7 @@ void interfaz::comenzar()
 	elemento* c3 = new herbivoro('H', "3", 56, 33, coordenada(7, 14));
 	elemento* c4 = new omnivoro('O', "4", 44, 23, coordenada(1, 3));
 
+	elemento* k1 = new carne('K', "1", coordenada(2, 2));
 
 	coleccionVector<elemento*>* elementos = new coleccionVector<elemento*>();
 
@@ -25,6 +26,9 @@ void interfaz::comenzar()
 	elementos->agregarObjeto(p2);
 	elementos->agregarObjeto(p3);
 	elementos->agregarObjeto(a1);
+
+	elementos->agregarObjeto(k1);
+
 	matriz* m = new matriz(elementos->getIterador());
 	cout<<m->mostrarMatriz()<<endl<<endl;
 	//cout << elementos->toString();

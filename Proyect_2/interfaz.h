@@ -7,6 +7,7 @@
 #include "criatura.h"
 #include "herbivoro.h"
 #include "carnivoro.h"
+#include "carne.h"
 #include "omnivoro.h"
 #include "coleccionVector.h"
 #include "coordenada.h"
