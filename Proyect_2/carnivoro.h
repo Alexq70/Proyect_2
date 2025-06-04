@@ -1,10 +1,17 @@
 #pragma once
 #include "criatura.h"
+#include "coordenada.h"
+#include <iostream>
 class carnivoro : public criatura {
 private:
+	char tipo = 'C'; // C de carnivoro
+	string id;
+	int energia;
+	int edad;
+	coordenada posicion;
 	bool rapidez;
 public:
-	carnivoro();
+	bool operator==(carnivoro& );
 	carnivoro(char tipo,string id , int energia, int edad, coordenada c);
 	void comer();
 	string getId();
@@ -23,4 +30,4 @@ public:
 	string toString();
 
 };
-
+ostream& operator<<(ostream&, carnivoro& );

@@ -1,4 +1,11 @@
 #include "omnivoro.h"
+bool omnivoro::operator==(omnivoro& o)
+{
+	if (this->id == o.id) {
+		return true;
+	}
+	return false;
+}
 omnivoro::omnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;

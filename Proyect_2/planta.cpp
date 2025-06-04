@@ -1,13 +1,14 @@
 #include "planta.h"
 
-planta::planta() :recurso('P', "", coordenada())  // inicializa el recurso con tipo 'P' y coordenada por defecto
+bool planta::operator==(planta& p)
 {
-	this->id = "";
-	this->tipo = 'P'; // tipo por defecto
-	this->posicion = coordenada(); // coordenada por defecto
+	if (this->id == p.id) {
+		return true;
+	}
+	return false;
 }
 
-planta::planta(char tipo,string id, coordenada p):recurso( tipo, id, p) {
+planta::planta(char tipo,string id, coordenada p) {
 	this->id = id;
 	this->tipo = tipo;
 	this->posicion = p;
@@ -32,6 +33,14 @@ planta::~planta()
 
 string planta::toString() {
 	stringstream s;
-	s << recurso::toString();
+	s << "recurso tipo planta" << endl
+		<< "ID: " << id << endl
+		<< "Tipo: " << tipo << endl;
 	return s.str();
+}
+
+ostream& operator<<(ostream& os, planta& p)
+{
+	os << p.toString();
+	return os;
 }

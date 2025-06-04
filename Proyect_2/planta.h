@@ -4,9 +4,10 @@ class planta : public recurso {
 private:
 	char tipo = 'P';;
 	string id;
+	
 	coordenada posicion;
 public:
-	planta();
+	bool operator==(planta&);
 	planta(char,string, coordenada);
 	//---------------------
 	string getId();
@@ -19,4 +20,4 @@ public:
 	~planta();
 	string toString();
 };
-
+ostream& operator<<(ostream&, planta&);

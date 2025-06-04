@@ -1,10 +1,21 @@
 #pragma once
+#ifndef COLECCIONVECTOR_H
+#define COLECCIONVECTOR_H
+
 #include "iteradorVector.h"
 #include <iostream>
 #include "coleccion.h"
 #include<sstream>
 #include<vector>
+#include "carnivoro.h"
+#include "herbivoro.h"
+#include "omnivoro.h"
+#include "planta.h"
+#include "agua.h"
 using namespace std;
+
+
+
 
 template<class T>
 class coleccionVector : public coleccion<T>
@@ -19,15 +30,14 @@ public:
 	string mostrarObjeto(T& );
 	bool buscarObjeto(T&);
 	void ordenarObjetos();
-	iteradorVector<T>* getIterador();
-	
+	iteradorVector<T>* getIterador(); // NO FUNCA
 	
 };
 
 template<class T>
 inline coleccionVector<T>::coleccionVector()
 {
-	v = new vector<T>();
+	v = new vector<T>(); // inicializar el vector
 }
 
 template<class T>
@@ -37,10 +47,10 @@ inline void coleccionVector<T>::agregarObjeto(T& objeto )
 }
 
 template<class T>
-inline bool coleccionVector<T>::eliminarObjeto(T& ob)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
+inline bool coleccionVector<T>::eliminarObjeto(T& id)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
 {
 	for (int i = 0; i<=v->size(); i++) {
-		if (v->at(i) == ob) { // 
+		if (v->at(i) == id) { // 
 			v->erase(v->begin()+i);
 			return true;
 		}
@@ -52,25 +62,24 @@ template<class T>
 inline string coleccionVector<T>::toString()
 {
 	stringstream ss;
-	for (int i = 0; i < v->size(); i++) { //antes recorria un aposicion de mas
-		ss << *v->at(i); // sobrecargado
+	for (int i = 0; i < v->size(); i++) { 
+		ss << v->at(i)->toString() << endl; // se muestra el objeto
 	}
 	return ss.str();
 }
 
-
 template<class T>
-inline string coleccionVector<T>::mostrarObjeto(T& id) // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto, para la sobrecarga
+inline string coleccionVector<T>::mostrarObjeto(T& ob)
 {
 	stringstream s;
 	for (int i = 0; i < v->size(); i++) {
-		if(v->at(i) == id)
-			s<<*v->at(i);
+		if (v->at(i) == ob) { // se compara el objeto con el que se busca
+			s << v->at(i)->toString() << endl; // se muestra el objeto
+			return s.str();
+		}
 	}
-	if(!s) 
-		s<<"Objeto no encontrado"<<endl;
-	return s.str();
 }
+
 
 template<class T>
 inline bool coleccionVector<T>::buscarObjeto(T& id) // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
@@ -93,10 +102,10 @@ inline void coleccionVector<T>::ordenarObjetos()
 template<class T>
 inline iteradorVector<T>* coleccionVector<T>::getIterador()
 {
-   return new iteradorVector<T>(this->v); 
+	return new iteradorVector<T>(this->v); //correccion de iterador, antes tenia un iterados y no IteradorVector
 }
+#endif // !COLECCIONVECTOR_H
 
-#endif // COLECCIONVECTOR_H
 
 
 

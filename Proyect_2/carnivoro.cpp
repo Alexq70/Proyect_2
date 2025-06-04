@@ -1,16 +1,6 @@
 #include "carnivoro.h"
 
-carnivoro::carnivoro() :criatura('C', "default", coordenada(0, 0))  // Llamar al constructor de la clase base criatura
-{
-	this->id = "default";
-	this->tipo = 'C'; // C de carnivoro
-	this->energia = 100; // valor por defecto
-	this->edad = 0; // valor por defecto
-	this->posicion = coordenada(0, 0); // coordenada por defecto
-	this->rapidez = false; // por defecto la rapidez es normal
-}
-
-carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c):criatura(tipo,id,c) {
+carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;
 	this->energia = energia;
