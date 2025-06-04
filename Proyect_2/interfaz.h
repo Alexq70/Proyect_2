@@ -22,6 +22,7 @@
 #include "fabricaHerbivoros.h"
 #include "fabricaCarnivoros.h"
 #include "fabricaOmnivoros.h"
+#include "ecosistema.h"
 
 using namespace std;
 class interfaz
