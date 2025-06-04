@@ -26,6 +26,7 @@
     <ClCompile Include="coordenada.cpp" />
     <ClCompile Include="criatura.cpp" />
     <ClCompile Include="ecosistema.cpp" />
+    <ClCompile Include="elemento.cpp" />
     <ClCompile Include="herbivoro.cpp" />
     <ClCompile Include="iterador.cpp" />
     <ClCompile Include="iteradorVector.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="coordenada.h" />
     <ClInclude Include="criatura.h" />
     <ClInclude Include="ecosistema.h" />
+    <ClInclude Include="elemento.h" />
     <ClInclude Include="herbivoro.h" />
     <ClInclude Include="iterador.h" />
     <ClInclude Include="iteradorVector.h" />
