@@ -42,7 +42,10 @@ inline void iteradorVector<T>::next()
 template<class T>
 inline bool iteradorVector<T>::isDone()
 {
-	return (!this->v->at(currentN));
+	if (currentN >= v->size()) {
+		return true; // si el iterador ha llegado al final del vector
+	}
+	return false; // si el iterador no ha llegado al final del vector
 }
 
 template<class T>

@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include "iteradorVector.h"
 #include "recurso.h"
 #include "agua.h"
 #include "planta.h"
@@ -10,11 +11,12 @@
 #include "coleccionVector.h"
 #include "coordenada.h"
 #include "elemento.h"
+#include "matriz.h"
 using namespace std;
 class interfaz
 {
 public:
 	interfaz();
-	void mostrar();
+	void comenzar();
 };
 
