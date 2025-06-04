@@ -12,10 +12,8 @@
 
 interfaz::interfaz()
 {
-	moatrarInterfaz();
 }
 
-void interfaz::moatrarInterfaz()
 {
 	elemento* p2 = new planta('P', "2", coordenada(1, 2));
 	elemento* p3 = new planta('P', "3", coordenada(1, 2));
