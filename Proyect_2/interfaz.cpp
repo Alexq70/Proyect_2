@@ -28,6 +28,11 @@ void interfaz::comenzar()
 	elementos->agregarObjeto(a1);
 
 	elementos->agregarObjeto(k1);
+	cout << "Creando elementos con la fabrica..." << endl;
+	fabricaRecursos* rec = new fabricaAgua();
+	
+	elemento* e1 = rec->crearElemento('A', "5", coordenada(9,14));
+	elementos->agregarObjeto(e1);
 
 	matriz* m = new matriz(elementos->getIterador());
 	cout<<m->mostrarMatriz()<<endl<<endl;

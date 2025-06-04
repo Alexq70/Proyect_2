@@ -13,6 +13,16 @@
 #include "coordenada.h"
 #include "elemento.h"
 #include "matriz.h"
+#include "fabricaRecursos.h"
+#include "fabricaCriaturas.h"
+#include "fabricaElementos.h"
+#include "fabricaAgua.h"
+#include "fabricaPlanta.h"
+#include "fabricaCarne.h"
+#include "fabricaHerbivoros.h"
+#include "fabricaCarnivoros.h"
+#include "fabricaOmnivoros.h"
+
 using namespace std;
 class interfaz
 {

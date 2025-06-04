@@ -1,5 +1,5 @@
 #pragma once
-class ecosistema
-{
+class ecosistema {
+
 };
 
