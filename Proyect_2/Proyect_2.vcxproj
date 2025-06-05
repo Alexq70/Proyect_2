@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="agua.cpp" />
+    <ClCompile Include="carne.cpp" />
     <ClCompile Include="carnivoro.cpp" />
     <ClCompile Include="coleccion.cpp" />
     <ClCompile Include="coleccionVector.cpp" />
@@ -27,6 +28,15 @@
     <ClCompile Include="criatura.cpp" />
     <ClCompile Include="ecosistema.cpp" />
     <ClCompile Include="elemento.cpp" />
+    <ClCompile Include="fabricaAgua.cpp" />
+    <ClCompile Include="fabricaCarne.cpp" />
+    <ClCompile Include="fabricaCarnivoros.cpp" />
+    <ClCompile Include="fabricaHerbivoros.cpp" />
+    <ClCompile Include="fabricaOmnivoros.cpp" />
+    <ClCompile Include="fabricaPlanta.cpp" />
+    <ClCompile Include="fabricaRecursos.cpp" />
+    <ClCompile Include="fabricaCriaturas.cpp" />
+    <ClCompile Include="fabricaElementos.cpp" />
     <ClCompile Include="herbivoro.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="iterador.cpp" />
@@ -41,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="agua.h" />
+    <ClInclude Include="carne.h" />
     <ClInclude Include="carnivoro.h" />
     <ClInclude Include="coleccion.h" />
     <ClInclude Include="coleccionVector.h" />
@@ -48,6 +59,15 @@
     <ClInclude Include="criatura.h" />
     <ClInclude Include="ecosistema.h" />
     <ClInclude Include="elemento.h" />
+    <ClInclude Include="fabricaAgua.h" />
+    <ClInclude Include="fabricaCarne.h" />
+    <ClInclude Include="fabricaCarnivoros.h" />
+    <ClInclude Include="fabricaHerbivoros.h" />
+    <ClInclude Include="fabricaOmnivoros.h" />
+    <ClInclude Include="fabricaPlanta.h" />
+    <ClInclude Include="fabricaRecursos.h" />
+    <ClInclude Include="fabricaCriaturas.h" />
+    <ClInclude Include="fabricaElementos.h" />
     <ClInclude Include="herbivoro.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="iterador.h" />
