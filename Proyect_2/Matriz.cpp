@@ -7,6 +7,13 @@ matriz::matriz(coleccionVector<elemento*>* c) : observerVector(c)
 
 void matriz::actualizar()
 {
+
+	for (int i = 0; i < 15; i++) {
+		for (int j = 0; j < 15; j++) {
+			m[i][j] = nullptr;
+		}
+	}
+
 	this->iterador->first();
 	while (!this->iterador->isDone()) {
 		elemento* e = *this->iterador->current();
