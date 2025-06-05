@@ -23,7 +23,7 @@ char herbivoro::getTipo()
 }
 int herbivoro::getEnergia() { return this->energia; }
 int herbivoro::getEdad() { return this->edad; }
-coordenada herbivoro::getCoordenada() { return this->posicion; }
+coordenada& herbivoro::getCoordenada() { return posicion; }
 //---------------------
 void herbivoro::setTipo(char tipo) { this->tipo = tipo; }
 void herbivoro::setEnergia(int energia) { this->energia = energia; }
@@ -34,6 +34,9 @@ void herbivoro::setCoordenada(coordenada c) {
 }
 herbivoro::~herbivoro()
 {
+}
+char herbivoro::observarEntorno(matriz* m) {
+	return 'n';
 }
 //--------------------
 string herbivoro::toString() {

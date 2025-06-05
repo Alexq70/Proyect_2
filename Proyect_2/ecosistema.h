@@ -17,6 +17,8 @@ public:
 	elemento* crearElementoEspecifico(char); // si es carne o lo que sea simplemente se buca una coordenada disponible y vamonos
 	bool coordenadaDisponible(coordenada c); //verifica en la matriz si un a coordenada rnadom esta disponible
     coordenada coordenadaRandom(); 
+	//-------------------------------------
+	void iniciarSimulacion();
 	matriz* getMatriz();
 
 };

@@ -17,6 +17,14 @@ string toString();
 //-----------------------------  
 void setX(int);  
 void setY(int);  
+bool moverseIzquierda();
+bool moverseDerecha();
+bool moverseArriba();
+bool moverseAbajo();
+bool diagonalDerechaArriba();
+bool diagonalDerechaAbajo();
+bool diagonalIzquierdaArriba();
+bool diagonalIzquierdaAbajo();
 //------------------------------  
 bool operator==(coordenada& otra) {  
 	return (this->x == otra.x && this->y == otra.y);  

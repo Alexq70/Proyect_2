@@ -12,7 +12,6 @@ omnivoro::omnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-	this->rapidez = false; // por defecto la rapidez es normal
 }
 void omnivoro::comer()
 {
@@ -24,7 +23,7 @@ char omnivoro::getTipo()
 }
 int omnivoro::getEnergia() { return this->energia; }
 int omnivoro::getEdad() { return this->edad; }
-coordenada omnivoro::getCoordenada() { return this->posicion; }
+coordenada& omnivoro::getCoordenada() { return posicion; }
 //---------------------
 void omnivoro::setTipo(char tipo) { this->tipo = tipo; }
 void omnivoro::setEnergia(int energia) { this->energia = energia; }

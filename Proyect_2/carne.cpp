@@ -19,7 +19,7 @@ char carne::getTipo()
 {
 	return this->tipo;
 }
-coordenada carne::getCoordenada() { return this->posicion; }
+coordenada& carne::getCoordenada() { return posicion; }
 //---------------------
 void carne::setTipo(char tipo) { this->tipo = tipo; }
 void carne::setCoordenada(coordenada c) {

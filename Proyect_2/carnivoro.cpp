@@ -14,7 +14,7 @@ carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-	this->rapidez = false; // por defecto la rapidez es normal
+
 }
 void carnivoro::comer()
 {
@@ -28,7 +28,7 @@ char carnivoro::getTipo()
 }
 int carnivoro::getEnergia() { return this->energia; }
 int carnivoro::getEdad() { return this->edad; }
-coordenada carnivoro::getCoordenada() { return this->posicion; }
+coordenada& carnivoro::getCoordenada() { return posicion; }
 //---------------------
 void carnivoro::setTipo(char tipo) { this->tipo = tipo; }
 void carnivoro::setEnergia(int energia) { this->energia = energia; }
@@ -39,8 +39,9 @@ void carnivoro::setCoordenada(coordenada c) {
 }
 //--------------------
 carnivoro::~carnivoro() {}
-
-void carnivoro::setRapidez(bool r) { this->rapidez = r; }
+char carnivoro::observarEntorno(matriz* m){
+	return 'n';
+}
 
 string carnivoro::toString() {
 	stringstream s;

@@ -15,7 +15,7 @@ agua::agua(char tipo,string id , coordenada p) {
 }
 string agua::getId() { return this->id; }
 char agua::getTipo() { return this->tipo; }
-coordenada agua::getCoordenada() { return this->posicion; }
+coordenada& agua::getCoordenada() { return posicion; }
 //---------------------
 void agua::setTipo(char tipo) { this->tipo = tipo; }
 void agua::setCoordenada(coordenada c) {

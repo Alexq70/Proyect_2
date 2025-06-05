@@ -20,14 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="agua.cpp" />
+    <ClCompile Include="cambiaDireccion.cpp" />
     <ClCompile Include="carne.cpp" />
     <ClCompile Include="carnivoro.cpp" />
     <ClCompile Include="coleccion.cpp" />
     <ClCompile Include="coleccionVector.cpp" />
+    <ClCompile Include="consumirRecurso.cpp" />
     <ClCompile Include="coordenada.cpp" />
     <ClCompile Include="criatura.cpp" />
+    <ClCompile Include="depredacion.cpp" />
     <ClCompile Include="ecosistema.cpp" />
     <ClCompile Include="elemento.cpp" />
+    <ClCompile Include="estrategia.cpp" />
+    <ClCompile Include="estrategiaAlimentacion.cpp" />
+    <ClCompile Include="estrategiaMovimiento.cpp" />
+    <ClCompile Include="explorarMapa.cpp" />
     <ClCompile Include="fabricaAgua.cpp" />
     <ClCompile Include="fabricaCarne.cpp" />
     <ClCompile Include="fabricaCarnivoros.cpp" />
@@ -46,19 +53,28 @@
     <ClCompile Include="omnivoro.cpp" />
     <ClCompile Include="planta.cpp" />
     <ClCompile Include="recurso.cpp" />
+    <ClCompile Include="reproduccion.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Utiles.cpp" />
+    <ClCompile Include="utilesEstrategias.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="agua.h" />
+    <ClInclude Include="cambiaDireccion.h" />
     <ClInclude Include="carne.h" />
     <ClInclude Include="carnivoro.h" />
     <ClInclude Include="coleccion.h" />
     <ClInclude Include="coleccionVector.h" />
+    <ClInclude Include="consumirRecurso.h" />
     <ClInclude Include="coordenada.h" />
     <ClInclude Include="criatura.h" />
+    <ClInclude Include="depredacion.h" />
     <ClInclude Include="ecosistema.h" />
     <ClInclude Include="elemento.h" />
+    <ClInclude Include="estrategia.h" />
+    <ClInclude Include="estrategiaAlimentacion.h" />
+    <ClInclude Include="estrategiaMovimiento.h" />
+    <ClInclude Include="explorarMapa.h" />
     <ClInclude Include="fabricaAgua.h" />
     <ClInclude Include="fabricaCarne.h" />
     <ClInclude Include="fabricaCarnivoros.h" />
@@ -77,7 +93,9 @@
     <ClInclude Include="omnivoro.h" />
     <ClInclude Include="planta.h" />
     <ClInclude Include="recurso.h" />
+    <ClInclude Include="reproduccion.h" />
     <ClInclude Include="Utiles.h" />
+    <ClInclude Include="utilesEstrategias.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

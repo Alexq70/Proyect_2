@@ -120,3 +120,17 @@ matriz* ecosistema::getMatriz()
 {
 	return this->elementos;
 }
+
+
+void ecosistema::iniciarSimulacion() {
+	for (int i = 0; i < 2; i++) {
+		crearElementoEspecifico('A');
+	    crearElementoEspecifico('P');
+		crearElementoEspecifico('C');
+		crearElementoEspecifico('H');
+		crearElementoEspecifico('O');
+	}
+	for (int i = 0; i < 5; i++) {
+		crearElemento();
+	}
+}

@@ -18,7 +18,7 @@ char planta::getTipo()
 {
 	return this->tipo;
 }
-coordenada planta::getCoordenada() { return this->posicion; }
+coordenada& planta::getCoordenada() { return posicion; }
 //---------------------
 void planta::setTipo(char tipo) { this->tipo = tipo; }
 void planta::setCoordenada(coordenada c) {

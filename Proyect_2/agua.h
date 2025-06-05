@@ -11,7 +11,7 @@ public:
 	//---------------------
 	string getId();
 	char getTipo();
-	coordenada getCoordenada();
+	coordenada& getCoordenada();
 	//---------------------
 	void setTipo(char tipo);
 	void setCoordenada(coordenada pos);

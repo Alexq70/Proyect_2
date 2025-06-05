@@ -1,6 +1,8 @@
 #pragma once
 #include"criatura.h"
 #include "coordenada.h"
+#include "Matriz.h"
+class matriz;
 class herbivoro : public criatura{
 private:
 	char tipo = 'H'; // H de herbivoro
@@ -15,7 +17,7 @@ public:
 	char getTipo();
 	int getEnergia();
 	int getEdad();
-	coordenada getCoordenada();
+	coordenada& getCoordenada();
 	//---------------------
 	void setTipo(char tipo);
 	void setEnergia(int);
@@ -23,6 +25,8 @@ public:
 	void setCoordenada(coordenada);
 	~herbivoro();
 	string toString();
+	//---------------------
+	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
 };
 ostream& operator<<(ostream&, herbivoro&);
 

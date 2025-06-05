@@ -41,6 +41,12 @@ bool matriz::eliminarElemento(int x, int y)
 		return false;// ya esta vacio
 	}
 }
+char matriz::verificarCoordenada(int x, int y) {
+	if (m[x][y] == nullptr) {
+		return 'n'; // no hay nada en esa coordenada
+	}
+	return m[x][y]->getTipo();
+}
 
 string matriz::mostrarMatriz()
 {
