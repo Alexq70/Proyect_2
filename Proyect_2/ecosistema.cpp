@@ -64,33 +64,39 @@ elemento* ecosistema::crearElemento() {
 		case 'A': {
 			fabrica = new fabricaAgua();
 			e=fabrica->crearElemento('A', id, c);
+			coleccion->agregarObjeto(e);
 			return e;
 		} break;
 		case 'C': {
 			fabrica = new fabricaCarnivoros();
 			e = fabrica->crearElemento('C', id, c);
+			coleccion->agregarObjeto(e);
 			return e;
 		} break;
 		case 'P': {
 			fabrica = new fabricaPlanta();
 			e = fabrica->crearElemento('P', id, c);
+			coleccion->agregarObjeto(e);
 			return e;
 		} break;
 		case 'O': {
 			fabrica = new fabricaOmnivoros();
 			e = fabrica->crearElemento('O', id, c);
+			coleccion->agregarObjeto(e);
 			return e;
 		} break;
 
 		case 'H': {
 			fabrica = new fabricaHerbivoros();
 			e = fabrica->crearElemento('H', id, c);
+			coleccion->agregarObjeto(e);
 			return e;
 		} break;
 
 		case 'K': {
 			fabrica = new fabricaCarne();
 			e = fabrica->crearElemento('K', id, c);
+			coleccion->agregarObjeto(e);
 			return e;
 		} break;
 
