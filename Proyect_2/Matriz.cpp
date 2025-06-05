@@ -12,7 +12,7 @@ void matriz::actualizar()
 		elemento* e = *this->iterador->current();
 		int x = e->getCoordenada().getX();
 		int y = e->getCoordenada().getY();
-		if (x >= 0 && x < 10 && y >= 0 && y < 15) { // Verificar que las coordenadas estén dentro del rango
+		if (x >= 0 && x < 15 && y >= 0 && y < 15) { // Verificar que las coordenadas estén dentro del rango
 			m[x][y] = e; // Insertar el elemento en la matriz
 		}
 		this->iterador->next();
@@ -45,7 +45,7 @@ bool matriz::eliminarElemento(int x, int y)
 string matriz::mostrarMatriz()
 {
 	stringstream ss;
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 15; i++) {
 		if (i > 0) {
 			ss << endl; // Nueva línea entre filas
 		}
@@ -69,4 +69,37 @@ void matriz::updateCreacion()
 void matriz::updateEliminacion()
 {
 	actualizar(); // Actualizar la matriz tras la eliminación del elemento
+}
+
+coordenada matriz::coordenadaDisponibleM(coordenada c)
+{
+	if (c.getX() >= 0 && c.getX() < 15 && c.getY() >= 0 && c.getY() < 15) {
+		if (m[c.getX()][c.getY()] == nullptr) {
+			return c; // Si la posición está vacía, devolver la coordenada
+		}
+		else {
+			return coordenada(-1, -1); // Si la posición está ocupada, devolver una coordenada inválida
+		}
+	}
+	else {
+		return coordenada(-1, -1); // Coordenada fuera de rango
+	}
+}
+
+
+
+coordenada matriz::coordenadaRandom()
+{
+	static random_device rd;
+	static mt19937 gen(rd());
+	static uniform_int_distribution<> dis(0, 14);
+	int x = dis(gen);
+	int y = dis(gen);
+	if (m[x][y] == nullptr) {
+		return coordenada(x, y); // Si la posición está vacía, devolver la coordenada
+	}
+	else {
+		return coordenadaRandom(); // Si la posición está ocupada, generar otra coordenada aleatoria
+	}
+
 }

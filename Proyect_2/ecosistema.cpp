@@ -13,30 +13,39 @@ elemento* ecosistema::crearElemento() {
 	mt19937 gen(rd());
 	uniform_int_distribution<> dis(0, 4);
 	int aleatorio = dis(gen);
-
+	elemento* e = nullptr;
 	string id = to_string(indice);
-	coordenada c = coordenadaDisponible();
 
 	switch (aleatorio) {
 	case 0: {
 		fabrica = new fabricaAgua();
-		return fabrica->crearElemento('A', id, c);
+		e= fabrica->crearElemento('A', id,  coordenadaRandom());
+		coleccion->agregarObjeto(e);
+		return e;
 	} break;
 	case 1: {
 		fabrica = new fabricaCarnivoros();
-		return fabrica->crearElemento('C', id, c);
+		e = fabrica->crearElemento('C', id, coordenadaRandom());
+		coleccion->agregarObjeto(e);
+		return e;
 	} break;
 	case 2: {
 		fabrica = new fabricaPlanta();
-		return fabrica->crearElemento('P', id, c);
+		e = fabrica->crearElemento('P', id, coordenadaRandom());
+		coleccion->agregarObjeto(e);
+		return e;
 	} break;
 	case 3: {
 		fabrica = new fabricaOmnivoros();
-		return fabrica->crearElemento('O', id, c);
+		e = fabrica->crearElemento('O', id, coordenadaRandom());
+		coleccion->agregarObjeto(e);
+		return e;
 	} break;
 	case 4: {
 		fabrica = new fabricaHerbivoros();
-		return fabrica->crearElemento('H', id, c);
+		e = fabrica->crearElemento('H', id, coordenadaRandom());
+		coleccion->agregarObjeto(e);
+		return e;
 	} break;
 		  fabrica = nullptr;
 		  indice++;
@@ -45,33 +54,44 @@ elemento* ecosistema::crearElemento() {
 
 	elemento* ecosistema::crearElementoEspecifico(char tipo) {
 		string id = to_string(indice);
-		coordenada c = coordenadaDisponible();
+		elemento* e = nullptr;
+		if (coordenadaDisponible(coordenadaRandom()) == false) {
+			cout << "No hay coordenada disponible" << endl;
+			return nullptr; // No hay coordenada disponible
+		}
+		coordenada c = coordenadaRandom(); // Generar una coordenada aleatoria
 		switch (tipo) {
 		case 'A': {
 			fabrica = new fabricaAgua();
-			return fabrica->crearElemento('A', id, c);
+			e=fabrica->crearElemento('A', id, c);
+			return e;
 		} break;
 		case 'C': {
 			fabrica = new fabricaCarnivoros();
-			return fabrica->crearElemento('C', id, c);
+			e = fabrica->crearElemento('C', id, c);
+			return e;
 		} break;
 		case 'P': {
 			fabrica = new fabricaPlanta();
-			return fabrica->crearElemento('P', id, c);
+			e = fabrica->crearElemento('P', id, c);
+			return e;
 		} break;
 		case 'O': {
 			fabrica = new fabricaOmnivoros();
-			return fabrica->crearElemento('O', id, c);
+			e = fabrica->crearElemento('O', id, c);
+			return e;
 		} break;
 
 		case 'H': {
 			fabrica = new fabricaHerbivoros();
-			return fabrica->crearElemento('H', id, c);
+			e = fabrica->crearElemento('H', id, c);
+			return e;
 		} break;
 
 		case 'K': {
 			fabrica = new fabricaCarne();
-			return fabrica->crearElemento('K', id, c);
+			e = fabrica->crearElemento('K', id, c);
+			return e;
 		} break;
 
 		}
@@ -79,15 +99,18 @@ elemento* ecosistema::crearElemento() {
 		indice++;
 }
 
-coordenada ecosistema::coordenadaDisponible() {
-	//Hacer un metodo en matriz que revise si la coorcenada que se le pasa esta disponible
-	return coordenadaRandom(); // temporal para probar la fabrica
+bool ecosistema::coordenadaDisponible(coordenada c) {
+	coordenada cor=elementos->coordenadaDisponibleM(c);
+	if (cor.getX() != -1 && cor.getY() != -1) {
+		return true; // La coordenada está disponible
+	}
+	return false; // La coordenada no está disponible
 }
 coordenada ecosistema::coordenadaRandom() {
-		random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<> dis(0, 9); //aqui hay que asumir como que la matriz es cuadrada para generar unacoordenada coherente
-	int x = dis(gen);
-	int y = dis(gen);
-	return coordenada(x, y);
+	return elementos->coordenadaRandom();
+}
+
+matriz* ecosistema::getMatriz()
+{
+	return this->elementos;
 }

@@ -8,12 +8,13 @@
 #include "elemento.h"
 #include <iostream>
 #include <sstream>
+#include <random>
 using namespace std;
 class matriz: public observerVector{
 private:
 	iteradorVector<elemento*>* iterador;
 	coleccionVector<elemento*>* c;
-	elemento* m[10][15];
+	elemento* m[15][15];
 public:
 	matriz(coleccionVector<elemento*>*);
 	void actualizar();
@@ -22,6 +23,8 @@ public:
 	string mostrarMatriz();
 	void updateCreacion();
 	void updateEliminacion();
+	coordenada coordenadaDisponibleM(coordenada c); // verifica si una coordenada esta disponible
+	coordenada coordenadaRandom(); // genera una coordenada random
 };
 #endif 
 

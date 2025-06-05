@@ -7,7 +7,7 @@ interfaz::interfaz()
 
 void interfaz::comenzar()
 {
-	elemento* p2 = new planta('P', "2", coordenada(6,10));
+	/*elemento* p2 = new planta('P', "2", coordenada(6,10));
 	elemento* p3 = new planta('P', "3", coordenada(4,8));
 	elemento* a1 = new agua('A', "4", coordenada(8,12));
 
@@ -25,13 +25,12 @@ void interfaz::comenzar()
 
 	elementos->agregarObjeto(p2);
 	elementos->agregarObjeto(p3);
-	elementos->agregarObjeto(a1);
+	elementos->agregarObjeto(a1);*/
 	
 	ecosistema* eco = new ecosistema();
 	for (int i = 0; i < 5;i++) {
 		elemento* ele = eco->crearElemento();
-		elementos->agregarObjeto(ele);
 	}
+	cout << eco->getMatriz()->mostrarMatriz() << endl;
 	
-	cout<<m->mostrarMatriz()<<endl<<endl;
 }
