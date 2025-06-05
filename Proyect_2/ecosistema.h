@@ -2,10 +2,11 @@
 #ifndef ecosistema_h
 #define ecosistema_h
 #include "interfaz.h"
-
+#include "coleccionVector.h"
 class ecosistema {
 private:
 	fabricaElementos* fabrica;
+	coleccionVector<elemento*>* coleccion; // coleccion de elementos que contiene el ecosistema
 	matriz* elementos; // matriz de elementos que contiene el ecosistema
 	int indice = 0; //representa el id actual del iterador
 public:

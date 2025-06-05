@@ -3,7 +3,8 @@
 
 ecosistema::ecosistema(){
 	fabrica = nullptr;
-	elementos = new matriz();
+	this->coleccion = new coleccionVector<elemento*>();
+	elementos = new matriz(coleccion);
 }
 ecosistema::~ecosistema(){}
 

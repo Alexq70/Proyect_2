@@ -15,7 +15,6 @@ private:
 	coleccionVector<elemento*>* c;
 	elemento* m[10][15];
 public:
-	matriz();
 	matriz(coleccionVector<elemento*>*);
 	void actualizar();
 	bool insertarElemneto(elemento* e, int x, int y);
