@@ -13,15 +13,13 @@
 #include "planta.h"
 #include "agua.h"
 using namespace std;
-
-
-
-
+class observerVector; 
 template<class T>
 class coleccionVector : public coleccion<T>
 {
 private:
 	vector<T>* v;
+	observerVector* observer;
 public:
 	coleccionVector();
 	void agregarObjeto(T&);
@@ -31,8 +29,36 @@ public:
 	bool buscarObjeto(T&);
 	void ordenarObjetos();
 	iteradorVector<T>* getIterador(); // NO FUNCA
+	void agregarObserver(observerVector* o);
+	void eliminarObserver(observerVector* o);
+	void notifyCreacion();
+	void notifyEliminacion();
 	
 };
+
+template<class T>
+inline void coleccionVector<T>::agregarObserver(observerVector* o)
+{
+	this->observer = o;
+}
+
+template<class T>
+inline void coleccionVector<T>::eliminarObserver(observerVector* o)
+{
+	this->observer = nullptr;
+}
+
+template<class T>
+inline void coleccionVector<T>::notifyCreacion()
+{
+	observer->updateCreacion(); // notificar al observer de la creacion del elemento
+}
+
+template<class T>
+inline void coleccionVector<T>::notifyEliminacion()
+{
+	observer->updateEliminacion(); // notificar al observer de la eliminacion del elemento
+}
 
 template<class T>
 inline coleccionVector<T>::coleccionVector()
@@ -44,14 +70,16 @@ template<class T>
 inline void coleccionVector<T>::agregarObjeto(T& objeto )
 {
 	v->push_back(objeto);
+	this->notifyCreacion();
 }
 
 template<class T>
-inline bool coleccionVector<T>::eliminarObjeto(T& id)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
+inline bool coleccionVector<T>::eliminarObjeto(T& objeto)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
 {
 	for (int i = 0; i<=v->size(); i++) {
-		if (v->at(i) == id) { // 
+		if (v->at(i) == objeto) { // 
 			v->erase(v->begin()+i);
+			this->notifyEliminacion();
 			return true;
 		}
 	}

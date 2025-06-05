@@ -2,22 +2,27 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
 #include "iteradorVector.h"
+#include "observerVector.h"
 #include "coleccionVector.h"
 #include "coordenada.h"
 #include "elemento.h"
 #include <iostream>
 #include <sstream>
 using namespace std;
-class matriz {
+class matriz: public observerVector{
 private:
 	iteradorVector<elemento*>* iterador;
+	coleccionVector<elemento*>* c;
 	elemento* m[10][15];
 public:
 	matriz();
-	matriz(iteradorVector<elemento*>*);
+	matriz(coleccionVector<elemento*>*);
+	void actualizar();
 	bool insertarElemneto(elemento* e, int x, int y);
 	bool eliminarElemento(int x, int y);
 	string mostrarMatriz();
+	void updateCreacion();
+	void updateEliminacion();
 };
 #endif 
 

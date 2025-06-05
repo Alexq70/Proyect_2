@@ -32,6 +32,7 @@
     <ClCompile Include="iterador.cpp" />
     <ClCompile Include="iteradorVector.cpp" />
     <ClCompile Include="Matriz.cpp" />
+    <ClCompile Include="observerVector.cpp" />
     <ClCompile Include="omnivoro.cpp" />
     <ClCompile Include="planta.cpp" />
     <ClCompile Include="recurso.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="iterador.h" />
     <ClInclude Include="iteradorVector.h" />
     <ClInclude Include="Matriz.h" />
+    <ClInclude Include="observerVector.h" />
     <ClInclude Include="omnivoro.h" />
     <ClInclude Include="planta.h" />
     <ClInclude Include="recurso.h" />
