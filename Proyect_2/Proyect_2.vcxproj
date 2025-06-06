@@ -88,7 +88,7 @@
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="iterador.h" />
     <ClInclude Include="iteradorVector.h" />
-    <ClInclude Include="Matriz.h" />
+    <ClInclude Include="matriz.h" />
     <ClInclude Include="observerVector.h" />
     <ClInclude Include="omnivoro.h" />
     <ClInclude Include="planta.h" />

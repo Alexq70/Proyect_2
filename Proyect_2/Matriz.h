@@ -20,7 +20,7 @@ public:
 	void actualizar();
 	bool insertarElemneto(elemento* e, int x, int y);
 	bool eliminarElemento(int x, int y);
-	char verificarCoordenada(int x,int y);
+	elemento* verificarCoordenada(coordenada );
 	string mostrarMatriz();
 	void updateCreacion();
 	void updateEliminacion();

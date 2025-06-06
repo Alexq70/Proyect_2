@@ -21,5 +21,7 @@ public:
 	void iniciarSimulacion();
 	matriz* getMatriz();
 
+
+
 };
 #endif // !1

@@ -1,5 +1,10 @@
 #pragma once
-class reproduccion
-{
+#include "estrategiaMovimiento.h"
+class matriz;
+class reproduccion : public estrategiaMovimiento{
+public:
+	void realizarEstrategia(elemento*, matriz*);
+
 };
+
 

@@ -1,11 +1,9 @@
 #pragma once
-#ifndef estrategiaAmlimentacion_h
-#define estrategiaAlimentacion_h
-#include "estrategia.h"
 
+#include "estrategia.h"
+class matriz;
 class estrategiaAlimentacion : public estrategia {
 public:
-	virtual ~estrategiaAlimentacion() = default;
-	virtual void realizarEstrategia() = 0;
+    virtual void realizarEstrategia(elemento*, elemento*, matriz*) = 0;
 };
-#endif 
+

@@ -12,6 +12,7 @@ omnivoro::omnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
+	estra = new explorarMapa();
 }
 void omnivoro::comer()
 {
@@ -34,6 +35,35 @@ void omnivoro::setCoordenada(coordenada c) {
 }
 omnivoro::~omnivoro()
 {
+}
+char omnivoro::observarEntorno(matriz* m) {
+	return 'n';
+}
+
+
+estrategia*  omnivoro::cambiarEstrategia(matriz* m) {
+	char opcion = observarEntorno(m);
+	switch (opcion) {
+	case 'n': {
+		estra = new explorarMapa();
+	} break;
+	case 'A': {
+		estra = new consumirRecurso();
+	} break;
+	case 'O': {
+		estra = new reproduccion();
+	} break;
+	case 'H': {
+		estra = new depredacion();
+	} break;
+	case 'K': {
+		estra = new consumirRecurso();
+	}
+	case 'x': {
+		estra = new cambiaDireccion();
+	}
+	}
+	return estra;
 }
 //--------------------
 string omnivoro::toString() {

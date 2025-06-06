@@ -1,8 +1,12 @@
 #pragma once
-#ifndef esrategia_h
-#define esrategia_h
+#ifndef estrategia_h
+#define estrategia_h
+#include "matriz.h"
+#include "elemento.h"
 
-class estrategia {
+class estrategia {	
 public:
+	virtual ~estrategia() = default;
 };
+
 #endif 

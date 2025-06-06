@@ -14,7 +14,7 @@ herbivoro::herbivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-
+	estra = new explorarMapa();
 }
 string herbivoro::getId() { return this->id; }
 char herbivoro::getTipo()
@@ -37,6 +37,25 @@ herbivoro::~herbivoro()
 }
 char herbivoro::observarEntorno(matriz* m) {
 	return 'n';
+}
+estrategia* herbivoro::cambiarEstrategia(matriz* m) {
+	char opcion = observarEntorno(m);
+	switch (opcion) {
+	case 'n': {
+		estra = new explorarMapa();
+	} break;
+	case 'A': {
+		estra = new consumirRecurso();
+	} break;
+	case 'H': {
+		estra = new reproduccion();
+	} break;
+
+	case 'x': {
+		estra = new cambiaDireccion();
+	}
+	}
+	return estra;
 }
 //--------------------
 string herbivoro::toString() {

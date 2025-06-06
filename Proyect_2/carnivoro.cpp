@@ -14,7 +14,7 @@ carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-
+	estra = new explorarMapa();
 }
 void carnivoro::comer()
 {
@@ -39,8 +39,48 @@ void carnivoro::setCoordenada(coordenada c) {
 }
 //--------------------
 carnivoro::~carnivoro() {}
+
 char carnivoro::observarEntorno(matriz* m){
-	return 'n';
+	coordenada original = posicion;
+	original.moverseArriba();
+	m->coordenadaDisponibleM(original);
+
+	return 'n'; // retorna esto cuando no tiene nada alrededor, tiene que habe run caso x para que cambie de direccion
+}
+
+estrategia* carnivoro::cambiarEstrategia(matriz* m) {
+	char opcion = observarEntorno(m);
+	switch (opcion) {
+	case 'n': {
+		estra = new explorarMapa();
+	} break;
+	case 'A': {
+		estra = new consumirRecurso();
+	} break;
+	case 'O': {
+		estra = new depredacion();
+	} break;
+	case 'H': {
+		estra = new depredacion();
+	} break;
+	case 'C': {
+		estra = new reproduccion();
+	} break;
+	case 'K': {
+		estra = new consumirRecurso();
+	}
+	case 'x': {
+		estra = new cambiaDireccion();
+	}
+	}
+	return estra;
+}
+//-----------------------------
+void carnivoro::consumirRec() {
+
+}
+void carnivoro::cazar(){
+
 }
 
 string carnivoro::toString() {

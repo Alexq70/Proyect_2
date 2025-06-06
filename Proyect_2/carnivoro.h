@@ -6,6 +6,7 @@
 
 #include <iostream>
 class matriz;
+class estrategia;
 class carnivoro : public criatura {
 private:
 	char tipo = 'C'; // C de carnivoro
@@ -13,7 +14,7 @@ private:
 	int energia;
 	int edad;
 	coordenada posicion;
-	estrategia* estrategia; // Puntero a la estrategia que se usa para moverse y comer
+	estrategia* estra; // Puntero a la estrategia que se usa para moverse y comer
 public:
 	bool operator==(carnivoro& );
 	carnivoro(char tipo,string id , int energia, int edad, coordenada c);
@@ -30,8 +31,10 @@ public:
 	void setCoordenada(coordenada);
 	~carnivoro();
 	//---------------------
-	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
-	
+	char observarEntorno(matriz*); //determina que hay cerca de el para cambiar de estrategia
+	estrategia* cambiarEstrategia(matriz*);
+	void consumirRec();
+	void cazar();
 	string toString();
 
 };

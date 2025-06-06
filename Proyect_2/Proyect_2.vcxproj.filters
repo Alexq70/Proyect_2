@@ -197,7 +197,7 @@
     <ClInclude Include="coordenada.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Matriz.h">
+    <ClInclude Include="matriz.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="elemento.h">

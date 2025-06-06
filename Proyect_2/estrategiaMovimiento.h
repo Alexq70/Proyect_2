@@ -1,11 +1,9 @@
 #pragma once
-#ifndef estrategiaMoviento_h
-#define estrategiaMoviento_h
-#include "estrategia.h"
 
-class estrategiaMovimiento : public estrategia{
+#include "estrategia.h"
+class matriz;
+class estrategiaMovimiento : public estrategia {
 public:
-	virtual ~estrategiaMovimiento() = default;
-	virtual void realizarEstrategia() = 0;
+    virtual void realizarEstrategia(elemento*, matriz*) = 0;
 };
-#endif 
+

@@ -48,12 +48,15 @@ bool matriz::eliminarElemento(int x, int y)
 		return false;// ya esta vacio
 	}
 }
-char matriz::verificarCoordenada(int x, int y) {
-	if (m[x][y] == nullptr) {
-		return 'n'; // no hay nada en esa coordenada
+elemento* matriz::verificarCoordenada(coordenada c) {
+
+	if (m[c.getX()][c.getY()] == nullptr) {
+		return nullptr; // no hay nada en esa coordenada
 	}
-	return m[x][y]->getTipo();
+	return m[c.getX()][c.getY()];
 }
+
+
 
 string matriz::mostrarMatriz()
 {
