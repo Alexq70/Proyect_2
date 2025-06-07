@@ -1,9 +1,7 @@
-#pragma once
+#ifndef estrategiaMovimiento_h
+#define estrategiaMovimiento_h
 
 #include "estrategia.h"
-class matriz;
-class estrategiaMovimiento : public estrategia {
-public:
-    virtual void realizarEstrategia(elemento*, matriz*) = 0;
-};
+class estrategiaMovimiento : public estrategia {};
 
+#endif 

@@ -141,16 +141,10 @@
     <ClCompile Include="depredacion.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="cambiaDireccion.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="reproduccion.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="explorarMapa.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="utilesEstrategias.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,16 +248,10 @@
     <ClInclude Include="depredacion.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cambiaDireccion.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="reproduccion.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="explorarMapa.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="utilesEstrategias.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

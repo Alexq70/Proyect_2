@@ -1,12 +1,18 @@
 #pragma once
 #include "criatura.h"
 #include "coordenada.h"
-#include "matriz.h"
-#include "utilesEstrategias.h"
 
-#include <iostream>
 class matriz;
 class estrategia;
+class estrategiaMovimineto;
+class estrategiaAlimentacion;
+class consumirRecurso;
+class depredacion;
+class explorarMapa;
+class reproduccion;
+
+#include <iostream>
+
 class carnivoro : public criatura {
 private:
 	char tipo = 'C'; // C de carnivoro
@@ -31,8 +37,8 @@ public:
 	void setCoordenada(coordenada);
 	~carnivoro();
 	//---------------------
-	char observarEntorno(matriz*); //determina que hay cerca de el para cambiar de estrategia
-	estrategia* cambiarEstrategia(matriz*);
+	//char observarEntorno(matriz*); //determina que hay cerca de el para cambiar de estrategia
+	//estrategia* cambiarEstrategia(matriz*);
 	void consumirRec();
 	void cazar();
 	string toString();

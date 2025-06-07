@@ -1,8 +1,16 @@
 #pragma once
 #include "criatura.h"
 #include "coordenada.h"
-#include "utilesEstrategias.h"
+
 class matriz;
+class estrategia;
+class estrategiaMovimineto;
+class estrategiaAlimentacion;
+class consumirRecurso;
+class depredacion;
+class explorarMapa;
+class reproduccion;
+
 class omnivoro : public criatura{
 private:
 	char tipo = 'O'; // O de omnivoro
@@ -10,7 +18,7 @@ private:
 	int energia;
 	int edad;
 	coordenada posicion;
-	estrategia* estra;
+	/*estrategia* estra;*/
 public:
 	bool operator==(omnivoro&);
 	omnivoro(char tipo,string id , int energia, int edad, coordenada c);
@@ -28,8 +36,8 @@ public:
 	~omnivoro();
 	string toString();
 	//----------------------
-	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
-	estrategia* cambiarEstrategia(matriz*);
+	//char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
+	//estrategia* cambiarEstrategia(matriz*);
 };
 ostream& operator<<(ostream&, omnivoro&);
 

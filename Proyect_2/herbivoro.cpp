@@ -1,4 +1,12 @@
 #include "herbivoro.h"
+#include"estrategia.h"
+#include "matriz.h"
+#include "estrategiaMovimiento.h"
+#include "estrategiaAlimentacion.h"
+#include "consumirRecurso.h"
+#include "reproduccion.h"
+#include "explorarMapa.h"
+#include "depredacion.h"
 
 bool herbivoro::operator==(herbivoro& h)
 {
@@ -14,7 +22,7 @@ herbivoro::herbivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-	estra = new explorarMapa();
+	/*estra = new explorarMapa();*/
 }
 string herbivoro::getId() { return this->id; }
 char herbivoro::getTipo()
@@ -35,28 +43,28 @@ void herbivoro::setCoordenada(coordenada c) {
 herbivoro::~herbivoro()
 {
 }
-char herbivoro::observarEntorno(matriz* m) {
-	return 'n';
-}
-estrategia* herbivoro::cambiarEstrategia(matriz* m) {
-	char opcion = observarEntorno(m);
-	switch (opcion) {
-	case 'n': {
-		estra = new explorarMapa();
-	} break;
-	case 'A': {
-		estra = new consumirRecurso();
-	} break;
-	case 'H': {
-		estra = new reproduccion();
-	} break;
-
-	case 'x': {
-		estra = new cambiaDireccion();
-	}
-	}
-	return estra;
-}
+//char herbivoro::observarEntorno(matriz* m) {
+//	return 'n';
+//}
+//estrategia* herbivoro::cambiarEstrategia(matriz* m) {
+//	char opcion = observarEntorno(m);
+//	switch (opcion) {
+//	case 'n': {
+//		estra = new explorarMapa();
+//	} break;
+//	case 'A': {
+//		estra = new consumirRecurso();
+//	} break;
+//	case 'H': {
+//		estra = new reproduccion();
+//	} break;
+//
+//	case 'x': {
+//		estra = new cambiaDireccion();
+//	}
+//	}
+//	return estra;
+//}
 //--------------------
 string herbivoro::toString() {
 	stringstream s;
