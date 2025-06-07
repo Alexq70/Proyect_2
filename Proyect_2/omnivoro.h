@@ -47,6 +47,7 @@ public:
 	coordenada observarD_abajo_D(); // observar diagonal abajo derecha
 	//-----------------------------------------------------------------
 	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
+	coordenada siguienteMovimiento(matriz*);
 	estrategia* cambiarEstrategia(matriz*);
 	void consumirRec();
 };
