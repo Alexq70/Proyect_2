@@ -43,9 +43,28 @@ void herbivoro::setCoordenada(coordenada c) {
 herbivoro::~herbivoro()
 {
 }
+//--------------------------------------------------------------------
 char herbivoro::observarEntorno(matriz* m) {
+	coordenada copia = posicion;
+	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
+		observarDerecha(),observarD_abajo_D(),observarAbajo(),
+		observarD_abajo_I(), observarIzquierda(),
+		observarD_arriba_I(), };
+
+	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
+		copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
+
+	for (int i = 0; i < 8; i++) {
+		coordenada actual = observadas[i];
+		if(disponible[i]) {
+			if (m->verificarCoordenada(actual)) {
+				return m->verificarCoordenada(actual)->getTipo();
+			}
+		}
+	}
 	return 'n';
 }
+//----------------------------------------------------------------------
 estrategia* herbivoro::cambiarEstrategia(matriz* m) {
 	char opcion = observarEntorno(m);
 	switch (opcion) {
@@ -61,6 +80,63 @@ estrategia* herbivoro::cambiarEstrategia(matriz* m) {
 	}
 	return estra;
 }
+
+void herbivoro::consumirRec() {
+	energia += 5;
+}
+//------------------------------------
+//Metodos de observacion
+
+coordenada herbivoro::observarArriba() {
+	coordenada observada;
+	observada.setX(posicion.getX() - 1);
+	observada.setY(posicion.getY());
+	return observada;
+
+}
+coordenada herbivoro::observarAbajo() {
+	coordenada observada;
+	observada.setX(posicion.getX() + 1);
+	observada.setY(posicion.getY());
+	return observada;
+}
+coordenada herbivoro::observarIzquierda() {
+	coordenada observada;
+	observada.setX(posicion.getX());
+	observada.setY(posicion.getY() - 1);
+	return observada;
+}
+coordenada herbivoro::observarDerecha() {
+	coordenada observada;
+	observada.setX(posicion.getX());
+	observada.setY(posicion.getY() + 1);
+	return observada;
+}
+coordenada herbivoro::observarD_arriba_I() {
+	coordenada observada;
+	observada.setY(posicion.getY() - 1);
+	observada.setX(posicion.getX() - 1);
+	return observada;
+} // observar diagonal arriba izquierda
+coordenada herbivoro::observarD_arriba_D() {
+	coordenada observada;
+	observada.setY(posicion.getY() + 1);
+	observada.setX(posicion.getX() - 1);
+	return observada;
+}// observar diagonal arriba derecha
+coordenada herbivoro::observarD_abajo_I() {
+	coordenada observada;
+	observada.setY(posicion.getY() - 1);
+	observada.setX(posicion.getX() + 1);
+	return observada;
+} // observar diagonal abajo izquierda
+coordenada herbivoro::observarD_abajo_D() {
+	coordenada observada;
+	observada.setY(posicion.getY() + 1);
+	observada.setX(posicion.getX() + 1);
+	return observada;
+}// observar diagonal abajo derecha
+
 //--------------------
 string herbivoro::toString() {
 	stringstream s;

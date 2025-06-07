@@ -24,11 +24,7 @@ carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->posicion = c;
 	estra = new consumirRecurso();
 }
-void carnivoro::comer()
-{
-	// Implementar la lógica de comer para el carnivoro
-	// Por ejemplo, podría reducir la energía al comer un recurso
-}
+
 string carnivoro::getId() { return this->id; }
 char carnivoro::getTipo()
 {
@@ -49,11 +45,24 @@ void carnivoro::setCoordenada(coordenada c) {
 carnivoro::~carnivoro() {}
 
 char carnivoro::observarEntorno(matriz* m){
-	coordenada original = posicion;
-	original.moverseArriba();
-	m->coordenadaDisponibleM(original);
+	coordenada copia = posicion; 
+	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
+		observarDerecha(),observarD_abajo_D(),observarAbajo(),
+		observarD_abajo_I(), observarIzquierda(),
+		observarD_arriba_I(), };
 
-	return 'n'; // retorna esto cuando no tiene nada alrededor, tiene que habe run caso x para que cambie de direccion
+	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
+	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba()};
+
+	for (int i = 0; i < 8; i++) {
+		coordenada actual = observadas[i];
+		if (disponible[i]) {
+			if (m->verificarCoordenada(actual)) {
+				return m->verificarCoordenada(actual)->getTipo();
+			}
+		}
+	}
+	return 'n';
 }
 
 estrategia* carnivoro::cambiarEstrategia(matriz* m) {
@@ -82,11 +91,60 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 }
 //-----------------------------
 void carnivoro::consumirRec() {
+	energia += 5;
+}
+
+//Metodos de observacion
+
+coordenada carnivoro::observarArriba() { 
+	coordenada observada;
+	observada.setX(posicion.getX() -1);
+	observada.setY(posicion.getY());
+	return observada;
 
 }
-void carnivoro::cazar(){
-
+coordenada carnivoro::observarAbajo() {
+	coordenada observada;
+	observada.setX(posicion.getX() +1);
+	observada.setY(posicion.getY());
+	return observada;
 }
+coordenada carnivoro::observarIzquierda() {
+	coordenada observada;
+	observada.setX(posicion.getX());
+	observada.setY(posicion.getY() -1);
+	return observada;
+}
+coordenada carnivoro::observarDerecha() {
+	coordenada observada;
+	observada.setX(posicion.getX());
+	observada.setY(posicion.getY() +1);
+	return observada;
+}
+coordenada carnivoro::observarD_arriba_I() {
+	coordenada observada;
+	observada.setY(posicion.getY() - 1);
+	observada.setX(posicion.getX() - 1);
+	return observada;
+} // observar diagonal arriba izquierda
+coordenada carnivoro::observarD_arriba_D() {
+	coordenada observada;
+	observada.setY(posicion.getY() + 1);
+	observada.setX(posicion.getX() - 1);
+	return observada;
+}// observar diagonal arriba derecha
+coordenada carnivoro::observarD_abajo_I() { 
+	coordenada observada;
+	observada.setY(posicion.getY() - 1);
+	observada.setX(posicion.getX() +1);
+	return observada;
+} // observar diagonal abajo izquierda
+coordenada carnivoro::observarD_abajo_D() { 
+	coordenada observada;
+	observada.setY(posicion.getY() + 1);
+	observada.setX(posicion.getX() + 1 );
+	return observada;
+}// observar diagonal abajo derecha
 
 string carnivoro::toString() {
 	stringstream s;

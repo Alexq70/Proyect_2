@@ -45,12 +45,82 @@ void omnivoro::setCoordenada(coordenada c) {
 omnivoro::~omnivoro()
 {
 }
+//--------------------------------------------------------------------------
+//Metodos de observacion
+
+coordenada omnivoro::observarArriba() {
+	coordenada observada;
+	observada.setX(posicion.getX() - 1);
+	observada.setY(posicion.getY());
+	return observada;
+
+}
+coordenada omnivoro::observarAbajo() {
+	coordenada observada;
+	observada.setX(posicion.getX() + 1);
+	observada.setY(posicion.getY());
+	return observada;
+}
+coordenada omnivoro::observarIzquierda() {
+	coordenada observada;
+	observada.setX(posicion.getX());
+	observada.setY(posicion.getY() - 1);
+	return observada;
+}
+coordenada omnivoro::observarDerecha() {
+	coordenada observada;
+	observada.setX(posicion.getX());
+	observada.setY(posicion.getY() + 1);
+	return observada;
+}
+coordenada omnivoro::observarD_arriba_I() {
+	coordenada observada;
+	observada.setY(posicion.getY() - 1);
+	observada.setX(posicion.getX() - 1);
+	return observada;
+} // observar diagonal arriba izquierda
+coordenada omnivoro::observarD_arriba_D() {
+	coordenada observada;
+	observada.setY(posicion.getY() + 1);
+	observada.setX(posicion.getX() - 1);
+	return observada;
+}// observar diagonal arriba derecha
+coordenada omnivoro::observarD_abajo_I() {
+	coordenada observada;
+	observada.setY(posicion.getY() - 1);
+	observada.setX(posicion.getX() + 1);
+	return observada;
+} // observar diagonal abajo izquierda
+coordenada omnivoro::observarD_abajo_D() {
+	coordenada observada;
+	observada.setY(posicion.getY() + 1);
+	observada.setX(posicion.getX() + 1);
+	return observada;
+}// observar diagonal abajo derecha
+
+//-------------------------------------------------------------------------------------------------------------
 char omnivoro::observarEntorno(matriz* m) {
+	coordenada copia = posicion;
+	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
+		observarDerecha(),observarD_abajo_D(),observarAbajo(),
+		observarD_abajo_I(), observarIzquierda(),
+		observarD_arriba_I(), };
+	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
+		copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
+
+	for (int i = 0; i < 8; i++) {
+		coordenada actual = observadas[i];
+		if (disponible[i]) {
+			if (m->verificarCoordenada(actual)) {
+				return m->verificarCoordenada(actual)->getTipo();
+			}
+		}
+	}
 	return 'n';
 }
 
 
-estrategia*  omnivoro::cambiarEstrategia(matriz* m) {
+estrategia* omnivoro::cambiarEstrategia(matriz* m) {
 	char opcion = observarEntorno(m);
 	switch (opcion) {
 	case 'n': {
@@ -68,10 +138,17 @@ estrategia*  omnivoro::cambiarEstrategia(matriz* m) {
 	case 'K': {
 		estra = new consumirRecurso();
 	}
+	case 'P': {
+		estra = new consumirRecurso();
+	} break;
+			return estra;
 	}
-	return estra;
 }
-//--------------------
+
+void omnivoro::consumirRec() {
+	energia += 5; // Aumenta la energia al consumir un recurso
+}
+//--------------------------------------------------------------
 string omnivoro::toString() {
 	stringstream s;
 	s << "criatura onmivoro" << endl

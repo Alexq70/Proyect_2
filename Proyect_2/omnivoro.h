@@ -22,22 +22,33 @@ private:
 public:
 	bool operator==(omnivoro&);
 	omnivoro(char tipo,string id , int energia, int edad, coordenada c);
+	string toString();
+	//-----------------------------------------------------------------
+	~omnivoro();
 	void comer();
 	string getId();
 	char getTipo();
 	int getEnergia();
 	int getEdad();
 	coordenada& getCoordenada();
-	//---------------------
+	//-----------------------------------------------------------------
 	void setTipo(char tipo);
 	void setEnergia(int);
 	void setEdad(int);
 	void setCoordenada(coordenada);
-	~omnivoro();
-	string toString();
-	//----------------------
+	//-----------------------------------------------------------------
+	coordenada observarArriba();
+	coordenada observarAbajo();
+	coordenada observarIzquierda();
+	coordenada observarDerecha();
+	coordenada observarD_arriba_I(); // observar diagonal arriba izquierda
+	coordenada observarD_arriba_D(); // observar diagonal arriba derecha
+	coordenada observarD_abajo_I(); // observar diagonal abajo izquierda
+	coordenada observarD_abajo_D(); // observar diagonal abajo derecha
+	//-----------------------------------------------------------------
 	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
 	estrategia* cambiarEstrategia(matriz*);
+	void consumirRec();
 };
 ostream& operator<<(ostream&, omnivoro&);
 
