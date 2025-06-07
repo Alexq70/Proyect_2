@@ -37,8 +37,8 @@ public:
 	void setCoordenada(coordenada);
 	~carnivoro();
 	//---------------------
-	//char observarEntorno(matriz*); //determina que hay cerca de el para cambiar de estrategia
-	//estrategia* cambiarEstrategia(matriz*);
+	char observarEntorno(matriz*); //determina que hay cerca de el para cambiar de estrategia
+	estrategia* cambiarEstrategia(matriz*);
 	void consumirRec();
 	void cazar();
 	string toString();

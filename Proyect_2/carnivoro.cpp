@@ -22,7 +22,7 @@ carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-	estra = new depredacion();
+	estra = new consumirRecurso();
 }
 void carnivoro::comer()
 {
@@ -48,41 +48,38 @@ void carnivoro::setCoordenada(coordenada c) {
 //--------------------
 carnivoro::~carnivoro() {}
 
-//char carnivoro::observarEntorno(matriz* m){
-//	coordenada original = posicion;
-//	original.moverseArriba();
-//	m->coordenadaDisponibleM(original);
-//
-//	return 'n'; // retorna esto cuando no tiene nada alrededor, tiene que habe run caso x para que cambie de direccion
-//}
+char carnivoro::observarEntorno(matriz* m){
+	coordenada original = posicion;
+	original.moverseArriba();
+	m->coordenadaDisponibleM(original);
 
-//estrategia* carnivoro::cambiarEstrategia(matriz* m) {
-//	char opcion = observarEntorno(m);
-//	switch (opcion) {
-//	case 'n': {
-//		estra = new explorarMapa();
-//	} break;
-//	case 'A': {
-//		estra = new consumirRecurso();
-//	} break;
-//	case 'O': {
-//		estra = new depredacion();
-//	} break;
-//	case 'H': {
-//		estra = new depredacion();
-//	} break;
-//	case 'C': {
-//		estra = new reproduccion();
-//	} break;
-//	case 'K': {
-//		estra = new consumirRecurso();
-//	}
-//	case 'x': {
-//		estra = new cambiaDireccion();
-//	}
-//	}
-//	return estra;
-//}
+	return 'n'; // retorna esto cuando no tiene nada alrededor, tiene que habe run caso x para que cambie de direccion
+}
+
+estrategia* carnivoro::cambiarEstrategia(matriz* m) {
+	char opcion = observarEntorno(m);
+	switch (opcion) {
+	case 'n': {
+		estra = new explorarMapa();
+	} break;
+	case 'A': {
+		estra = new consumirRecurso();
+	} break;
+	case 'O': {
+		estra = new depredacion();
+	} break;
+	case 'H': {
+		estra = new depredacion();
+	} break;
+	case 'C': {
+		estra = new reproduccion();
+	} break;
+	case 'K': {
+		estra = new consumirRecurso();
+	}
+	}
+	return estra;
+}
 //-----------------------------
 void carnivoro::consumirRec() {
 

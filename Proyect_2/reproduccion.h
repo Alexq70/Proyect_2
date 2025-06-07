@@ -1,10 +1,15 @@
 #pragma once
+#ifndef REPRODUCCION_H
+#define REPRODUCCION_H
+
 
 #include "estrategiaMovimiento.h"
 
-class Reproduccion : public estrategiaMovimiento {
-
+class reproduccion : public estrategiaMovimiento {
+public:
+	void realizarEstrategia(elemento*,matriz*);
 };
 
 
+#endif 
 

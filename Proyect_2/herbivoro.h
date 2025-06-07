@@ -18,7 +18,7 @@ private:
 	int energia;
 	int edad;
 	coordenada posicion;
-	//estrategia* estra;
+	estrategia* estra;
 public:
 	bool operator==(herbivoro&);
 	herbivoro(char tipo,string id , int energia, int edad, coordenada c);
@@ -35,8 +35,8 @@ public:
 	~herbivoro();
 	string toString();
 	//---------------------
-	//char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
-	//estrategia* cambiarEstrategia(matriz*);
+	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
+	estrategia* cambiarEstrategia(matriz*);
 };
 ostream& operator<<(ostream&, herbivoro&);
 

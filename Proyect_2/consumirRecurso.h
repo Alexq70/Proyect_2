@@ -3,6 +3,7 @@
 #include "estrategiaAlimentacion.h"
 
 class consumirRecurso : public estrategiaAlimentacion {
-
+public:
+	void realizarEstrategia(elemento*,elemento*,matriz*);
 };
 #endif
