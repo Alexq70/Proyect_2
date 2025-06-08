@@ -5,6 +5,7 @@
 
 class estrategia {	
 public:
+	virtual ~estrategia() = 0;
 };
 
 #endif 

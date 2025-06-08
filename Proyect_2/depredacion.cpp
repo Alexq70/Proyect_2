@@ -1,7 +1,7 @@
 #include "depredacion.h"
 
-void depredacion::realizarEstrategia(elemento* propio, elemento* otro, matriz* m) {
-	coordenada nueva = otro->getCoordenada();
+void depredacion::realizarEstrategia(elemento* propio, coordenada otro, matriz* m) {
+	coordenada nueva = otro;
 	int x = nueva.getX();
 	int y = nueva.getY();
 

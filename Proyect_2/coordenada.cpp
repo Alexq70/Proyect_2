@@ -20,27 +20,24 @@ void coordenada::setY(int y) {
 //------------------------------------------
 bool coordenada::moverseIzquierda() {
 	if (y>0 && y<=14) {
-		y += -1;
 		return true;
 	}
 	return false;
 }
-bool  coordenada::moverseDerecha() {
+bool coordenada::moverseDerecha() {
 	if(y >= 0 && y < 14) {
-		y += 1;
 		return true;
 	}
+	return false;
 }
 bool  coordenada::moverseArriba() {
 	if(x > 0 && x <= 14) {
-		x += -1;
 		return true;
 	}
 	return false;
 }
 bool  coordenada::moverseAbajo() {
 	if(x >= 0 && x < 14) {
-		x += 1;
 		return true;
 	}
 	return false;

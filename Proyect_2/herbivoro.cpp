@@ -22,7 +22,7 @@ herbivoro::herbivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-	estra = new explorarMapa();
+	estra = nullptr;
 }
 string herbivoro::getId() { return this->id; }
 char herbivoro::getTipo()
@@ -65,6 +65,26 @@ char herbivoro::observarEntorno(matriz* m) {
 	return 'n';
 }
 
+coordenada herbivoro::observarPosicion(matriz* m) {
+	coordenada copia = posicion;
+	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
+		observarDerecha(),observarD_abajo_D(),observarAbajo(),
+		observarD_abajo_I(), observarIzquierda(),
+		observarD_arriba_I(), };
+
+	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
+	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
+
+	for (int i = 0; i < 8; i++) {
+		coordenada actual = observadas[i];
+		if (disponible[i]) {
+			if (m->verificarCoordenada(actual)) {
+				return m->verificarCoordenada(actual)->getCoordenada();
+			}
+		}
+	}
+} //observa una posicion concreta del mapa
+
 coordenada herbivoro::siguienteMovimiento(matriz* m) {
 	coordenada copia = posicion;
 
@@ -89,7 +109,7 @@ coordenada herbivoro::siguienteMovimiento(matriz* m) {
 
 	static random_device rd;
 	static mt19937 gen(rd());
-	static uniform_int_distribution<> dis(0, elegibles.size());
+	static uniform_int_distribution<> dis(0, elegibles.size()-1);
 	int ubicacion = dis(gen);
 
 
@@ -111,6 +131,27 @@ estrategia* herbivoro::cambiarEstrategia(matriz* m) {
 	} break;
 	}
 	return estra;
+}
+
+void herbivoro::sobrevivir(matriz* m) {
+	coordenada aux = observarPosicion(m);
+	explorarMapa* e = dynamic_cast<explorarMapa*>(estra);
+	consumirRecurso* c = dynamic_cast<consumirRecurso*>(estra);
+	depredacion* d = dynamic_cast<depredacion*>(estra);
+	reproduccion* r = dynamic_cast<reproduccion*>(estra);
+
+	if (e) {
+		e->realizarEstrategia(this, m);
+	}
+	else if (c) {
+		c->realizarEstrategia(this, aux, m);
+	}
+	else if (d) {
+		d->realizarEstrategia(this, aux, m);
+	}
+	else if (r) {
+		r->realizarEstrategia(this, m);
+	}
 }
 
 void herbivoro::consumirRec() {

@@ -4,6 +4,6 @@
 
 class consumirRecurso : public estrategiaAlimentacion {
 public:
-	void realizarEstrategia(elemento*,elemento*,matriz*);
+	void realizarEstrategia(elemento*,coordenada,matriz*);
 };
 #endif

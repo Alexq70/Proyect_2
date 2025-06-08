@@ -5,6 +5,6 @@
 
 class estrategiaAlimentacion : public estrategia {
 public:
-	virtual void realizarEstrategia(elemento*, elemento*, matriz*) = 0;
+	virtual void realizarEstrategia(elemento*, coordenada, matriz*) = 0;
 };
 #endif 

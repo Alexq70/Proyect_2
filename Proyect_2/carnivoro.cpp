@@ -22,7 +22,7 @@ carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) 
 	this->energia = energia;
 	this->edad = edad;
 	this->posicion = c;
-	estra = new consumirRecurso();
+	estra = nullptr;
 }
 
 string carnivoro::getId() { return this->id; }
@@ -64,7 +64,25 @@ char carnivoro::observarEntorno(matriz* m){
 	}
 	return 'n';
 }
+coordenada carnivoro::observarPosicion(matriz* m) {
+	coordenada copia = posicion;
+	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
+		observarDerecha(),observarD_abajo_D(),observarAbajo(),
+		observarD_abajo_I(), observarIzquierda(),
+		observarD_arriba_I(), };
 
+	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
+	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
+
+	for (int i = 0; i < 8; i++) {
+		coordenada actual = observadas[i];
+		if (disponible[i]) {
+			if (m->verificarCoordenada(actual)) {
+				return m->verificarCoordenada(actual)->getCoordenada();
+			}
+		}
+	}
+} //observa una posicion concreta del mapa
 coordenada carnivoro::siguienteMovimiento(matriz* m) {
 	coordenada copia = posicion;
 
@@ -89,11 +107,11 @@ coordenada carnivoro::siguienteMovimiento(matriz* m) {
 
 	static random_device rd;
 	static mt19937 gen(rd());
-	static uniform_int_distribution<> dis(0,elegibles.size());
+	static uniform_int_distribution<> dis(0,elegibles.size()-1);
 	int ubicacion = dis(gen);
 
 
-	return elegibles[ubicacion];
+	return elegibles[ubicacion]; //retorna un movimiento diponible a su alrededor
 }
 
 estrategia* carnivoro::cambiarEstrategia(matriz* m) {
@@ -118,7 +136,28 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 		estra = new consumirRecurso();
 	}
 	}
+	
 	return estra;
+}
+
+void carnivoro::sobrevivir(matriz* m){
+	coordenada aux = observarPosicion(m);
+	explorarMapa* e = dynamic_cast<explorarMapa*>(estra);
+	consumirRecurso* c = dynamic_cast<consumirRecurso*>(estra);
+	depredacion* d = dynamic_cast<depredacion*>(estra);
+	reproduccion* r = dynamic_cast<reproduccion*>(estra);
+	if (e) {
+		e->realizarEstrategia(this,m);
+	}
+	else if (c) {
+		c->realizarEstrategia(this,aux,m);
+	}
+	else if (d) {
+		d->realizarEstrategia(this,aux,m);
+	}
+	else if (r) {
+		r->realizarEstrategia(this,m);
+	}
 }
 //-----------------------------
 void carnivoro::consumirRec() {
