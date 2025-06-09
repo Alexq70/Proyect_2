@@ -4,47 +4,108 @@ interfaz::interfaz()
 {
 	this->comenzar();
 }
+
+void interfaz::generarDecoracion() {
+    // Inicializar todo vacío
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 15; j++) {
+            decoracion[i][j] = ' ';
+        }
+    }
+
+    // Poner bastante pasto alto (^)
+    int cantidadPasto = 40; // puedes ajustar este número
+
+    for (int k = 0; k < cantidadPasto; k++) {
+        int x = rand() % 15;
+        int y = rand() % 15;
+        decoracion[x][y] = '^';
+    }
+}
+
 void interfaz::mostrarMatrizConColores(string matriz) {
-	string matrizStr = matriz; // obtener la matriz en string
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	for (char c : matrizStr) {
-		// Cambiar color según el carácter
-		if (c == 'H') {
-			SetConsoleTextAttribute(hConsole, 10); // verde claro
-		}
-		else if (c == 'C') {
-			SetConsoleTextAttribute(hConsole, 12); // rojo claro
-		}
-		else if (c == 'O') {
-			SetConsoleTextAttribute(hConsole, 9); // azul claro
-		}
-		else if (c == 'A') {
-			SetConsoleTextAttribute(hConsole, 11); // cyan claro
-		}
-		else if (c == 'K') {
-			SetConsoleTextAttribute(hConsole, 13); // magenta claro
-		}
-		else if (c == 'P') {
-			SetConsoleTextAttribute(hConsole, 14); // amarillo claro
-		}
-		else {
-			SetConsoleTextAttribute(hConsole, 7); // color normal (para '.' o '\n' u otro)
-		}
+    // Opción PRO: limpiar consola al inicio (solo si quieres que siempre refresque bonito)
+    // system("cls");
 
-		// Mostrar el carácter
-		cout << c;
-	}
+    int fila = 0;
+    int col = 0;
 
-	// Al final, resetear color por seguridad
-	SetConsoleTextAttribute(hConsole, 7);
+    for (char c : matriz) {
+        WORD fondoVerde = (2 << 4); // fondo verde (pasto base)
+
+        if (c == 'H') {
+            SetConsoleTextAttribute(hConsole, fondoVerde | 15);
+            cout << "H";
+        }
+        else if (c == 'C') {
+            SetConsoleTextAttribute(hConsole, fondoVerde | 12);
+            cout << "C";
+        }
+        else if (c == 'O') {
+            SetConsoleTextAttribute(hConsole, fondoVerde | 9);
+            cout << "O";
+        }
+        else if (c == 'A') {
+            SetConsoleTextAttribute(hConsole, fondoVerde | 11);
+            cout << "A";
+        }
+        else if (c == 'K') {
+            SetConsoleTextAttribute(hConsole, fondoVerde | 5);
+            cout << "K";
+        }
+        else if (c == 'P') {
+            SetConsoleTextAttribute(hConsole, fondoVerde | 14);
+            cout << "P";
+        }
+        else if (c == '.') {
+            // Consultar decoracion[fila][col]
+            char deco = decoracion[fila][col];
+
+            if (deco == '^') {
+                // Pasto alto
+                SetConsoleTextAttribute(hConsole, (2 << 4) | 10); // fondo verde, texto verde claro
+                cout << "^";
+            }
+            else {
+                // Pasto normal
+                SetConsoleTextAttribute(hConsole, fondoVerde | 0);
+                cout << ".";
+            }
+        }
+        else if (c == '\n') {
+            // Muy importante: resetear color ANTES de hacer endl
+            SetConsoleTextAttribute(hConsole, 7);
+            cout << endl;
+            fila++;
+            col = 0;
+            continue;
+        }
+        else {
+            // Cualquier otro carácter no esperado
+            SetConsoleTextAttribute(hConsole, fondoVerde | 7);
+            cout << c;
+        }
+
+        col++;
+    }
+
+    // Resetear color al final por seguridad
+    SetConsoleTextAttribute(hConsole, 7);
+    cout << endl;
 }
 
 void interfaz::comenzar() {
 	int tick = 0;
 	ecosistema* eco = new ecosistema();
 	elemento* e = eco->crearElementoEspecifico('H');
-	elemento* e2 = eco->crearElementoEspecifico('H');
+	elemento* e2 = eco->crearElementoEspecifico('C');
+	elemento* e3 = eco->crearElementoEspecifico('P');
+	elemento* e4 = eco->crearElementoEspecifico('O');
+	elemento* e5 = eco->crearElementoEspecifico('A');
+	elemento* e6 = eco->crearElementoEspecifico('K');
+    generarDecoracion();
 	
 	
 

@@ -27,9 +27,12 @@
 using namespace std;
 class interfaz
 {
+private:
+	char decoracion[15][15];
 public:
 	interfaz();
 	void mostrarMatrizConColores(string);
+	void generarDecoracion();
 	void comenzar();
 };
 
