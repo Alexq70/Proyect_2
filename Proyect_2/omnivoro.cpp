@@ -15,6 +15,18 @@ bool omnivoro::operator==(omnivoro& o)
 	}
 	return false;
 }
+
+omnivoro::omnivoro(const omnivoro& otro) {
+	this->id = otro.id;
+	this->tipo = otro.tipo;
+	this->energia = otro.energia;
+	this->edad = otro.edad;
+	estra = nullptr;
+}
+
+elemento* omnivoro::clonar() const {
+	return new omnivoro(*this); // usar *this
+}
 omnivoro::omnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;
@@ -33,7 +45,7 @@ char omnivoro::getTipo()
 }
 int omnivoro::getEnergia() { return this->energia; }
 int omnivoro::getEdad() { return this->edad; }
-coordenada& omnivoro::getCoordenada() { return posicion; }
+coordenada omnivoro::getCoordenada() { return posicion; }
 //---------------------
 void omnivoro::setTipo(char tipo) { this->tipo = tipo; }
 void omnivoro::setEnergia(int energia) { this->energia = energia; }
@@ -42,6 +54,10 @@ void omnivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());
 }
+
+void omnivoro::menosEnergia() { energia += -1; }
+void omnivoro::masEdad() { edad += 1; }
+
 omnivoro::~omnivoro()
 {
 }
@@ -196,7 +212,7 @@ estrategia* omnivoro::cambiarEstrategia(matriz* m) {
 	}
 }
 
-void omnivoro::sobrevivir(matriz* m) {
+void omnivoro::realizarComportamiento(matriz* m) {
 	coordenada aux = observarPosicion(m);
 	explorarMapa* e = dynamic_cast<explorarMapa*>(estra);
 	consumirRecurso* c = dynamic_cast<consumirRecurso*>(estra);
@@ -214,6 +230,11 @@ void omnivoro::sobrevivir(matriz* m) {
 	else if (r) {
 		r->realizarEstrategia(this, m);
 	}
+}
+
+void omnivoro::sobrevivir(matriz* m) {
+	cambiarEstrategia(m);
+	realizarComportamiento(m);
 }
 
 void omnivoro::consumirRec() {

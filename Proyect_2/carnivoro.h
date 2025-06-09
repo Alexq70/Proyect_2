@@ -23,20 +23,24 @@ private:
 	estrategia* estra; // Puntero a la estrategia que se usa para moverse y comer
 public:
 	bool operator==(carnivoro& );
+	elemento* clonar() const ;
 	carnivoro(char tipo,string id , int energia, int edad, coordenada c);
+	carnivoro(const carnivoro&);
 	~carnivoro();
 	string toString();
 	//------------------------------------------------------------
 	string getId();
 	char getTipo();
 	int getEnergia();
-	int getEdad();
-	coordenada& getCoordenada();
+	int getEdad(); 
+	coordenada getCoordenada();
 	//------------------------------------------------------------
 	void setTipo(char tipo);
 	void setEnergia(int);
 	void setEdad(int);
 	void setCoordenada(coordenada);
+	void menosEnergia();
+	void masEdad();
 	//------------------------------------------------------------
 	//Metodos de observacion del animal
 	coordenada observarArriba();
@@ -52,9 +56,13 @@ public:
 	coordenada observarPosicion(matriz*); //observa una posicion concreta del mapa
 	coordenada siguienteMovimiento(matriz*);
 	estrategia* cambiarEstrategia(matriz*);
-	void sobrevivir(matriz*);
+	void realizarComportamiento(matriz*);
 	void consumirRec();
+	void sobrevivir(matriz*);
 
 
+	carnivoro& operator=(const carnivoro& otro);
 };
 ostream& operator<<(ostream&, carnivoro& );
+
+

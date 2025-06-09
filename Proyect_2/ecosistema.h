@@ -8,7 +8,7 @@ private:
 	fabricaElementos* fabrica;
 	coleccionVector<elemento*>* coleccion; // coleccion de elementos que contiene el ecosistema
 	matriz* elementos; // matriz de elementos que contiene el ecosistema
-	int indice = 0; //representa el id actual del iterador
+	int indice; //representa el id actual del iterador
 public:
 	ecosistema();
 	~ecosistema();
@@ -21,6 +21,7 @@ public:
 	void iniciarSimulacion();
 	matriz* getMatriz();
 
+	void setIndice();
 
 
 };

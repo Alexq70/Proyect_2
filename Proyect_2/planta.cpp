@@ -7,7 +7,9 @@ bool planta::operator==(planta& p)
 	}
 	return false;
 }
-
+elemento* planta::clonar() const {
+	return new planta(*this);
+}
 planta::planta(char tipo,string id, coordenada p) {
 	this->id = id;
 	this->tipo = tipo;
@@ -18,7 +20,7 @@ char planta::getTipo()
 {
 	return this->tipo;
 }
-coordenada& planta::getCoordenada() { return posicion; }
+coordenada planta::getCoordenada() { return posicion; }
 //---------------------
 void planta::setTipo(char tipo) { this->tipo = tipo; }
 void planta::setCoordenada(coordenada c) {

@@ -12,7 +12,7 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 		string id = c->getId();
 		int nuevoId = stoi(id.substr(1)) + 100; // cada hijo lleva el id de su padre + 100
 		id = to_string(nuevoId);
-		cor = c->siguienteMovimiento(m);
+		cor = m->coordenadaRandom();
 		hijo = new carnivoro(c->getTipo(), id, c->getEnergia() / 2, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();
@@ -22,7 +22,7 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 		string id = c->getId();
 		int nuevoId = stoi(id.substr(1)) + 100; // cada hijo lleva el id de su padre + 100
 		id = to_string(nuevoId);
-		cor = c->siguienteMovimiento(m);
+		cor = cor = m->coordenadaRandom();
 		hijo = new herbivoro(h->getTipo(), id, c->getEnergia() / 2, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();
@@ -32,7 +32,7 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 		string id = c->getId();
 		int nuevoId = stoi(id.substr(1)) + 100; // cada hijo lleva el id de su padre + 100
 		id = to_string(nuevoId);
-		cor = c->siguienteMovimiento(m);
+		cor = m->coordenadaRandom();
 		hijo = new omnivoro(o->getTipo(), id, c->getEnergia() / 2, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();

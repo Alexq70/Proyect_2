@@ -49,20 +49,26 @@ bool coordenada::diagonalDerechaArriba() {
 	return false;
 }
 bool coordenada::diagonalDerechaAbajo() {
-	if (moverseDerecha() && moverseAbajo()) {
-		return true;
+	if (moverseDerecha()) {
+		if (moverseAbajo()) {
+			return true;
+		}
 	}
 	return false;
 }
 bool coordenada::diagonalIzquierdaAbajo() {
-	if (moverseIzquierda() && moverseAbajo()) {
-		return true;
+	if (moverseIzquierda()) {
+		if (moverseAbajo()) {
+			return true;
+		}
 	}
 	return false;
 }
 bool coordenada::diagonalIzquierdaArriba() {
-	if(moverseIzquierda() && moverseArriba()) {
-		return true;
+	if(moverseIzquierda()) {
+		if (moverseArriba()) {
+			return true;
+		}
 	}
 	return false;
 }

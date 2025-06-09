@@ -2,7 +2,6 @@
 matriz::matriz(coleccionVector<elemento*>* c) : observerVector(c)
 {
 	this->iterador = c->getIterador();
-	
 }
 
 void matriz::actualizar()
@@ -27,7 +26,7 @@ void matriz::actualizar()
 }
 
 bool matriz::insertarElemneto(elemento* e, int x, int y)
-{
+{ 
 	if (m[x][y] == nullptr) {
 		m[x][y] = e;
 	}

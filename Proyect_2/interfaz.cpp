@@ -8,43 +8,55 @@ interfaz::interfaz()
 void interfaz::comenzar() {
 	int tick = 0;
 	ecosistema* eco = new ecosistema();
+	elemento* e = eco->crearElementoEspecifico('H');
+	elemento* e2 = eco->crearElementoEspecifico('H');
+	
 	
 
-	elemento* e = eco->crearElemento();
-	elemento* e2 = eco->crearElemento();
-	elemento* e3 = eco->crearElemento();
-	elemento* e4 = eco->crearElemento();
-	elemento* e5 = eco->crearElemento();
-	
 	while (true) {
 		system("cls");
 		cout << "Bienvenido al simulador de ecosistemas.\n";
 		cout << "Tick: " << tick++ << endl;
+
+
 		eco->getMatriz()->actualizar();
+		cout << e->toString();
+		cout << endl;
+		cout << e2->toString();
+		cout << endl;
+
 		herbivoro* din = dynamic_cast<herbivoro*>(e);
 		carnivoro* car = dynamic_cast<carnivoro*>(e);
 		omnivoro* om = dynamic_cast<omnivoro*>(e);
 
-		if(din) {
-			cout << "Observando\n";
-			cout << din->observarEntorno(eco->getMatriz()) << endl;
-			din->cambiarEstrategia(eco->getMatriz());
-			din->sobrevivir(eco->getMatriz());
-		}
+		herbivoro* din2 = dynamic_cast<herbivoro*>(e2);
+		carnivoro* car2 = dynamic_cast<carnivoro*>(e2);
+		omnivoro* om2 = dynamic_cast<omnivoro*>(e2);
+
 		if (car) {
-			cout << "Observando\n";
-			cout << car->observarEntorno(eco->getMatriz()) << endl;
-			car->cambiarEstrategia(eco->getMatriz());
 			car->sobrevivir(eco->getMatriz());
 		}
+
+		if (din) {
+			din->sobrevivir(eco->getMatriz());
+		}
 		if (om) {
-			cout << "Observando\n";
-			cout << om->observarEntorno(eco->getMatriz()) << endl;
-			om->cambiarEstrategia(eco->getMatriz());
 			om->sobrevivir(eco->getMatriz());
 		}
 
+		if (car2) {
+			car2->sobrevivir(eco->getMatriz());
+		}
+
+		if (din2) {
+			din2->sobrevivir(eco->getMatriz());
+		}
+		if (om2) {
+			om2->sobrevivir(eco->getMatriz());
+		}
+	   
 		cout << eco->getMatriz()->mostrarMatriz() << endl;
+
 		system("pause");
 	}
 }

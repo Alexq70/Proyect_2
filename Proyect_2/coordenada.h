@@ -26,7 +26,7 @@ bool diagonalDerechaAbajo();
 bool diagonalIzquierdaArriba();
 bool diagonalIzquierdaAbajo();
 //------------------------------  
-bool operator==(coordenada& otra) {  
+bool operator==(coordenada otra) {  
 	return (this->x == otra.x && this->y == otra.y);  
 }  
 };

@@ -7,11 +7,12 @@ private:
 	coordenada posicion;
 public:
 	bool operator==(agua&);
+	elemento* clonar() const;
 	agua(char, string, coordenada);
 	//---------------------
 	string getId();
 	char getTipo();
-	coordenada& getCoordenada();
+	coordenada getCoordenada();
 	//---------------------
 	void setTipo(char tipo);
 	void setCoordenada(coordenada pos);

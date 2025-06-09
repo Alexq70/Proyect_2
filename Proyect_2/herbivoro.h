@@ -21,7 +21,9 @@ private:
 	estrategia* estra;
 public:
 	bool operator==(herbivoro&);
+	elemento* clonar() const;
 	herbivoro(char tipo,string id , int energia, int edad, coordenada c);
+	herbivoro(const herbivoro&);
 	~herbivoro();
 	string toString();
 	//------------------------------------------------------------
@@ -29,12 +31,14 @@ public:
 	char getTipo();
 	int getEnergia();
 	int getEdad();
-	coordenada& getCoordenada();
+	coordenada getCoordenada();
 	//------------------------------------------------------------
 	void setTipo(char tipo);
 	void setEnergia(int);
 	void setEdad(int);
 	void setCoordenada(coordenada);
+	void menosEnergia();
+	void masEdad();
 	//------------------------------------------------------------
 	coordenada observarArriba();
 	coordenada observarAbajo();
@@ -49,6 +53,7 @@ public:
 	coordenada observarPosicion(matriz*); //observa una posicion concreta del mapa
 	coordenada siguienteMovimiento(matriz*);
 	estrategia* cambiarEstrategia(matriz*);
+	void realizarComportamiento(matriz*);
 	void sobrevivir(matriz*);
 	void consumirRec();
 };

@@ -26,6 +26,7 @@ public:
 	void updateEliminacion();
 	coordenada coordenadaDisponibleM(coordenada c); // verifica si una coordenada esta disponible
 	coordenada coordenadaRandom(); // genera una coordenada random
+
 };
 #endif 
 

@@ -8,12 +8,18 @@ void explorarMapa::realizarEstrategia(elemento* e, matriz* m) {
 
 	if (c) {
 		c->setCoordenada(c->siguienteMovimiento(m));
+		c->masEdad();
+		c->menosEnergia();
 	}
 	if (h) {
 		h->setCoordenada(h->siguienteMovimiento(m));
+		h->masEdad();
+		h->menosEnergia();
 	}
 	if (o) {
 		o->setCoordenada(o->siguienteMovimiento(m));
+		o->masEdad();
+		o->menosEnergia();
 	}
 
 }

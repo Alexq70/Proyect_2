@@ -7,7 +7,9 @@ bool agua::operator==(agua& a)
 	}
 	return false;
 }
-
+elemento* agua::clonar() const {
+	return new agua(*this);
+}
 agua::agua(char tipo,string id , coordenada p) {
 	this->id = id;
 	this->tipo = tipo;
@@ -15,7 +17,7 @@ agua::agua(char tipo,string id , coordenada p) {
 }
 string agua::getId() { return this->id; }
 char agua::getTipo() { return this->tipo; }
-coordenada& agua::getCoordenada() { return posicion; }
+coordenada agua::getCoordenada() { return posicion; }
 //---------------------
 void agua::setTipo(char tipo) { this->tipo = tipo; }
 void agua::setCoordenada(coordenada c) {

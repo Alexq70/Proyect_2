@@ -8,7 +8,9 @@ bool carne::operator==(carne& p)
 	}
 	return false;
 }
-
+elemento* carne::clonar() const {
+	return new carne(*this);
+}
 carne::carne(char tipo, string id, coordenada p) {
 	this->id = id;
 	this->tipo = tipo;
@@ -19,7 +21,7 @@ char carne::getTipo()
 {
 	return this->tipo;
 }
-coordenada& carne::getCoordenada() { return posicion; }
+coordenada carne::getCoordenada() { return posicion; }
 //---------------------
 void carne::setTipo(char tipo) { this->tipo = tipo; }
 void carne::setCoordenada(coordenada c) {

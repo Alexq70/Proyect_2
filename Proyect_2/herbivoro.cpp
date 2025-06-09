@@ -15,7 +15,17 @@ bool herbivoro::operator==(herbivoro& h)
 	}
 	return false;
 }
+herbivoro::herbivoro(const herbivoro& otro) {
+	this->id = otro.id;
+	this->tipo = otro.tipo;
+	this->energia = otro.energia;
+	this->edad = otro.edad;
+	estra = nullptr;
+}
 
+elemento* herbivoro::clonar() const {
+	return new herbivoro(*this); // usar *this
+}
 herbivoro::herbivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;
@@ -31,7 +41,7 @@ char herbivoro::getTipo()
 }
 int herbivoro::getEnergia() { return this->energia; }
 int herbivoro::getEdad() { return this->edad; }
-coordenada& herbivoro::getCoordenada() { return posicion; }
+coordenada herbivoro::getCoordenada() { return posicion; }
 //---------------------
 void herbivoro::setTipo(char tipo) { this->tipo = tipo; }
 void herbivoro::setEnergia(int energia) { this->energia = energia; }
@@ -40,6 +50,9 @@ void herbivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());
 }
+
+void herbivoro::menosEnergia() { energia += -1; }
+void  herbivoro::masEdad() { edad += 1; }
 herbivoro::~herbivoro()
 {
 }
@@ -126,6 +139,9 @@ estrategia* herbivoro::cambiarEstrategia(matriz* m) {
 	case 'A': {
 		estra = new consumirRecurso();
 	} break;
+	case 'P': {
+		estra = new consumirRecurso();
+	} break;
 	case 'H': {
 		estra = new reproduccion();
 	} break;
@@ -133,7 +149,7 @@ estrategia* herbivoro::cambiarEstrategia(matriz* m) {
 	return estra;
 }
 
-void herbivoro::sobrevivir(matriz* m) {
+void herbivoro::realizarComportamiento(matriz* m) {
 	coordenada aux = observarPosicion(m);
 	explorarMapa* e = dynamic_cast<explorarMapa*>(estra);
 	consumirRecurso* c = dynamic_cast<consumirRecurso*>(estra);
@@ -152,6 +168,11 @@ void herbivoro::sobrevivir(matriz* m) {
 	else if (r) {
 		r->realizarEstrategia(this, m);
 	}
+}
+
+void herbivoro::sobrevivir(matriz* m) {
+	cambiarEstrategia(m);
+	realizarComportamiento(m);
 }
 
 void herbivoro::consumirRec() {

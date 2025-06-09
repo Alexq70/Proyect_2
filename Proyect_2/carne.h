@@ -8,11 +8,12 @@ private:
 	coordenada posicion;
 public:
 	bool operator==(carne&);
+	elemento* clonar() const;
 	carne(char, string, coordenada);
 	//---------------------
 	string getId();
 	char getTipo();
-	coordenada& getCoordenada();
+	coordenada getCoordenada();
 	//---------------------
 	void setTipo(char tipo);
 	void setCoordenada(coordenada pos);

@@ -16,6 +16,17 @@ bool carnivoro::operator==(carnivoro& c)
 	return false;
 }
 
+carnivoro::carnivoro(const carnivoro& otro) {
+	this->id = otro.id;
+	this->tipo = otro.tipo;
+	this->energia = otro.energia;
+	this->edad = otro.edad;
+	estra = nullptr;
+}
+
+elemento* carnivoro::clonar() const {
+	return new carnivoro(*this); // usar *this
+}
 carnivoro::carnivoro(char tipo,string id , int energia, int edad, coordenada c) {
 	this->id = id;
 	this->tipo = tipo;
@@ -31,9 +42,10 @@ char carnivoro::getTipo()
 	return this->tipo;
 }
 int carnivoro::getEnergia() { return this->energia; }
-int carnivoro::getEdad() { return this->edad; }
-coordenada& carnivoro::getCoordenada() { return posicion; }
-//---------------------
+int carnivoro:: getEdad() { return this->edad; }
+
+coordenada carnivoro::getCoordenada() { return posicion; }
+//------------------------------------------------------------
 void carnivoro::setTipo(char tipo) { this->tipo = tipo; }
 void carnivoro::setEnergia(int energia) { this->energia = energia; }
 void carnivoro::setEdad(int edad) { this->edad = edad; }
@@ -41,7 +53,9 @@ void carnivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());
 }
-//--------------------
+void carnivoro::menosEnergia() { energia += -1; }
+void  carnivoro::masEdad() { edad += 1; }
+//------------------------------------------------------------
 carnivoro::~carnivoro() {}
 
 char carnivoro::observarEntorno(matriz* m){
@@ -140,7 +154,7 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 	return estra;
 }
 
-void carnivoro::sobrevivir(matriz* m){
+void carnivoro::realizarComportamiento(matriz* m){
 	coordenada aux = observarPosicion(m);
 	explorarMapa* e = dynamic_cast<explorarMapa*>(estra);
 	consumirRecurso* c = dynamic_cast<consumirRecurso*>(estra);
@@ -158,6 +172,11 @@ void carnivoro::sobrevivir(matriz* m){
 	else if (r) {
 		r->realizarEstrategia(this,m);
 	}
+}
+
+void carnivoro::sobrevivir(matriz* m) {
+	cambiarEstrategia(m);
+	realizarComportamiento(m);
 }
 //-----------------------------
 void carnivoro::consumirRec() {
@@ -225,6 +244,14 @@ string carnivoro::toString() {
 		<< "Energia: " << energia << endl;
 	return s.str();
 } //
+
+carnivoro& carnivoro::operator=(const carnivoro& otro) {
+	this->id = otro.id;
+	this->tipo = otro.tipo;
+	this->energia = otro.energia;
+	this->edad = otro.edad;
+	return *this;
+}
 
 ostream& operator<<(ostream& os, carnivoro& c)
 {

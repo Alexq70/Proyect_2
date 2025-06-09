@@ -5,10 +5,12 @@ ecosistema::ecosistema(){
 	fabrica = nullptr;
 	this->coleccion = new coleccionVector<elemento*>();
 	elementos = new matriz(coleccion);
+	indice = 0;
 }
 ecosistema::~ecosistema(){}
 
 elemento* ecosistema::crearElemento() {
+	setIndice();
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<> dis(0, 4);
@@ -48,11 +50,11 @@ elemento* ecosistema::crearElemento() {
 		return e;
 	} break;
 		  fabrica = nullptr;
-		  indice++;
 	}
 }
 
 	elemento* ecosistema::crearElementoEspecifico(char tipo) {
+		setIndice();
 		string id = to_string(indice);
 		elemento* e = nullptr;
 		if (coordenadaDisponible(coordenadaRandom()) == false) {
@@ -102,7 +104,6 @@ elemento* ecosistema::crearElemento() {
 
 		}
 		fabrica = nullptr;
-		indice++;
 }
 
 bool ecosistema::coordenadaDisponible(coordenada c) {
@@ -121,6 +122,9 @@ matriz* ecosistema::getMatriz()
 	return this->elementos;
 }
 
+void ecosistema::setIndice() {
+	indice += 1;
+}
 
 void ecosistema::iniciarSimulacion() {
 	for (int i = 0; i < 2; i++) {
