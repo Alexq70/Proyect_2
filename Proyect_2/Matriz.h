@@ -5,6 +5,7 @@
 #include "observerVector.h"
 #include "coleccionVector.h"
 #include "coordenada.h"
+#include "windows.h"
 #include "elemento.h"
 #include <iostream>
 #include <sstream>

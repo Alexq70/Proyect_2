@@ -4,6 +4,41 @@ interfaz::interfaz()
 {
 	this->comenzar();
 }
+void interfaz::mostrarMatrizConColores(string matriz) {
+	string matrizStr = matriz; // obtener la matriz en string
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	for (char c : matrizStr) {
+		// Cambiar color según el carácter
+		if (c == 'H') {
+			SetConsoleTextAttribute(hConsole, 10); // verde claro
+		}
+		else if (c == 'C') {
+			SetConsoleTextAttribute(hConsole, 12); // rojo claro
+		}
+		else if (c == 'O') {
+			SetConsoleTextAttribute(hConsole, 9); // azul claro
+		}
+		else if (c == 'A') {
+			SetConsoleTextAttribute(hConsole, 11); // cyan claro
+		}
+		else if (c == 'K') {
+			SetConsoleTextAttribute(hConsole, 13); // magenta claro
+		}
+		else if (c == 'P') {
+			SetConsoleTextAttribute(hConsole, 14); // amarillo claro
+		}
+		else {
+			SetConsoleTextAttribute(hConsole, 7); // color normal (para '.' o '\n' u otro)
+		}
+
+		// Mostrar el carácter
+		cout << c;
+	}
+
+	// Al final, resetear color por seguridad
+	SetConsoleTextAttribute(hConsole, 7);
+}
 
 void interfaz::comenzar() {
 	int tick = 0;
@@ -55,7 +90,8 @@ void interfaz::comenzar() {
 			om2->sobrevivir(eco->getMatriz());
 		}
 	   
-		cout << eco->getMatriz()->mostrarMatriz() << endl;
+		string matriz = eco->getMatriz()->mostrarMatriz();
+		mostrarMatrizConColores(matriz);
 
 		system("pause");
 	}

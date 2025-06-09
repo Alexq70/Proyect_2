@@ -29,6 +29,7 @@ class interfaz
 {
 public:
 	interfaz();
+	void mostrarMatrizConColores(string);
 	void comenzar();
 };
 
