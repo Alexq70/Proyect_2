@@ -2,6 +2,7 @@
 matriz::matriz(coleccionVector<elemento*>* c) : observerVector(c)
 {
 	this->iterador = c->getIterador();
+	col = c;
 }
 
 void matriz::actualizar()
@@ -28,6 +29,7 @@ void matriz::actualizar()
 bool matriz::insertarElemneto(elemento* e, int x, int y)
 { 
 	if (m[x][y] == nullptr) {
+		col->agregarObjeto(e);
 		m[x][y] = e;
 	}
 	else {
@@ -39,6 +41,7 @@ bool matriz::insertarElemneto(elemento* e, int x, int y)
 bool matriz::eliminarElemento(int x, int y)
 {
 	if (m[x][y] != nullptr) {
+		col->eliminarObjeto(m[x][y]);
 		delete m[x][y]; // Liberar memoria del elemento
 		m[x][y] = nullptr; // Marcar la posición como vacía
 		return true; // Eliminación exitosa

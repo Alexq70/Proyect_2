@@ -34,5 +34,6 @@ public:
 	void mostrarMatrizConColores(string);
 	void generarDecoracion();
 	void comenzar();
+
 };
 

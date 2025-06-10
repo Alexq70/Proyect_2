@@ -33,7 +33,7 @@ public:
 	void eliminarObserver(observerVector* o);
 	void notifyCreacion();
 	void notifyEliminacion();
-	
+	int getTamano();
 };
 
 template<class T>
@@ -76,7 +76,7 @@ inline void coleccionVector<T>::agregarObjeto(T& objeto )
 template<class T>
 inline bool coleccionVector<T>::eliminarObjeto(T& objeto)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
 {
-	for (int i = 0; i<=v->size(); i++) {
+	for (int i = 0; i<v->size(); i++) {
 		if (v->at(i) == objeto) { // 
 			v->erase(v->begin()+i);
 			this->notifyEliminacion();
@@ -131,6 +131,10 @@ template<class T>
 inline iteradorVector<T>* coleccionVector<T>::getIterador()
 {
 	return new iteradorVector<T>(this->v);
+}
+template <class T>
+inline int coleccionVector<T>::getTamano() {
+	return v->size()-1;
 }
 #endif // !COLECCIONVECTOR_H
 

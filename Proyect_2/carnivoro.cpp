@@ -99,7 +99,7 @@ coordenada carnivoro::observarPosicion(matriz* m) {
 } //observa una posicion concreta del mapa
 coordenada carnivoro::siguienteMovimiento(matriz* m) {
 	coordenada copia = posicion;
-
+	int cont = 0;
 	vector<coordenada> elegibles;
 
 	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
@@ -121,7 +121,10 @@ coordenada carnivoro::siguienteMovimiento(matriz* m) {
 
 	static random_device rd;
 	static mt19937 gen(rd());
-	static uniform_int_distribution<> dis(0,elegibles.size()-1);
+	static uniform_int_distribution<> dis(0,(elegibles.size()-1));
+
+
+
 	int ubicacion = dis(gen);
 
 
@@ -149,6 +152,9 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 	case 'K': {
 		estra = new consumirRecurso();
 	}
+	case 'P': {
+		estra = new explorarMapa();
+	} break;
 	}
 	
 	return estra;

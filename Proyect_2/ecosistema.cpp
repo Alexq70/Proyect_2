@@ -127,14 +127,51 @@ void ecosistema::setIndice() {
 }
 
 void ecosistema::iniciarSimulacion() {
-	for (int i = 0; i < 2; i++) {
-		crearElementoEspecifico('A');
-	    crearElementoEspecifico('P');
+
+	// Cantidades coherentes y aleatorias para cada tipo
+	int numCarnivoros = 2 + rand() % 3;   // 2-4 carnívoros
+	int numHerbivoros = 5 + rand() % 6;   // 5-10 herbívoros
+	int numOmnivoros = 2 + rand() % 3;    // 2-4 omnívoros
+	int numPlantas = 10 + rand() % 3;    // 15-25 plantas
+
+	// Crear carnívoros
+	for (int i = 0; i < numCarnivoros; i++) {
 		crearElementoEspecifico('C');
+	}
+	// Crear herbívoros
+	for (int i = 0; i < numHerbivoros; i++) {
 		crearElementoEspecifico('H');
+	}
+	// Crear omnívoros
+	for (int i = 0; i < numOmnivoros; i++) {
 		crearElementoEspecifico('O');
 	}
-	for (int i = 0; i < 5; i++) {
-		crearElemento();
+	// Crear plantas
+	for (int i = 0; i < numPlantas; i++) {
+		crearElementoEspecifico('P');
 	}
+
+}
+
+string ecosistema::procesarSupervivencia() {
+	elementos->actualizar();
+	auto iterador = coleccion->getIterador();
+	   
+	   iterador->first();
+	while (iterador->isDone()) {
+		elemento* e = *iterador->current();
+
+		if (carnivoro* c = dynamic_cast<carnivoro*>(e)) {
+			c->sobrevivir(elementos);
+		}
+		if (herbivoro* h = dynamic_cast<herbivoro*>(e)) {
+			h->sobrevivir(elementos);
+		}
+		if (omnivoro* o = dynamic_cast<omnivoro*>(e)) {
+			o->sobrevivir(elementos);
+		}
+		iterador->next();
+	}
+	string matriz = elementos->mostrarMatriz();
+	return matriz;
 }

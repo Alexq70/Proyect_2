@@ -23,6 +23,6 @@ public:
 
 	void setIndice();
 
-
+	string procesarSupervivencia();
 };
 #endif // !1

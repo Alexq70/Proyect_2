@@ -1,4 +1,5 @@
 #include "interfaz.h"
+#include "windows.h"
 
 interfaz::interfaz()
 {
@@ -97,63 +98,29 @@ void interfaz::mostrarMatrizConColores(string matriz) {
 }
 
 void interfaz::comenzar() {
-	int tick = 0;
-	ecosistema* eco = new ecosistema();
-	elemento* e = eco->crearElementoEspecifico('H');
-	elemento* e2 = eco->crearElementoEspecifico('C');
-	elemento* e3 = eco->crearElementoEspecifico('P');
-	elemento* e4 = eco->crearElementoEspecifico('O');
-	elemento* e5 = eco->crearElementoEspecifico('A');
-	elemento* e6 = eco->crearElementoEspecifico('K');
+    int tick = 0;
+    ecosistema* eco = new ecosistema();
+    elemento* e1 = eco->crearElementoEspecifico('C');
+    for (int i = 0; i < 15; i++) {
+        eco->crearElemento();
+    }
+
     generarDecoracion();
-	
-	
 
-	while (true) {
-		system("cls");
-		cout << "Bienvenido al simulador de ecosistemas.\n";
-		cout << "Tick: " << tick++ << endl;
+    while (tick<=1000
+        
+        ) {
+        system("cls");
+        cout << "Bienvenido al simulador de ecosistemas.\n";
+        cout << "Tick: " << tick++ << endl;
+        eco->getMatriz()->actualizar();
+        cout << endl << endl;
 
-
-		eco->getMatriz()->actualizar();
-		cout << e->toString();
-		cout << endl;
-		cout << e2->toString();
-		cout << endl;
-
-		herbivoro* din = dynamic_cast<herbivoro*>(e);
-		carnivoro* car = dynamic_cast<carnivoro*>(e);
-		omnivoro* om = dynamic_cast<omnivoro*>(e);
-
-		herbivoro* din2 = dynamic_cast<herbivoro*>(e2);
-		carnivoro* car2 = dynamic_cast<carnivoro*>(e2);
-		omnivoro* om2 = dynamic_cast<omnivoro*>(e2);
-
-		if (car) {
-			car->sobrevivir(eco->getMatriz());
-		}
-
-		if (din) {
-			din->sobrevivir(eco->getMatriz());
-		}
-		if (om) {
-			om->sobrevivir(eco->getMatriz());
-		}
-
-		if (car2) {
-			car2->sobrevivir(eco->getMatriz());
-		}
-
-		if (din2) {
-			din2->sobrevivir(eco->getMatriz());
-		}
-		if (om2) {
-			om2->sobrevivir(eco->getMatriz());
-		}
-	   
-		string matriz = eco->getMatriz()->mostrarMatriz();
-		mostrarMatrizConColores(matriz);
-
-		system("pause");
-	}
+        if (carnivoro* c = dynamic_cast<carnivoro*>(e1)) {
+            c->sobrevivir(eco->getMatriz());
+        }
+        string matriz = eco->getMatriz()->mostrarMatriz();
+        mostrarMatrizConColores(matriz);
+        Sleep(1000);
+    }
 }

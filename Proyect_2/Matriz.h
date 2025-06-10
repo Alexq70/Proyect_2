@@ -14,7 +14,7 @@ using namespace std;
 class matriz: public observerVector{
 private:
 	iteradorVector<elemento*>* iterador;
-	coleccionVector<elemento*>* c;
+	coleccionVector<elemento*>* col;
 	elemento* m[15][15];
 public:
 	matriz(coleccionVector<elemento*>*);
