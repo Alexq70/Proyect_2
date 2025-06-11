@@ -9,6 +9,7 @@ void depredacion::realizarEstrategia(elemento* propio, coordenada otro, matriz* 
 
 	m->eliminarElemento(x, y);
 	propio->setCoordenada(otro);
+	m->actualizar();
 	//Aqui se debe de crar una carne y mandarla a la lista a y a la matriz, algo parecido a lo de reproduccion
 	
 }

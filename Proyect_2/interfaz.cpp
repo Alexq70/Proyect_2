@@ -107,9 +107,7 @@ void interfaz::comenzar() {
 
     generarDecoracion();
 
-    while (tick<=1000
-        
-        ) {
+    while (tick<1000) {
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
         cout << "Tick: " << tick++ << endl;
@@ -117,10 +115,19 @@ void interfaz::comenzar() {
         cout << endl << endl;
 
         if (carnivoro* c = dynamic_cast<carnivoro*>(e1)) {
-            c->sobrevivir(eco->getMatriz());
+            cout << "energia sujeto: " << c->getEnergia() << endl;
+            if (c->getEnergia() <= 0) {
+                eco->getMatriz()->eliminarElemento(c->getCoordenada().getX(), c->getCoordenada().getY());
+				tick = 1000; // Terminar simulación si el carnívoro se queda sin energía
+            }
+            else {
+                c->sobrevivir(eco->getMatriz());
+            }
+        
         }
         string matriz = eco->getMatriz()->mostrarMatriz();
         mostrarMatrizConColores(matriz);
         Sleep(1000);
     }
+	cout << "Simulacion finalizada." << endl;
 }

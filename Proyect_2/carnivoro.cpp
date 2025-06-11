@@ -59,7 +59,7 @@ void  carnivoro::masEdad() { edad += 1; }
 carnivoro::~carnivoro() {}
 
 char carnivoro::observarEntorno(matriz* m){
-	coordenada copia = posicion; 
+	coordenada copia = this->posicion; 
 	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
 		observarDerecha(),observarD_abajo_D(),observarAbajo(),
 		observarD_abajo_I(), observarIzquierda(),
@@ -79,11 +79,12 @@ char carnivoro::observarEntorno(matriz* m){
 	return 'n';
 }
 coordenada carnivoro::observarPosicion(matriz* m) {
-	coordenada copia = posicion;
+	coordenada copia = this->posicion;
 	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
 		observarDerecha(),observarD_abajo_D(),observarAbajo(),
 		observarD_abajo_I(), observarIzquierda(),
-		observarD_arriba_I(), };
+		observarD_arriba_I()
+	};
 
 	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
 	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
@@ -98,30 +99,29 @@ coordenada carnivoro::observarPosicion(matriz* m) {
 	}
 } //observa una posicion concreta del mapa
 coordenada carnivoro::siguienteMovimiento(matriz* m) {
-	coordenada copia = posicion;
+	coordenada copia = this->posicion;
 	int cont = 0;
 	vector<coordenada> elegibles;
 
 	coordenada observadas[8] = { observarArriba(),observarD_arriba_D(),
 		observarDerecha(),observarD_abajo_D(),observarAbajo(),
 		observarD_abajo_I(), observarIzquierda(),
-		observarD_arriba_I(), };
+		observarD_arriba_I()
+	};
 
 	bool disponible[8] = { copia.moverseArriba(),copia.diagonalDerechaArriba(),copia.moverseDerecha(),
 	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
 
 	for (int i = 0; i < 8; i++) {
 		coordenada actual = observadas[i];
-		if (disponible[i]) {
-			if (!m->verificarCoordenada(actual)) {
-				elegibles.push_back(observadas[i]);
-			}
+		if (disponible[i]==true) {
+			elegibles.push_back(observadas[i]);
 		}
 	}
 
 	static random_device rd;
 	static mt19937 gen(rd());
-	static uniform_int_distribution<> dis(0,(elegibles.size()-1));
+	uniform_int_distribution<> dis(0,(elegibles.size()-1));
 
 
 
@@ -160,7 +160,7 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 	return estra;
 }
 
-void carnivoro::realizarComportamiento(matriz* m){
+void carnivoro::realizarComportamiento(matriz* m) {
 	coordenada aux = observarPosicion(m);
 	explorarMapa* e = dynamic_cast<explorarMapa*>(estra);
 	consumirRecurso* c = dynamic_cast<consumirRecurso*>(estra);

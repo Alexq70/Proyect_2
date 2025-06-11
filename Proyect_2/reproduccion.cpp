@@ -10,13 +10,13 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 
 	if (c) {
 		string id = c->getId();
-		int nuevoId = stoi(id.substr(1)) + 100; // cada hijo lleva el id de su padre + 100
-		id = to_string(nuevoId);
+		string nuevoId = (id+"100"); // cada hijo lleva el id de su padre + 100
 		cor = m->coordenadaRandom();
-		hijo = new carnivoro(c->getTipo(), id, c->getEnergia() / 2, 0, cor);
+		hijo = new carnivoro(c->getTipo(), id, 100, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();
 		m->insertarElemneto(hijo, x, y);
+		c->setEnergia(c->getEnergia()-50); // el padre pierde la mitad de su energia al reproducirse)
 	}
 	if (h) {
 		string id = c->getId();
