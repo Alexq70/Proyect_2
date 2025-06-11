@@ -125,6 +125,7 @@ void interfaz::comenzar() {
             }
         
         }
+
         string matriz = eco->getMatriz()->mostrarMatriz();
         mostrarMatrizConColores(matriz);
         Sleep(1000);

@@ -18,7 +18,7 @@ template<class T>
 class coleccionVector : public coleccion<T>
 {
 private:
-	vector<T>* v;
+	vector<T*>* v;
 	observerVector* observer;
 public:
 	coleccionVector();
@@ -34,6 +34,7 @@ public:
 	void notifyCreacion();
 	void notifyEliminacion();
 	int getTamano();
+	elemento getObjeto(int);
 };
 
 template<class T>
@@ -135,6 +136,11 @@ inline iteradorVector<T>* coleccionVector<T>::getIterador()
 template <class T>
 inline int coleccionVector<T>::getTamano() {
 	return v->size()-1;
+}
+template<class T>
+inline elemento coleccionVector<T>::getObjeto(int i)
+{
+	return v->at(i);
 }
 #endif // !COLECCIONVECTOR_H
 

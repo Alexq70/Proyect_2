@@ -43,6 +43,7 @@
     <ClCompile Include="fabricaRecursos.cpp" />
     <ClCompile Include="fabricaCriaturas.cpp" />
     <ClCompile Include="fabricaElementos.cpp" />
+    <ClCompile Include="gestorArchivos.cpp" />
     <ClCompile Include="herbivoro.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="iterador.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="fabricaRecursos.h" />
     <ClInclude Include="fabricaCriaturas.h" />
     <ClInclude Include="fabricaElementos.h" />
+    <ClInclude Include="gestorArchivos.h" />
     <ClInclude Include="herbivoro.h" />
     <ClInclude Include="interfaz.h" />
     <ClInclude Include="iterador.h" />

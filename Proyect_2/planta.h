@@ -4,7 +4,6 @@ class planta : public recurso {
 private:
 	char tipo = 'P';;
 	string id;
-	
 	coordenada posicion;
 public:
 	bool operator==(planta&);
