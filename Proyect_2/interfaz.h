@@ -24,6 +24,7 @@
 #include "fabricaOmnivoros.h"
 #include "ecosistema.h"
 #include "gestorArchivos.h"
+#include "tick.h"
 using namespace std;
 #include <iostream>
 using namespace std;

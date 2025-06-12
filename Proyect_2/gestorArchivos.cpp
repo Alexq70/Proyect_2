@@ -1,6 +1,6 @@
 #include "gestorArchivos.h"
 //-----------------------------//
-bool guardar(coleccionVector<elemento>* co)
+bool guardar(coleccionVector<elemento>* co,tick t)
 {
     ofstream salida("save.txt", ios::out);
     if (salida.is_open()) {
@@ -9,6 +9,7 @@ bool guardar(coleccionVector<elemento>* co)
         planta* p = nullptr;
         agua* a = nullptr;
         omnivoro* o = nullptr;
+        salida << t.getTick() << DELIMITA_ELEMENTO;
         for (int i = 0; i < co->getTamano(); i++) {
             elemento* e = co->getObjeto(i);
             switch (e->getTipo()) {
@@ -67,7 +68,7 @@ bool guardar(coleccionVector<elemento>* co)
     
 }
 
-bool cargar(coleccionVector<elemento>* co)
+bool cargar(coleccionVector<elemento>* co,tick &tic)
 {
     ifstream entrada("save.txt");
     if (!entrada.is_open()) {
@@ -75,12 +76,16 @@ bool cargar(coleccionVector<elemento>* co)
         return false;
     }
     co->limpiarMatriz();
-    string tipo, id, energia, x, y, edad;
+    string tipo, id, energia, x, y, edad,t;
     elemento* e = nullptr;
     int energiaI = 0;
     int xI = 0;
     int yI = 0;
     int edadI = 0;
+    int ti = 0;
+    getline(entrada, t, DELIMITA_ELEMENTO);
+    ti = stringAInt(t);
+    tic.setTick(ti);
     while (entrada.good()) {
         getline(entrada, tipo, DELIMITA_REGISTRO);
         char tipoC = tipo[0];

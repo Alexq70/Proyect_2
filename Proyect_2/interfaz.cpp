@@ -98,7 +98,7 @@ void interfaz::mostrarMatrizConColores(string matriz) {
 }
 
 void interfaz::comenzar() {
-    int tick = 0;
+
     ecosistema* eco = new ecosistema();
     eco->crearElementoEspecifico('C');
     for (int i = 0; i < 15; i++) {
@@ -106,24 +106,26 @@ void interfaz::comenzar() {
     }
 
     generarDecoracion();
+
+    tick t; // Instancia de tu clase tick
     int opcion = 0;
-    while (tick<1000) {
+    while (t.getTick() < 1000) {
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
-        cout << "Tick: " << tick++ << endl;
+        cout << "Tick: " << t.getTick() << endl;
+        t.setTick(t.getTick()+1); // Incrementa el tick usando tu clase
         eco->getMatriz()->actualizar();
         cout << endl << endl;
-        if (tick == 5 || tick == 50 || tick == 75 || tick == 100) {
+        if (t.getTick() == 5 || t.getTick() == 50 || t.getTick() == 75 || t.getTick() == 100) {
             cout << " si desea guardar la partida actual digite 1" << endl;
             cout << "si desea cargar la partida anterior digite 2" << endl;
             cin >> opcion;
             switch (opcion) {
             case 1:
-                guardar(eco->getColoeccion());
+                guardar(eco->getColoeccion(),t);
                 break;
             case 2:
-                cargar(eco->getColoeccion());
-
+                cargar(eco->getColoeccion(),t);
                 break;
             default:
                 break;
@@ -134,17 +136,16 @@ void interfaz::comenzar() {
             cout << "energia sujeto: " << c->getEnergia() << endl;
             if (c->getEnergia() <= 0) {
                 eco->getMatriz()->eliminarElemento(c->getCoordenada().getX(), c->getCoordenada().getY());
-				tick = 1000; // Terminar simulación si el carnívoro se queda sin energía
+                t.setTick(1000); // Terminar simulación si el carnívoro se queda sin energía
             }
             else {
                 c->sobrevivir(eco->getMatriz());
             }
-        
         }
 
         string matriz = eco->getMatriz()->mostrarMatriz();
         mostrarMatrizConColores(matriz);
-        Sleep(1000);
+        Sleep(500);
     }
-	cout << "Simulacion finalizada." << endl;
+    cout << "Simulacion finalizada." << endl;
 }

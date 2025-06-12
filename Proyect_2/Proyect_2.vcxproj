@@ -55,6 +55,7 @@
     <ClCompile Include="recurso.cpp" />
     <ClCompile Include="reproduccion.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="tick.cpp" />
     <ClCompile Include="Utiles.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +94,7 @@
     <ClInclude Include="planta.h" />
     <ClInclude Include="recurso.h" />
     <ClInclude Include="reproduccion.h" />
+    <ClInclude Include="tick.h" />
     <ClInclude Include="Utiles.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
