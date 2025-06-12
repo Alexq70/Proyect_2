@@ -100,7 +100,7 @@ void interfaz::mostrarMatrizConColores(string matriz) {
 void interfaz::comenzar() {
     int tick = 0;
     ecosistema* eco = new ecosistema();
-    elemento* e1 = eco->crearElementoEspecifico('C');
+    eco->crearElementoEspecifico('C');
     for (int i = 0; i < 15; i++) {
         eco->crearElemento();
     }
@@ -123,11 +123,13 @@ void interfaz::comenzar() {
                 break;
             case 2:
                 cargar(eco->getColoeccion());
+
                 break;
             default:
                 break;
             }
         }
+        elemento* e1 = eco->getColoeccion()->buscarObjetoId("1");
         if (carnivoro* c = dynamic_cast<carnivoro*>(e1)) {
             cout << "energia sujeto: " << c->getEnergia() << endl;
             if (c->getEnergia() <= 0) {

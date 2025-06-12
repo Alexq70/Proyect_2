@@ -27,6 +27,7 @@ public:
 	string toString();
 	string mostrarObjeto(T* );
 	bool buscarObjeto(T*);
+	elemento* buscarObjetoId(string);
 	iteradorVector<T>* getIterador(); // NO FUNCA
 	void agregarObserver(observerVector* o);
 	void eliminarObserver(observerVector* o);
@@ -119,6 +120,17 @@ inline bool coleccionVector<T>::buscarObjeto(T* id) // aqui debe recibir un obje
 		}
 	}
 	return false;
+}
+
+template<class T>
+inline elemento* coleccionVector<T>::buscarObjetoId(string id)
+{
+	for (int i = 0; i < v->size(); i++) {
+		if (v->at(i)->getId() == id) {
+			return v->at(i);
+		}
+	}
+	return nullptr;
 }
 
 template<class T>
