@@ -25,6 +25,8 @@
 #include "ecosistema.h"
 #include "gestorArchivos.h"
 #include "tick.h"
+class ecosistema;
+
 using namespace std;
 #include <iostream>
 using namespace std;
@@ -37,6 +39,6 @@ public:
 	void mostrarMatrizConColores(string);
 	void generarDecoracion();
 	void comenzar();
-
+	void procesarEcosistema(ecosistema*);
 };
 

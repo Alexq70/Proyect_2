@@ -113,8 +113,7 @@ coordenada carnivoro::siguienteMovimiento(matriz* m) {
 	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
 
 	for (int i = 0; i < 8; i++) {
-		coordenada actual = observadas[i];
-		if (disponible[i]==true) {
+		if (disponible[i] && m->verificarCoordenada(observadas[i]) == nullptr) {
 			elegibles.push_back(observadas[i]);
 		}
 	}
@@ -140,6 +139,9 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 	case 'A': {
 		estra = new consumirRecurso();
 	} break;
+	case 'K': {
+		estra = new consumirRecurso();
+	}
 	case 'O': {
 		estra = new depredacion();
 	} break;
@@ -147,16 +149,16 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 		estra = new depredacion();
 	} break;
 	case 'C': {
-		estra = new reproduccion();
+		if ((edad>10 && edad<30) && energia>50) {
+			estra = new reproduccion();
+		}
+		else
+			estra = new explorarMapa();
 	} break;
-	case 'K': {
-		estra = new consumirRecurso();
-	}
 	case 'P': {
 		estra = new explorarMapa();
-	} break;
 	}
-	
+	}
 	return estra;
 }
 

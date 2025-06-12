@@ -8,6 +8,6 @@ void consumirRecurso::realizarEstrategia(elemento* propio,coordenada otro, matri
 
 	m->eliminarElemento(x, y);
 	propio->setCoordenada(otro);
-
+	m->actualizar();
 	
 }

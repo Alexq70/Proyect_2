@@ -112,17 +112,14 @@ coordenada herbivoro::siguienteMovimiento(matriz* m) {
 	copia.diagonalDerechaAbajo(),copia.moverseAbajo(),copia.diagonalIzquierdaAbajo(),copia.moverseIzquierda(),copia.diagonalIzquierdaArriba() };
 
 	for (int i = 0; i < 8; i++) {
-		coordenada actual = observadas[i];
-		if (disponible[i]) {
-			if (!m->verificarCoordenada(actual)) {
-				elegibles.push_back(observadas[i]);
-			}
+		if (disponible[i] && m->verificarCoordenada(observadas[i]) == nullptr) {
+			elegibles.push_back(observadas[i]);
 		}
 	}
 
 	static random_device rd;
 	static mt19937 gen(rd());
-	static uniform_int_distribution<> dis(0, elegibles.size()-1);
+	uniform_int_distribution<> dis(0, elegibles.size()-1);
 	int ubicacion = dis(gen);
 
 
@@ -143,8 +140,15 @@ estrategia* herbivoro::cambiarEstrategia(matriz* m) {
 		estra = new consumirRecurso();
 	} break;
 	case 'H': {
-		estra = new reproduccion();
+		if ((edad > 10 && edad < 30) && energia > 50) {
+			estra = new reproduccion();
+		}
+		else
+			estra = new explorarMapa();
 	} break;
+	case 'K': {
+		estra = new explorarMapa();
+	}
 	}
 	return estra;
 }

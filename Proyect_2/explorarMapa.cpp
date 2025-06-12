@@ -21,5 +21,5 @@ void explorarMapa::realizarEstrategia(elemento* e, matriz* m) {
 		o->masEdad();
 		o->menosEnergia();
 	}
-
+	m->actualizar();
 }

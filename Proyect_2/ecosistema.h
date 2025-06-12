@@ -22,7 +22,7 @@ public:
 	matriz* getMatriz();
 	coleccionVector<elemento>* getColoeccion();
 	void setIndice();
-
+	
 	string procesarSupervivencia();
 };
 #endif // !1

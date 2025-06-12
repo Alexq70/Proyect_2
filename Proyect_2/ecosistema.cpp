@@ -132,31 +132,45 @@ void ecosistema::setIndice() {
 }
 
 void ecosistema::iniciarSimulacion() {
+	// Semilla para aleatoriedad (solo si no se ha llamado antes)
+	srand(time(0));
 
-	// Cantidades coherentes y aleatorias para cada tipo
-	int numCarnivoros = 2 + rand() % 3;   // 2-4 carnívoros
-	int numHerbivoros = 5 + rand() % 6;   // 5-10 herbívoros
-	int numOmnivoros = 2 + rand() % 3;    // 2-4 omnívoros
-	int numPlantas = 10 + rand() % 3;    // 15-25 plantas
+	// Cantidades aleatorias de criaturas entre 2 y 4
+	int numCarnivoros = 2 + rand() % 3; // 2, 3 o 4
+	int numHerbivoros = 2 + rand() % 3;
+	int numOmnivoros = 2 + rand() % 3;
+
+	// Cantidades aleatorias de recursos entre 8 y 12
+	int numPlantas = 8 + rand() % 5; // 8 a 12
+	int numAgua = 8 + rand() % 5;
 
 	// Crear carnívoros
 	for (int i = 0; i < numCarnivoros; i++) {
 		crearElementoEspecifico('C');
 	}
+
 	// Crear herbívoros
 	for (int i = 0; i < numHerbivoros; i++) {
 		crearElementoEspecifico('H');
 	}
+
 	// Crear omnívoros
 	for (int i = 0; i < numOmnivoros; i++) {
 		crearElementoEspecifico('O');
 	}
+
 	// Crear plantas
 	for (int i = 0; i < numPlantas; i++) {
 		crearElementoEspecifico('P');
 	}
 
+	// Crear agua
+	for (int i = 0; i < numAgua; i++) {
+		crearElementoEspecifico('A');
+	}
 }
+
+
 
 string ecosistema::procesarSupervivencia() {
 	elementos->actualizar();
