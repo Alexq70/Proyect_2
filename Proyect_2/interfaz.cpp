@@ -130,10 +130,13 @@ void interfaz::comenzar() {
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
         cout << "Tick: " << t.getTick() << endl;
+        cout << "Simbologia: " << endl;
+        cout << "C: carnivoro  H: Herbivoro  O: Onmivoro  A: Agua  P: Planta  K: carne" << endl;
         t.setTick(t.getTick()+1); 
         eco->getMatriz()->actualizar();
         cout << endl << endl;
         if (t.getTick() == 15 || t.getTick() == 25 || t.getTick() == 50 || t.getTick() == 75) {
+            system("cls");
             cout << "guardar la partida actual digite 1" << endl;
             cout << "cargar la partida anterior digite 2" << endl;
             cout << "seguir la partida actual digite 3" << endl;
