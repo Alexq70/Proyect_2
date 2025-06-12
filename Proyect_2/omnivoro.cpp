@@ -200,15 +200,12 @@ estrategia* omnivoro::cambiarEstrategia(matriz* m) {
 		else
 			estra = new explorarMapa();
 	} break;
-
-
-
 	case 'H': {
 		estra = new depredacion();
 	} break;
 	case 'K': {
 		estra = new consumirRecurso();
-	}
+	} break;
 	case 'P': {
 		estra = new consumirRecurso();
 	} break;

@@ -139,9 +139,7 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 	case 'A': {
 		estra = new consumirRecurso();
 	} break;
-	case 'K': {
-		estra = new consumirRecurso();
-	}
+	
 	case 'O': {
 		estra = new depredacion();
 	} break;
@@ -157,7 +155,10 @@ estrategia* carnivoro::cambiarEstrategia(matriz* m) {
 	} break;
 	case 'P': {
 		estra = new explorarMapa();
-	}
+	} break;
+	case 'K': {
+		estra = new consumirRecurso();
+	} break;
 	}
 	return estra;
 }

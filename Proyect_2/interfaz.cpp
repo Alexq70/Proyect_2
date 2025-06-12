@@ -182,7 +182,7 @@ void interfaz::comenzar() {
 
         string matriz = eco->getMatriz()->mostrarMatriz();
         mostrarMatrizConColores(matriz);
-        Sleep(500);
+        Sleep(1000);
     }
 
     cout << "Simulacion finalizada...";
