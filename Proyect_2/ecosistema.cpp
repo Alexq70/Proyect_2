@@ -3,7 +3,7 @@
 
 ecosistema::ecosistema(){
 	fabrica = nullptr;
-	this->coleccion = new coleccionVector<elemento*>();
+	this->coleccion = new coleccionVector<elemento>();
 	elementos = new matriz(coleccion);
 	indice = 0;
 }
@@ -122,6 +122,11 @@ matriz* ecosistema::getMatriz()
 	return this->elementos;
 }
 
+coleccionVector<elemento>* ecosistema::getColoeccion()
+{
+	return this->coleccion;
+}
+
 void ecosistema::setIndice() {
 	indice += 1;
 }
@@ -159,7 +164,7 @@ string ecosistema::procesarSupervivencia() {
 	   
 	   iterador->first();
 	while (iterador->isDone()) {
-		elemento* e = *iterador->current();
+		elemento* e = iterador->current();
 
 		if (carnivoro* c = dynamic_cast<carnivoro*>(e)) {
 			c->sobrevivir(elementos);

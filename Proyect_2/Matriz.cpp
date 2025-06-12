@@ -1,5 +1,5 @@
 #include "Matriz.h"
-matriz::matriz(coleccionVector<elemento*>* c) : observerVector(c)
+matriz::matriz(coleccionVector<elemento>* c) : observerVector(c)
 {
 	this->iterador = c->getIterador();
 	col = c;
@@ -16,7 +16,7 @@ void matriz::actualizar()
 
 	this->iterador->first();
 	while (!this->iterador->isDone()) {
-		elemento* e = *this->iterador->current();
+		elemento* e = this->iterador->current();
 		int x = e->getCoordenada().getX();
 		int y = e->getCoordenada().getY();
 		if (x >= 0 && x < 15 && y >= 0 && y < 15) { // Verificar que las coordenadas estén dentro del rango

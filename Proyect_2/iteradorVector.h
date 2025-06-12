@@ -7,11 +7,11 @@ template<class T>
 class iteradorVector:public iterador<T>
 {
 private:
-	vector<T>* v;
+	vector<T*>* v;
 	int currentN;
 	int firstN;
 public:
-	iteradorVector(vector<T>* v);
+	iteradorVector(vector<T*>* v);
 	void first();
 	void next();
 	bool isDone();
@@ -19,7 +19,7 @@ public:
 };
 
 template<class T>
-inline iteradorVector<T>::iteradorVector(vector<T>* v)
+inline iteradorVector<T>::iteradorVector(vector<T*>* v)
 {
 	this->v = v;
 	this->currentN = 0;
@@ -51,6 +51,6 @@ inline bool iteradorVector<T>::isDone()
 template<class T>
 inline T* iteradorVector<T>::current()
 {
-	return &v->at(currentN);
+	return v->at(currentN);
 }
 

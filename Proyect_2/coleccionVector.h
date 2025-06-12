@@ -22,19 +22,19 @@ private:
 	observerVector* observer;
 public:
 	coleccionVector();
-	void agregarObjeto(T&);
-	bool eliminarObjeto(T&);
+	void agregarObjeto(T*);
+	bool eliminarObjeto(T*);
 	string toString();
-	string mostrarObjeto(T& );
-	bool buscarObjeto(T&);
-	void ordenarObjetos();
+	string mostrarObjeto(T* );
+	bool buscarObjeto(T*);
 	iteradorVector<T>* getIterador(); // NO FUNCA
 	void agregarObserver(observerVector* o);
 	void eliminarObserver(observerVector* o);
 	void notifyCreacion();
 	void notifyEliminacion();
 	int getTamano();
-	elemento getObjeto(int);
+	elemento* getObjeto(int);
+	void limpiarMatriz();
 };
 
 template<class T>
@@ -64,18 +64,18 @@ inline void coleccionVector<T>::notifyEliminacion()
 template<class T>
 inline coleccionVector<T>::coleccionVector()
 {
-	v = new vector<T>(); // inicializar el vector
+	v = new vector<T*>(); // inicializar el vector
 }
 
 template<class T>
-inline void coleccionVector<T>::agregarObjeto(T& objeto )
+inline void coleccionVector<T>::agregarObjeto(T* objeto )
 {
 	v->push_back(objeto);
 	this->notifyCreacion();
 }
 
 template<class T>
-inline bool coleccionVector<T>::eliminarObjeto(T& objeto)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
+inline bool coleccionVector<T>::eliminarObjeto(T* objeto)  // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
 {
 	for (int i = 0; i<v->size(); i++) {
 		if (v->at(i) == objeto) { // 
@@ -98,7 +98,7 @@ inline string coleccionVector<T>::toString()
 }
 
 template<class T>
-inline string coleccionVector<T>::mostrarObjeto(T& ob)
+inline string coleccionVector<T>::mostrarObjeto(T* ob)
 {
 	stringstream s;
 	for (int i = 0; i < v->size(); i++) {
@@ -111,7 +111,7 @@ inline string coleccionVector<T>::mostrarObjeto(T& ob)
 
 
 template<class T>
-inline bool coleccionVector<T>::buscarObjeto(T& id) // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
+inline bool coleccionVector<T>::buscarObjeto(T* id) // aqui debe recibir un objeto que viene con el id a buscar y dato quemado en el resto
 {
 	for (int i = 0; i < v->size(); i++) {
 		if(v->at(i) == id) {
@@ -119,13 +119,6 @@ inline bool coleccionVector<T>::buscarObjeto(T& id) // aqui debe recibir un obje
 		}
 	}
 	return false;
-}
-
-template<class T>
-inline void coleccionVector<T>::ordenarObjetos()
-{
-	
-	
 }
 
 template<class T>
@@ -138,10 +131,22 @@ inline int coleccionVector<T>::getTamano() {
 	return v->size()-1;
 }
 template<class T>
-inline elemento coleccionVector<T>::getObjeto(int i)
+inline elemento* coleccionVector<T>::getObjeto(int i)
 {
+	if (v->at(i) == nullptr) {
+		return nullptr;
+	}
 	return v->at(i);
 }
+
+template<class T>
+inline void coleccionVector<T>::limpiarMatriz()
+{
+	v->clear();
+	this->notifyEliminacion();
+}
+
+
 #endif // !COLECCIONVECTOR_H
 
 

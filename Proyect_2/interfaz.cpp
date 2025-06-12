@@ -106,14 +106,28 @@ void interfaz::comenzar() {
     }
 
     generarDecoracion();
-
+    int opcion = 0;
     while (tick<1000) {
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
         cout << "Tick: " << tick++ << endl;
         eco->getMatriz()->actualizar();
         cout << endl << endl;
-
+        if (tick == 5 || tick == 50 || tick == 75 || tick == 100) {
+            cout << " si desea guardar la partida actual digite 1" << endl;
+            cout << "si desea cargar la partida anterior digite 2" << endl;
+            cin >> opcion;
+            switch (opcion) {
+            case 1:
+                guardar(eco->getColoeccion());
+                break;
+            case 2:
+                cargar(eco->getColoeccion());
+                break;
+            default:
+                break;
+            }
+        }
         if (carnivoro* c = dynamic_cast<carnivoro*>(e1)) {
             cout << "energia sujeto: " << c->getEnergia() << endl;
             if (c->getEnergia() <= 0) {

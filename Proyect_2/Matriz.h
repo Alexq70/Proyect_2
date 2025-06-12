@@ -13,11 +13,11 @@
 using namespace std;
 class matriz: public observerVector{
 private:
-	iteradorVector<elemento*>* iterador;
-	coleccionVector<elemento*>* col;
+	iteradorVector<elemento>* iterador;
+	coleccionVector<elemento>* col;
 	elemento* m[15][15];
 public:
-	matriz(coleccionVector<elemento*>*);
+	matriz(coleccionVector<elemento>*);
 	void actualizar();
 	bool insertarElemneto(elemento* e, int x, int y);
 	bool eliminarElemento(int x, int y);

@@ -6,7 +6,7 @@
 class ecosistema {
 private:
 	fabricaElementos* fabrica;
-	coleccionVector<elemento*>* coleccion; // coleccion de elementos que contiene el ecosistema
+	coleccionVector<elemento>* coleccion; // coleccion de elementos que contiene el ecosistema
 	matriz* elementos; // matriz de elementos que contiene el ecosistema
 	int indice; //representa el id actual del iterador
 public:
@@ -20,7 +20,7 @@ public:
 	//-------------------------------------
 	void iniciarSimulacion();
 	matriz* getMatriz();
-
+	coleccionVector<elemento>* getColoeccion();
 	void setIndice();
 
 	string procesarSupervivencia();
