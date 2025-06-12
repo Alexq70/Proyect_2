@@ -30,9 +30,9 @@ agua::~agua()
 //---------------------
 string agua::toString() {
 	stringstream s;
-	s << "Recurso de Agua" << endl
-		<< "ID: " << id << endl
-		<< "Tipo: " << tipo << endl;
+	s << "Recurso de Agua" << " "
+		<< "ID: " << id << " "
+		<< "Tipo: " << tipo << " ";
 	return s.str();
 }
 

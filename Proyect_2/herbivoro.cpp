@@ -238,11 +238,11 @@ coordenada herbivoro::observarD_abajo_D() {
 //--------------------
 string herbivoro::toString() {
 	stringstream s;
-	s << "criatura herbivora"<<endl
-		<< "ID: " << id << endl
-	    << "Edad: " << edad << endl
-		<< "Tipo: " << tipo << endl
-		<< "Energia: " << energia << endl;
+	s << "criatura herbivora" << " "
+		<< "ID: " << id << " "
+		<< "Edad: " << edad << " "
+		<< "Energia: " << energia << " "
+		<< "Tipo: " << tipo << " ";
 	return s.str();
 }
 

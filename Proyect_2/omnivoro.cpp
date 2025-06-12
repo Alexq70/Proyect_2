@@ -247,11 +247,11 @@ void omnivoro::consumirRec() {
 //--------------------------------------------------------------
 string omnivoro::toString() {
 	stringstream s;
-	s << "criatura onmivoro" << endl
-		<< "ID: " << id << endl
-		<< "Edad: " << edad << endl
-		<< "Tipo: " << tipo << endl
-		<< "Energia: " << energia << endl;
+	s << "criatura onmivoro" << " "
+		<< "ID: " << id << " "
+		<< "Edad: " << edad << " "
+		<< "Energia: " << energia << " "
+		<< "Tipo: " << tipo << " ";
 	return s.str();
 }
 

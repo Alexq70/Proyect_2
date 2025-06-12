@@ -92,8 +92,9 @@ template<class T>
 inline string coleccionVector<T>::toString()
 {
 	stringstream ss;
-	for (int i = 0; i < v->size(); i++) { 
-		ss << v->at(i)->toString() << endl; // se muestra el objeto
+	int cont=4;
+	for (int i = 0; i < v->size(); i++) {
+		ss << v->at(i)->toString() << endl;
 	}
 	return ss.str();
 }

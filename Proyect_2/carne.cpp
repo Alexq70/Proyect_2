@@ -36,9 +36,9 @@ carne::~carne()
 
 string carne::toString() {
 	stringstream s;
-	s << "recurso tipo carne" << endl
-		<< "ID: " << id << endl
-		<< "Tipo: " << tipo << endl;
+	s << "recurso tipo carne" << " "
+		<< "ID: " << id << " "
+		<< "Tipo: " << tipo << " ";
 	return s.str();
 }
 

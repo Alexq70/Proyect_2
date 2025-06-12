@@ -124,18 +124,19 @@ void interfaz::comenzar() {
    
     generarDecoracion();
     system("pause");
-    tick t; // Instancia de tu clase tick
+    tick t;
     int opcion = 0;
     while (t.getTick() <= 100) {
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
         cout << "Tick: " << t.getTick() << endl;
-        t.setTick(t.getTick()+1); // Incrementa el tick usando tu clase
+        t.setTick(t.getTick()+1); 
         eco->getMatriz()->actualizar();
         cout << endl << endl;
-        if (t.getTick() == 15 || t.getTick() == 50 || t.getTick() == 75 || t.getTick() == 100) {
-            cout << " si desea guardar la partida actual digite 1" << endl;
-            cout << "si desea cargar la partida anterior digite 2" << endl;
+        if (t.getTick() == 15 || t.getTick() == 25 || t.getTick() == 50 || t.getTick() == 75) {
+            cout << "guardar la partida actual digite 1" << endl;
+            cout << "cargar la partida anterior digite 2" << endl;
+            cout << "seguir la partida actual digite 3" << endl;
             cin >> opcion;
             switch (opcion) {
             case 1:
@@ -147,6 +148,7 @@ void interfaz::comenzar() {
             default:
                 break;
             }
+            system("cls");
         }
         auto ite = eco->getColoeccion()->getIterador();
         ite->first();
@@ -182,8 +184,13 @@ void interfaz::comenzar() {
 
         string matriz = eco->getMatriz()->mostrarMatriz();
         mostrarMatrizConColores(matriz);
-        Sleep(500);
+        cout << endl;
+        cout << "estadisticas de las criaturas actuales :" << endl;
+        cout << eco->getColoeccion()->toString() << endl;
+        Sleep(1000);
     }
-
+    system("cls");
     cout << "Simulacion finalizada...";
+    system("pause");
+    cout << "digite enter para salir " << endl;
 }

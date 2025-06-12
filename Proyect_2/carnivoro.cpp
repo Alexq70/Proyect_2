@@ -245,11 +245,11 @@ coordenada carnivoro::observarD_abajo_D() {
 
 string carnivoro::toString() {
 	stringstream s;
-	s << "criatura Carnivora " << tipo << endl
-		<< "ID: " << id << endl
-		<< "Edad: " << edad << endl
-	    << "Tipo: " << tipo << endl
-		<< "Energia: " << energia << endl;
+	s << "criatura Carnivora " << tipo << " "
+		<< "ID: " << id << " "
+		<< "Edad: " << edad << " "
+		<< "Energia: " << energia << " "
+		<< "Tipo: " << tipo << " ";
 	return s.str();
 } //
 
