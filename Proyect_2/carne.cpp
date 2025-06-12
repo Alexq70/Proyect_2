@@ -38,7 +38,8 @@ string carne::toString() {
 	stringstream s;
 	s << "recurso tipo carne" << " "
 		<< "ID: " << id << " "
-		<< "Tipo: " << tipo << " ";
+		<< "Tipo: " << tipo << " "
+		<< this->posicion << " ";
 	return s.str();
 }
 

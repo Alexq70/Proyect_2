@@ -32,7 +32,8 @@ string agua::toString() {
 	stringstream s;
 	s << "Recurso de Agua" << " "
 		<< "ID: " << id << " "
-		<< "Tipo: " << tipo << " ";
+		<< "Tipo: " << tipo << " "
+		<< this->posicion << " ";
 	return s.str();
 }
 

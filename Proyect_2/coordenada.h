@@ -30,3 +30,4 @@ bool operator==(coordenada otra) {
 	return (this->x == otra.x && this->y == otra.y);  
 }  
 };
+ostream& operator<< (ostream& os ,coordenada& c);

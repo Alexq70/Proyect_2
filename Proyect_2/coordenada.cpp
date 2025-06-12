@@ -1,4 +1,5 @@
 #include "coordenada.h"
+#include "agua.h"
 
 coordenada::coordenada(int x, int y):x(x) , y(y){}
 coordenada::~coordenada() {}
@@ -77,4 +78,10 @@ string coordenada::toString() {
 	stringstream s;
 	s << "Coordenada:" << " (" << x << "," << y << ")";
 	return s.str();
+}
+
+ostream& operator<<(ostream& os, coordenada& c)
+{
+	os << c.toString();
+	return os ;
 }

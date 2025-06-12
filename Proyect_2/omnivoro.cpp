@@ -248,7 +248,8 @@ string omnivoro::toString() {
 		<< "ID: " << id << " "
 		<< "Edad: " << edad << " "
 		<< "Energia: " << energia << " "
-		<< "Tipo: " << tipo << " ";
+		<< "Tipo: " << tipo << " "
+		<< this->posicion << " ";
 	return s.str();
 }
 

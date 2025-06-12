@@ -37,7 +37,8 @@ string planta::toString() {
 	stringstream s;
 	s << "recurso tipo planta" << " "
 		<< "ID: " << id << " "
-		<< "Tipo: " << tipo << " ";
+		<< "Tipo: " << tipo << " "
+		<< this->posicion << " ";
 	return s.str();
 }
 
