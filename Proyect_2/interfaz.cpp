@@ -83,52 +83,103 @@ void interfaz::mostrarMatrizConColores(string matriz) {
     cout << endl;
 }
 
+void interfaz::mostrarMatrizNoche(string matriz) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    int fila = 0;
+    int col = 0;
+    int columnas = 0;
 
-void interfaz::procesarEcosistema(ecosistema* eco) {
-    auto ite = eco->getColoeccion()->getIterador();
-    ite->first();
-
-    while (ite->isDone()) {
-            elemento * aux = ite->current();
-        if (carnivoro* c = dynamic_cast<carnivoro*>(aux)) {
-            if (c->getEnergia() <= 0) {
-                eco->getMatriz()->eliminarElemento(c->getCoordenada().getX(), c->getCoordenada().getY());
-            }
-            else {
-                c->sobrevivir(eco->getMatriz());
-            }
-        }
-        if (omnivoro* o = dynamic_cast<omnivoro*>(aux)) {
-            if (o->getEnergia() <= 0) {
-                eco->getMatriz()->eliminarElemento(o->getCoordenada().getX(), o->getCoordenada().getY());
-            }
-            else {
-                o->sobrevivir(eco->getMatriz());
-            }
-        }
-        if (herbivoro* h = dynamic_cast<herbivoro*>(aux)) {
-            if (h->getEnergia() <= 0) {
-                eco->getMatriz()->eliminarElemento(h->getCoordenada().getX(), h->getCoordenada().getY());
-            }
-            else {
-                h->sobrevivir(eco->getMatriz());
-            }
-        }
-        ite->next();
+    // Contar columnas
+    for (char c : matriz) {
+        if (c == '\n') break;
+        columnas++;
     }
+
+    // Encabezado de columnas (X)
+    cout << "    ";
+    for (int i = 0; i < columnas; ++i) {
+        cout << setw(3) << i;
+    }
+    cout << endl;
+
+    for (char c : matriz) {
+        if (col == 0 && c != '\n') {
+            cout << setw(3) << fila << " ";
+        }
+
+        WORD fondoNoche = (0 << 4); // fondo negro
+        WORD colorTexto = 7; // gris claro por defecto
+
+        if (c == 'H') {
+            SetConsoleTextAttribute(hConsole, fondoNoche | 15);
+            cout << setw(3) << "Z"; // Z representa "Zzz"
+        }
+        else if (c == 'C') {
+            SetConsoleTextAttribute(hConsole, fondoNoche | 12);
+            cout << setw(3) << "Z";
+        }
+        else if (c == 'O') {
+            SetConsoleTextAttribute(hConsole, fondoNoche | 9);
+            cout << setw(3) << "Z";
+        }
+        else if (c == 'A') {
+            SetConsoleTextAttribute(hConsole, fondoNoche | 11);
+            cout << setw(3) << "A";
+        }
+        else if (c == 'K') {
+            SetConsoleTextAttribute(hConsole, fondoNoche | 5);
+            cout << setw(3) << "K";
+        }
+        else if (c == 'P') {
+            SetConsoleTextAttribute(hConsole, fondoNoche | 14);
+            cout << setw(3) << "P";
+        }
+        else if (c == '.') {
+            char deco = decoracion[fila][col];
+            if (deco == '^') {
+                SetConsoleTextAttribute(hConsole, fondoNoche | 2);
+                cout << setw(3) << "^";
+            }
+            else {
+                SetConsoleTextAttribute(hConsole, fondoNoche | 0);
+                cout << setw(3) << ".";
+            }
+        }
+        else if (c == '\n') {
+            SetConsoleTextAttribute(hConsole, 7);
+            cout << endl;
+            fila++;
+            col = 0;
+            continue;
+        }
+        else {
+            SetConsoleTextAttribute(hConsole, fondoNoche | colorTexto);
+            cout << setw(3) << c;
+        }
+
+        col++;
+    }
+
+    SetConsoleTextAttribute(hConsole, 7);
+    cout << endl;
 }
+
+
+
 void interfaz::comenzar() {
 
     ecosistema* eco = new ecosistema();
     eco->iniciarSimulacion();
-   
+    eco->getMatriz()->actualizar();
     generarDecoracion();
     system("pause");
     tick t;
     int opcion = 0;
     while (t.getTick() <= 100) {
+       
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
+        cout << "Horario: "; (eco->getHorario() == "dia") ? cout << "Diurno\n" : cout << "Nocturno\n";
         cout << "Tick: " << t.getTick() << endl;
         cout << "Simbologia: " << endl;
         cout << "C: carnivoro  H: Herbivoro  O: Onmivoro  A: Agua  P: Planta  K: carne" << endl;
@@ -163,7 +214,7 @@ void interfaz::comenzar() {
                     eco->getMatriz()->eliminarElemento(c->getCoordenada().getX(), c->getCoordenada().getY());
                 }
                 else {
-                    c->sobrevivir(eco->getMatriz());
+                    c->sobrevivir(eco->getMatriz(), eco->getHorario());
                 }
             }
             if (omnivoro* o = dynamic_cast<omnivoro*>(aux)) {
@@ -171,7 +222,7 @@ void interfaz::comenzar() {
                     eco->getMatriz()->eliminarElemento(o->getCoordenada().getX(), o->getCoordenada().getY());
                 }
                 else {
-                    o->sobrevivir(eco->getMatriz());
+                    o->sobrevivir(eco->getMatriz(), eco->getHorario());
                 }
             }
             if (herbivoro* h = dynamic_cast<herbivoro*>(aux)) {
@@ -179,18 +230,22 @@ void interfaz::comenzar() {
                     eco->getMatriz()->eliminarElemento(h->getCoordenada().getX(), h->getCoordenada().getY());
                 }
                 else {
-                    h->sobrevivir(eco->getMatriz());
+                    h->sobrevivir(eco->getMatriz(), eco->getHorario());
                 }
             }
+
             ite->next();
         }
-
         string matriz = eco->getMatriz()->mostrarMatriz();
-        mostrarMatrizConColores(matriz);
+        if (t.getTick() % 5 == 0) {
+            eco->setHorario();
+        }
+        (eco->getHorario() == "noche") ? mostrarMatrizNoche(matriz) : mostrarMatrizConColores(matriz);
+
         cout << endl;
         cout << "estadisticas de las criaturas actuales :" << endl;
         cout << eco->getColoeccion()->toString() << endl;
-        Sleep(1000);
+        system("pause");
     }
     system("cls");
     cout << "Simulacion finalizada...";

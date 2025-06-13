@@ -130,36 +130,40 @@ coordenada carnivoro::siguienteMovimiento(matriz* m) {
 	return elegibles[ubicacion]; //retorna un movimiento diponible a su alrededor
 }
 
-estrategia* carnivoro::cambiarEstrategia(matriz* m) {
+estrategia* carnivoro::cambiarEstrategia(matriz* m,string hora) {
 	char opcion = observarEntorno(m);
-	switch (opcion) {
-	case 'n': {
-		estra = new explorarMapa();
-	} break;
-	case 'A': {
-		estra = new consumirRecurso();
-	} break;
-	
-	case 'O': {
-		estra = new depredacion();
-	} break;
-	case 'H': {
-		estra = new depredacion();
-	} break;
-	case 'C': {
-		if ((edad>10 && edad<30) && energia>50) {
-			estra = new reproduccion();
-		}
-		else
+	if (hora == "dia") {
+		switch (opcion) {
+		case 'n': {
 			estra = new explorarMapa();
-	} break;
-	case 'P': {
-		estra = new explorarMapa();
-	} break;
-	case 'K': {
-		estra = new consumirRecurso();
-	} break;
+		} break;
+		case 'A': {
+			estra = new consumirRecurso();
+		} break;
+
+		case 'O': {
+			estra = new depredacion();
+		} break;
+		case 'H': {
+			estra = new depredacion();
+		} break;
+		case 'C': {
+			if ((edad > 10 && edad < 30) && energia > 50) {
+				estra = new reproduccion();
+			}
+			else
+				estra = new explorarMapa();
+		} break;
+		case 'P': {
+			estra = new explorarMapa();
+		} break;
+		case 'K': {
+			estra = new consumirRecurso();
+		} break;
+		}
 	}
+	else
+		estra = nullptr;
 	return estra;
 }
 
@@ -183,8 +187,8 @@ void carnivoro::realizarComportamiento(matriz* m) {
 	}
 }
 
-void carnivoro::sobrevivir(matriz* m) {
-	cambiarEstrategia(m);
+void carnivoro::sobrevivir(matriz* m, string hora) {
+	cambiarEstrategia(m,hora);
 	realizarComportamiento(m);
 }
 //-----------------------------

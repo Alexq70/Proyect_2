@@ -12,7 +12,7 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 		string id = c->getId();
 		string nuevoId = (id+"100"); // cada hijo lleva el id de su padre + 100
 		cor = m->coordenadaRandom();
-		hijo = new carnivoro(c->getTipo(), id, 100, 0, cor);
+		hijo = new carnivoro(c->getTipo(), nuevoId, 100, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();
 		m->insertarElemneto(hijo, x, y);
@@ -23,7 +23,7 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 		string id = h->getId();
 		string nuevoId = (id + "100"); // cada hijo lleva el id de su padre + 100
 		cor = m->coordenadaRandom();
-		hijo = new herbivoro(h->getTipo(), id, 100, 0, cor);
+		hijo = new herbivoro(h->getTipo(), nuevoId, 100, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();
 		m->insertarElemneto(hijo, x, y);
@@ -33,11 +33,11 @@ void reproduccion::realizarEstrategia(elemento* e, matriz* m) {
 		string id = o->getId();
 		string nuevoId = (id + "100"); // cada hijo lleva el id de su padre + 100
 		cor = m->coordenadaRandom();
-		hijo = new omnivoro(o->getTipo(), id, 100, 0, cor);
+		hijo = new omnivoro(o->getTipo(), nuevoId, 100, 0, cor);
 		int x = hijo->getCoordenada().getX();
 		int y = hijo->getCoordenada().getY();
 		m->insertarElemneto(hijo, x, y);
 		o->setEnergia(50); // el padre pierde la mitad de su energia al reproducirse)
 	}
-
+	m->actualizar();
 }

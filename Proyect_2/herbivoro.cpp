@@ -127,29 +127,35 @@ coordenada herbivoro::siguienteMovimiento(matriz* m) {
 }
 
 //----------------------------------------------------------------------
-estrategia* herbivoro::cambiarEstrategia(matriz* m) {
+estrategia* herbivoro::cambiarEstrategia(matriz* m,string hora) {
 	char opcion = observarEntorno(m);
-	switch (opcion) {
-	case 'n': {
-		estra = new explorarMapa();
-	} break;
-	case 'A': {
-		estra = new consumirRecurso();
-	} break;
-	case 'P': {
-		estra = new consumirRecurso();
-	} break;
-	case 'H': {
-		if ((edad > 10 && edad < 30) && energia > 50) {
-			estra = new reproduccion();
-		}
-		else
+	if (hora == "dia") {
+
+
+		switch (opcion) {
+		case 'n': {
 			estra = new explorarMapa();
-	} break;
-	case 'K': {
-		estra = new explorarMapa();
+		} break;
+		case 'A': {
+			estra = new consumirRecurso();
+		} break;
+		case 'P': {
+			estra = new consumirRecurso();
+		} break;
+		case 'H': {
+			if ((edad > 10 && edad < 30) && energia > 50) {
+				estra = new reproduccion();
+			}
+			else
+				estra = new explorarMapa();
+		} break;
+		case 'K': {
+			estra = new explorarMapa();
+		}
+		}
 	}
-	}
+	else
+		estra = nullptr;
 	return estra;
 }
 
@@ -174,8 +180,8 @@ void herbivoro::realizarComportamiento(matriz* m) {
 	}
 }
 
-void herbivoro::sobrevivir(matriz* m) {
-	cambiarEstrategia(m);
+void herbivoro::sobrevivir(matriz* m, string hora) {
+	cambiarEstrategia(m,hora);
 	realizarComportamiento(m);
 }
 

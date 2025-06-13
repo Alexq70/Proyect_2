@@ -6,6 +6,7 @@ ecosistema::ecosistema(){
 	this->coleccion = new coleccionVector<elemento>();
 	elementos = new matriz(coleccion);
 	indice = 0;
+	horario = "dia";
 }
 ecosistema::~ecosistema(){}
 
@@ -122,6 +123,15 @@ matriz* ecosistema::getMatriz()
 	return this->elementos;
 }
 
+void ecosistema::setHorario() {
+	if (horario == "dia") {
+		horario = "noche";
+	}
+	else
+		horario = "dia";
+}
+string ecosistema::getHorario() { return this->horario; }
+
 coleccionVector<elemento>* ecosistema::getColoeccion()
 {
 	return this->coleccion;
@@ -172,25 +182,3 @@ void ecosistema::iniciarSimulacion() {
 
 
 
-string ecosistema::procesarSupervivencia() {
-	elementos->actualizar();
-	auto iterador = coleccion->getIterador();
-	   
-	   iterador->first();
-	while (iterador->isDone()) {
-		elemento* e = iterador->current();
-
-		if (carnivoro* c = dynamic_cast<carnivoro*>(e)) {
-			c->sobrevivir(elementos);
-		}
-		if (herbivoro* h = dynamic_cast<herbivoro*>(e)) {
-			h->sobrevivir(elementos);
-		}
-		if (omnivoro* o = dynamic_cast<omnivoro*>(e)) {
-			o->sobrevivir(elementos);
-		}
-		iterador->next();
-	}
-	string matriz = elementos->mostrarMatriz();
-	return matriz;
-}

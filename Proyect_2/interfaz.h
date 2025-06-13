@@ -37,8 +37,8 @@ private:
 public:
 	interfaz();
 	void mostrarMatrizConColores(string);
+	void mostrarMatrizNoche(string);
 	void generarDecoracion();
 	void comenzar();
-	void procesarEcosistema(ecosistema*);
 };
 

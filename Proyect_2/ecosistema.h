@@ -9,6 +9,7 @@ private:
 	coleccionVector<elemento>* coleccion; // coleccion de elementos que contiene el ecosistema
 	matriz* elementos; // matriz de elementos que contiene el ecosistema
 	int indice; //representa el id actual del iterador
+	string horario;
 public:
 	ecosistema();
 	~ecosistema();
@@ -22,7 +23,8 @@ public:
 	matriz* getMatriz();
 	coleccionVector<elemento>* getColoeccion();
 	void setIndice();
-	
-	string procesarSupervivencia();
+	void setHorario();
+	string getHorario();
+
 };
 #endif // !1

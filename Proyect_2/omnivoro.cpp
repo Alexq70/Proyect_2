@@ -184,32 +184,36 @@ coordenada omnivoro::siguienteMovimiento(matriz* m) {
 		
 }
 
-estrategia* omnivoro::cambiarEstrategia(matriz* m) {
+estrategia* omnivoro::cambiarEstrategia(matriz* m, string hora) {
 	char opcion = observarEntorno(m);
-	switch (opcion) {
-	case 'n': {
-		estra = new explorarMapa();
-	} break;
-	case 'A': {
-		estra = new consumirRecurso();
-	} break;
-	case 'O': {
-		if ((edad > 10 && edad < 30) && energia > 50) {
-			estra = new reproduccion();
-		}
-		else
+	if (hora == "dia") {
+		switch (opcion) {
+		case 'n': {
 			estra = new explorarMapa();
-	} break;
-	case 'H': {
-		estra = new depredacion();
-	} break;
-	case 'K': {
-		estra = new consumirRecurso();
-	} break;
-	case 'P': {
-		estra = new consumirRecurso();
-	} break;
+		} break;
+		case 'A': {
+			estra = new consumirRecurso();
+		} break;
+		case 'O': {
+			if ((edad > 10 && edad < 30) && energia > 50) {
+				estra = new reproduccion();
+			}
+			else
+				estra = new explorarMapa();
+		} break;
+		case 'H': {
+			estra = new depredacion();
+		} break;
+		case 'K': {
+			estra = new consumirRecurso();
+		} break;
+		case 'P': {
+			estra = new consumirRecurso();
+		} break;
+		}
 	}
+	else
+		estra = nullptr;
 	return estra;
 }
 
@@ -233,8 +237,8 @@ void omnivoro::realizarComportamiento(matriz* m) {
 	}
 }
 
-void omnivoro::sobrevivir(matriz* m) {
-	cambiarEstrategia(m);
+void omnivoro::sobrevivir(matriz* m,string hora) {
+	cambiarEstrategia(m,hora);
 	realizarComportamiento(m);
 }
 

@@ -53,9 +53,9 @@ public:
 	char observarEntorno(matriz*); // termina que hay cerca de el para cambiar de estrategia
 	coordenada observarPosicion(matriz*); //observa una posicion concreta del mapa
 	coordenada siguienteMovimiento(matriz*);
-	estrategia* cambiarEstrategia(matriz*);
+	estrategia* cambiarEstrategia(matriz*,string);
 	void realizarComportamiento(matriz*);
-	void sobrevivir(matriz*);
+	void sobrevivir(matriz*,string);
 	void consumirRec();
 
 };
