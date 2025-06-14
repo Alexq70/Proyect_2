@@ -180,7 +180,7 @@ void interfaz::comenzar() {
         system("cls");
         cout << "Bienvenido al simulador de ecosistemas.\n";
         cout << "Horario: "; (eco->getHorario() == "dia") ? cout << "Diurno\n" : cout << "Nocturno\n";
-        cout << "Tick: " << t.getTick() << endl;
+        cout << "Tick: " << t.getTick()+1 << endl;
         cout << "Simbologia: " << endl;
         cout << "C: carnivoro  H: Herbivoro  O: Onmivoro  A: Agua  P: Planta  K: carne" << endl;
         t.setTick(t.getTick()+1); 
