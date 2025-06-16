@@ -191,8 +191,8 @@ void interfaz::comenzar() {
     eco->iniciarSimulacion();
     eco->getMatriz()->actualizar();
     generarDecoracion();
-    system("cls");
     do {
+        system("cls");
         cout << "\n--- Menu del Programa ---\n";
         cout << "1. Iniciar simulacion" << endl;
         cout << "2: Modificacion de Criaturas" << endl;
@@ -232,6 +232,7 @@ void interfaz::iniciaPrograma(ecosistema* eco, tick& t, int seguir)
     cout << "2. no" << endl;
     cin >> estadisticass;
     while (t.getTick() <= 100 && seguir == 0) {
+        iniciarUpervivencia(eco);
         mostrarEncabezado(eco, t);
         if (t.getTick() == 15 || t.getTick() == 25 || t.getTick() == 50 || t.getTick() == 75) {
             mostrarGuardado(eco, t);
@@ -250,7 +251,6 @@ void interfaz::iniciaPrograma(ecosistema* eco, tick& t, int seguir)
                 system("cls");
             }
         }
-        iniciarUpervivencia(eco);
         cambiarHorario(eco, t);
         switch (estadisticass) {
         case 1:
