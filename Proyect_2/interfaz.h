@@ -25,12 +25,13 @@
 #include "ecosistema.h"
 #include "gestorArchivos.h"
 #include "tick.h"
+#include "interfazAbstracta.h"
 class ecosistema;
 
 using namespace std;
 #include <iostream>
 using namespace std;
-class interfaz
+class interfaz : public interfazAbstracta
 {
 private:
 	char decoracion[15][15];
@@ -38,6 +39,7 @@ public:
 	interfaz();
 	void mostrarMatrizConColores(string);
 	void mostrarMatrizNoche(string);
+	void cambiarModoMatriz(string,string);
 	void generarDecoracion();
 	void comenzar();
 	void iniciaPrograma(ecosistema*, tick&,int);

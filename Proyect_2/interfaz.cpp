@@ -183,9 +183,10 @@ void interfaz::mostrarMatrizNoche(string matriz) {
 
 
 
+
 void interfaz::comenzar() {
 
-    ecosistema* eco = new ecosistema();
+    ecosistema* eco = new ecosistema(this);
     tick t;
     int switch1 = 0, seguir = 0;
     eco->iniciarSimulacion();
@@ -815,7 +816,12 @@ void interfaz::cambiarHorario(ecosistema* eco, tick& t)
     if (t.getTick() % 5 == 0) {
         eco->setHorario();
     }
-    (eco->getHorario() == "noche") ? mostrarMatrizNoche(matriz) : mostrarMatrizConColores(matriz);
+    cambiarModoMatriz(eco->getHorario(),matriz);
+}
+
+void interfaz::cambiarModoMatriz(string horario,string matriz)
+{
+    (horario == "noche") ? mostrarMatrizNoche(matriz) : mostrarMatrizConColores(matriz);
 }
 
 void interfaz::estadisticas(ecosistema* eco)

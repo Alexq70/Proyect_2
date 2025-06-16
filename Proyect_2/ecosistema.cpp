@@ -1,12 +1,13 @@
 #include "ecosistema.h"
 #include <random>
 
-ecosistema::ecosistema(){
+ecosistema::ecosistema(interfazAbstracta* in){
 	fabrica = nullptr;
 	this->coleccion = new coleccionVector<elemento>();
 	elementos = new matriz(coleccion);
 	indice = 0;
 	horario = "dia";
+	inter = in;
 }
 ecosistema::~ecosistema(){}
 
@@ -126,6 +127,9 @@ matriz* ecosistema::getMatriz()
 void ecosistema::setHorario() {
 	if (horario == "dia") {
 		horario = "noche";
+		decorarNoche* noche = new decorarNoche(inter);
+		noche->cambiarModoMatriz(horario,elementos->mostrarMatriz());
+		system("cls");
 	}
 	else
 		horario = "dia";
@@ -140,7 +144,6 @@ coleccionVector<elemento>* ecosistema::getColoeccion()
 void ecosistema::setIndice() {
 	indice += 1;
 }
-
 void ecosistema::iniciarSimulacion() {
 	// Semilla para aleatoriedad (solo si no se ha llamado antes)
 	srand(time(0));

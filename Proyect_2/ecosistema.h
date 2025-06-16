@@ -3,6 +3,8 @@
 #define ecosistema_h
 #include "interfaz.h"
 #include "coleccionVector.h"
+#include "interfazAbstracta.h"
+#include "decorarNoche.h"
 class ecosistema {
 private:
 	fabricaElementos* fabrica;
@@ -10,8 +12,9 @@ private:
 	matriz* elementos; // matriz de elementos que contiene el ecosistema
 	int indice; //representa el id actual del iterador
 	string horario;
+	interfazAbstracta* inter;
 public:
-	ecosistema();
+	ecosistema(interfazAbstracta* );
 	~ecosistema();
 
 	elemento* crearElemento();
@@ -20,6 +23,7 @@ public:
     coordenada coordenadaRandom(); 
 	//-------------------------------------
 	void iniciarSimulacion();
+
 	matriz* getMatriz();
 	coleccionVector<elemento>* getColoeccion();
 	void setIndice();
