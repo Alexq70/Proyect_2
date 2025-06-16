@@ -225,6 +225,12 @@ void interfaz::comenzar() {
 
 void interfaz::iniciaPrograma(ecosistema* eco, tick& t, int seguir)
 {
+    int estadisticass=0;
+    system("cls");
+    cout << "Desea mostrar las estadisticas ?" << endl;
+    cout << "1. si" << endl;
+    cout << "2. no" << endl;
+    cin >> estadisticass;
     while (t.getTick() <= 100 && seguir == 0) {
         mostrarEncabezado(eco, t);
         if (t.getTick() == 15 || t.getTick() == 25 || t.getTick() == 50 || t.getTick() == 75) {
@@ -235,10 +241,27 @@ void interfaz::iniciaPrograma(ecosistema* eco, tick& t, int seguir)
             cout << "0. continuar" << endl;
             cout << "Seleccione una opcion: ";
             cin >> seguir;
+            system("cls");
+            if (seguir == 0) {
+                cout << "Desea mostrar las estadisticas ?" << endl;
+                cout << "1. si" << endl;
+                cout << "2. no" << endl;
+                cin >> estadisticass;
+                system("cls");
+            }
         }
         iniciarUpervivencia(eco);
         cambiarHorario(eco, t);
-        estadisticas(eco);
+        switch (estadisticass) {
+        case 1:
+            estadisticas(eco);
+            break;
+        case 2:
+            break;
+        default:
+            cout << "Numero digitado incorrecto" << endl;
+            break;
+        }
         system("pause");
         system("cls");
     }
