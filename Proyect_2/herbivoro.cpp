@@ -46,6 +46,7 @@ coordenada herbivoro::getCoordenada() { return posicion; }
 void herbivoro::setTipo(char tipo) { this->tipo = tipo; }
 void herbivoro::setEnergia(int energia) { this->energia = energia; }
 void herbivoro::setEdad(int edad) { this->edad = edad; }
+void herbivoro::setId(string id) { this->id = id; }
 void herbivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());

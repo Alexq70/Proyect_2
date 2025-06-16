@@ -20,6 +20,7 @@ char agua::getTipo() { return this->tipo; }
 coordenada agua::getCoordenada() { return posicion; }
 //---------------------
 void agua::setTipo(char tipo) { this->tipo = tipo; }
+void agua::setId(string id) { this->id = id; }
 void agua::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());

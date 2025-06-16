@@ -15,6 +15,7 @@ public:
 	coordenada getCoordenada();
 	//---------------------
 	void setTipo(char tipo);
+	void setId(string);
 	void setCoordenada(coordenada pos);
 	//---------------------
 	~planta();

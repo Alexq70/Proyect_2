@@ -40,5 +40,12 @@ public:
 	void mostrarMatrizNoche(string);
 	void generarDecoracion();
 	void comenzar();
+	void iniciaPrograma(ecosistema*, tick&,int);
+	void seteos(ecosistema*);
+	void mostrarEncabezado(ecosistema* ,tick&);
+	void mostrarGuardado(ecosistema*, tick&);
+	void iniciarUpervivencia(ecosistema*);
+	void cambiarHorario(ecosistema*,tick& t);
+	void estadisticas(ecosistema*);
 };
 

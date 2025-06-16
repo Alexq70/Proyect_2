@@ -74,6 +74,37 @@ string matriz::mostrarMatriz()
 			else {
 				ss << ".";
 			}
+			if (j == 14) {
+				ss << '\t';
+				switch (i) {
+				case 0:
+					ss << "     Simbologia ";
+					break;
+				case 2:
+					ss << "     C:carnivoro  ";
+					break;
+				case 4:
+					ss << "     H:herbivoro  ";
+					break;
+				case 6:
+					ss <<  "     O:omnivoro  ";
+					break;
+				case 8:
+					ss <<  "     P:planta  ";
+					break;
+				case 10:
+					ss <<  "     A:agua  ";
+					break;
+				case 12:
+					ss <<  "     K:carne(cadaver)  ";
+					break;
+				case 14:
+					ss <<  "     Z:criatura dormida  ";
+					break;
+				default:
+					break;
+				}
+			}
 		}
 	}
 	return ss.str();

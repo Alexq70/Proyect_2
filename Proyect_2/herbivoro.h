@@ -36,6 +36,7 @@ public:
 	void setTipo(char tipo);
 	void setEnergia(int);
 	void setEdad(int);
+	void setId(string);
 	void setCoordenada(coordenada);
 	void menosEnergia();
 	void masEdad();

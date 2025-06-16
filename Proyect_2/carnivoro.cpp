@@ -47,6 +47,7 @@ int carnivoro:: getEdad() { return this->edad; }
 coordenada carnivoro::getCoordenada() { return posicion; }
 //------------------------------------------------------------
 void carnivoro::setTipo(char tipo) { this->tipo = tipo; }
+void carnivoro::setId(string id) { this->id = id; }
 void carnivoro::setEnergia(int energia) { this->energia = energia; }
 void carnivoro::setEdad(int edad) { this->edad = edad; }
 void carnivoro::setCoordenada(coordenada c) {

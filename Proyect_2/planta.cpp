@@ -23,6 +23,7 @@ char planta::getTipo()
 coordenada planta::getCoordenada() { return posicion; }
 //---------------------
 void planta::setTipo(char tipo) { this->tipo = tipo; }
+void planta::setId(string id) { this->id = id; }
 void planta::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());

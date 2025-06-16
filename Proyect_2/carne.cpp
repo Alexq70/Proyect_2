@@ -24,6 +24,7 @@ char carne::getTipo()
 coordenada carne::getCoordenada() { return posicion; }
 //---------------------
 void carne::setTipo(char tipo) { this->tipo = tipo; }
+void carne::setId(string id) { this->id = id; }
 void carne::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());

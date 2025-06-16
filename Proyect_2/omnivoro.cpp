@@ -50,6 +50,7 @@ coordenada omnivoro::getCoordenada() { return posicion; }
 void omnivoro::setTipo(char tipo) { this->tipo = tipo; }
 void omnivoro::setEnergia(int energia) { this->energia = energia; }
 void omnivoro::setEdad(int edad) { this->edad = edad; }
+void omnivoro::setId(string id) { this->id = id; }
 void omnivoro::setCoordenada(coordenada c) {
 	this->posicion.setX(c.getX());
 	this->posicion.setY(c.getY());

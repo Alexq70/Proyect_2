@@ -36,6 +36,7 @@ public:
 	coordenada getCoordenada();
 	//------------------------------------------------------------
 	void setTipo(char tipo);
+	void setId(string);
 	void setEnergia(int);
 	void setEdad(int);
 	void setCoordenada(coordenada);
